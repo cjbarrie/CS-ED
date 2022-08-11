@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "Testing Computational Sociology (PGSP11583)"
+  title: "Computational Sociology (PGSP11583)"
   author: "Christopher Barrie"
   cover-image: images/cover.png
   repo-url: https://github.com/cjbarrie/CS-ED/
@@ -13,6 +13,11 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - chap1.qmd
+    - chap2.qmd
+    - chap3.qmd
+    - chap4.qmd
+    - chap5.qmd
     - summary.qmd
     - references.qmd
 
