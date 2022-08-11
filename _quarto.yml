@@ -1,0 +1,30 @@
+project:
+  type: book
+
+book:
+  title: "Computational Sociology (PGSP11583)"
+  author: "Christopher Barrie"
+  cover-image: images/cover.png
+  repo-url: https://github.com/cjbarrie/CS-ED/
+  repo-branch: master
+  repo-actions: [edit]
+  sharing: [twitter, linkedin]
+  date: today
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+
+
+
