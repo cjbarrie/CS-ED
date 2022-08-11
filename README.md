@@ -1,2 +1,3 @@
 # CS-ED
-Repo for materials for Computational Sociology course (PGSP11583)
+
+Repo of materials for Computational Sociology course (PGSP11583)
