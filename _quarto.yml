@@ -12,6 +12,7 @@ book:
   date: today
   chapters:
     - index.qmd
+    - course_overview.qmd
     - intro.qmd
     - chap1.qmd
     - chap2.qmd
