@@ -19,7 +19,6 @@ book:
     - chap3.qmd
     - chap4.qmd
     - chap5.qmd
-    - summary.qmd
     - references.qmd
 
 bibliography: references.bib

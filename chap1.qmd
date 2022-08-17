@@ -1,3 +1,26 @@
 # Week 1
 
+This week will be dedicated to a more general introduction to computational social science and what it means to think "computationally."
+
+In essence, this means getting used to different types of data. These might be:
+
+-   Social media data;
+-   Image data;
+-   Sound data;
+-   Video data;
+-   Remote sensing data;
+-   Call detail records
+
+These data are "found" or "trace" data. They are not custom-made for social science; they *can* be repurposes, though, for answering questions in the social sciences.
+
+## Essential reading:
+
+-   @salganik2017
+
+-   @lazer2020
+
+-   @lazer2021
+
+## Slides
+
 Slides for week one are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/000_intro.html)
