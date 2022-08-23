@@ -26,9 +26,11 @@ On alternate weeks, we will discuss how these phenomena have been studied---usin
 
 **NOTE**: Before the lecture in Week 2, students should complete two introductory R exercises.
 
-1.  First, you should consult the worksheet [here](https://cjbarrie.github.io/CS-ED/intro.html), which is an introduction to setting up and understanding the very basics of working in R. S
+1.  First, you should consult the introduction to file directories and Github [here](https://cjbarrie.github.io/CS-ED/intro.html). This is crucial to properly logging and saving the work you produce.
 
-2.  Second, Ugur Ozdemir has provided such a more comprehensive introductory R course for the Research Training Centre at the University of Edinburgh and you can follow the instructions [here](https://research-training-centre.sps.ed.ac.uk/micro-methods/) to access this.
+2.  Second, you should consult the worksheet [here](https://cjbarrie.github.io/CS-ED/intro.html), which is an introduction to setting up and understanding the very basics of working in R. S
+
+3.  Third, Ugur Ozdemir has provided a more comprehensive introductory R course for the Research Training Centre at the University of Edinburgh and you can follow the instructions [here](https://research-training-centre.sps.ed.ac.uk/micro-methods/) to access this.
 
 ## Reference sources {.unnumbered}
 

@@ -13,8 +13,9 @@ book:
   chapters:
     - index.qmd
     - course_overview.qmd
-    - intro.qmd
     - terminal_and_git.qmd
+    - intror.qmd
+    - introgen.qmd
     - chap1.qmd
     - chap2.qmd
     - chap3.qmd
