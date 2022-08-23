@@ -238,7 +238,7 @@ wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.d
 
 > If you're working on a Mac, the file structure will look similar, but not identical. The following image shows a file system graph for the typical Mac.
 
-![File Directory](https://swcarpentry.GitHub.io/shell-novice/fig/home-directories.svg)
+![File Directory](images/dirtree.png)
 
 We know that our current working directory `/home/jae` is stored inside `/home` because `/home` is the first part of its name. Similarly, we know that `/home` is stored inside the root directory `/` because its name begins with `/`.
 
@@ -893,7 +893,7 @@ $ git push origin main # commit the change. Origin is a default name given to a 
 
 Another image from [Pro Git](https://git-scm.com/about/staging-area) nicely illustrates this process.
 
-![Git Workflow](https://git-scm.com/images/about/index1@2x.png)
+![Git Workflow](images/gitwf.png)
 
 If you made a mistake, don't panic. You can't revert the process.
 

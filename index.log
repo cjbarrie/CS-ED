@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.11)  23 AUG 2022 15:38
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.11)  23 AUG 2022 15:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1364,23 +1364,30 @@ Overfull \hbox (92.70142pt too wide) in paragraph at lines 624--627
  []
 
 [9]
+File: ./images/shell.png Graphic file (type bmp)
+<./images/shell.png>
+[10] [11] [12] [13]
 
-LaTeX Warning: File `https://miro.medium.com/max/1032/1*GuB5q_bWOSZa-8sDg1lEDA.
-png' not found on input line 719.
+LaTeX Warning: File `https://swcarpentry.GitHub.io/shell-novice/fig/home-direct
+ories.svg' not found on input line 960.
 
-! Unable to load picture or PDF file 'https://miro.medium.com/max/1032/1*GuB5q_
-bWOSZa-8sDg1lEDA.png'.
-<to be read again> 
-                   }
-l.719 ...om/max/1032/1*GuB5q_bWOSZa-8sDg1lEDA.png}
+
+! LaTeX Error: File `https://swcarpentry.GitHub.io/shell-novice/fig/home-direct
+ories.svg' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.960 ...io/shell-novice/fig/home-directories.svg}
                                                    
 Here is how much of TeX's memory you used:
- 39494 strings out of 476179
- 818519 string characters out of 5809544
+ 39515 strings out of 476179
+ 819233 string characters out of 5809544
  1420537 words of memory out of 5000000
- 59639 multiletter control sequences out of 15000+600000
+ 59656 multiletter control sequences out of 15000+600000
  475706 words of font info for 80 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,8n,121p,10600b,927s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,8n,121p,10600b,929s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (9 pages).
+Output written on index.pdf (13 pages).
