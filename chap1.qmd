@@ -2,6 +2,8 @@
 
 This week will be dedicated to a more general introduction to computational social science and what it means to think "computationally."
 
+## Computational data
+
 In essence, this means getting used to different types of data. These might be:
 
 -   Social media data;
@@ -11,7 +13,21 @@ In essence, this means getting used to different types of data. These might be:
 -   Remote sensing data;
 -   Call detail records
 
-These data are "found" or "trace" data. They are not custom-made for social science; they *can* be repurposes, though, for answering questions in the social sciences.
+These data are "found" or "trace" data. They are not custom-made for social science; they *can* be repurposed, though, for answering questions in the social sciences.
+
+## Computational thinking
+
+We'll also be be talking about what it means to "think computationally." In her [article](http://www.cs.cmu.edu/afs/cs/usr/wing/www/publications/Wing06.pdf) Jeanette Wing describes computational thinking as a "universally applicable attitude and skill set everyone, not just computer scientists, would be eager to learn and use." But what is computational thinking?
+
+It asks:
+
+-   what is computable?;
+-   it states the difficulty of a problem in computational terms;
+-   it asks whether an approximate solution is good enough;
+-   and it requires imagination to abstract into an approximate solution;
+-   to problems that might apply across almost every academic discipline imaginable
+
+We'll discuss a concrete example of this in our lecture. 
 
 ## Essential reading:
 
@@ -20,6 +36,8 @@ These data are "found" or "trace" data. They are not custom-made for social scie
 -   @lazer2020
 
 -   @lazer2021
+
+-   @wing2006
 
 ## Slides
 
