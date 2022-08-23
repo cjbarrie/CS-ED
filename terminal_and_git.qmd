@@ -124,7 +124,7 @@ If you're using RStudio, you can use terminal inside RStudio (next to the "Conso
 
 This description makes it sound as though the user sends commands directly to the computer and sends the output directly to the user. In fact, there is usually a program in between called a **command shell**.
 
-![Source: Prashant Lakhera](https://miro.medium.com/max/1032/1*GuB5q_bWOSZa-8sDg1lEDA.png)
+![Source: Prashant Lakhera](images/shell.png)
 
 What the user types go into the shell; it figures out what commands to run and orders the computer to execute them.
 

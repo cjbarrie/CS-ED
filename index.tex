@@ -229,7 +229,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, enhanced, breakable, interior hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, interior hidden, enhanced, breakable, frame hidden, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -256,7 +256,7 @@ This is the course book we will be using for Computational Sociology
 [1] "Computational Sociology"
 \end{verbatim}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacityback=0, breakable, leftrule=.75mm, colframe=quarto-callout-note-color-frame, arc=.35mm, toprule=.15mm, bottomrule=.15mm, left=2mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, breakable, bottomrule=.15mm, left=2mm, colback=white, leftrule=.75mm, arc=.35mm, rightrule=.15mm, opacityback=0, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-note-color}{\faInfo}
 \end{minipage}%
@@ -337,14 +337,18 @@ two introductory R exercises.
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  First, you should consult the worksheet
+  First, you should consult the introduction to file directories and
+  Github \href{https://cjbarrie.github.io/CS-ED/intro.html}{here}. This
+  is crucial to properly logging and saving the work you produce.
+\item
+  Second, you should consult the worksheet
   \href{https://cjbarrie.github.io/CS-ED/intro.html}{here}, which is an
   introduction to setting up and understanding the very basics of
   working in R. S
 \item
-  Second, Ugur Ozdemir has provided such a more comprehensive
-  introductory R course for the Research Training Centre at the
-  University of Edinburgh and you can follow the instructions
+  Third, Ugur Ozdemir has provided a more comprehensive introductory R
+  course for the Research Training Centre at the University of Edinburgh
+  and you can follow the instructions
   \href{https://research-training-centre.sps.ed.ac.uk/micro-methods/}{here}
   to access this.
 \end{enumerate}
@@ -441,382 +445,11 @@ part).
 
 \bookmarksetup{startatroot}
 
-\hypertarget{introduction-to-r}{%
-\chapter*{Introduction to R}\label{introduction-to-r}}
-\addcontentsline{toc}{chapter}{Introduction to R}
-
-This section is designed to ensure you are familiar with the R
-environment.
-
-\hypertarget{getting-started-with-r-at-home}{%
-\section*{Getting started with R at
-home}\label{getting-started-with-r-at-home}}
-\addcontentsline{toc}{section}{Getting started with R at home}
-
-Given that we're all working from home these days, you'll need to
-download R and RStudio onto your own devices. R is the name of the
-programming language that we'll be using for coding exercises; RStudio
-is the IDE (``Integrated Development Environment''), i.e., the piece of
-software that almost everyone uses when working in R.
-
-You can download both of these on Windows and Mac easily and for free.
-This is one of the first reasons to use an ``open-source'' programming
-language: it's free and everyone can contribute!
-
-IT Services at the University of Edinburgh have provided a
-\href{https://uoe.sharepoint.com/sites/hss/sps/itservices/SPSShareSpaceManagement/Moblabdoc/SitePages/Computational-Text-Analysis.aspx?cid=59b29656-3df8-4c19-9423-24765076e742}{walkthrough}
-of what is needed for you to get started. I also break this down below:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Install R for Mac from here: https://cran.r-project.org/bin/macosx/.
-  Install R for Windows from here:
-  https://cran.r-project.org/bin/windows/base/.
-\item
-  Download RStudio for Windows or Mac from here:
-  https://rstudio.com/products/rstudio/download/, choosing the Free
-  version: this is what most people use and is more than enough for all
-  of our needs.
-\end{enumerate}
-
-\textbf{All programs are free. Make sure to load everything listed above
-for your operating system or R will not work properly!}
-
-\hypertarget{some-basic-information}{%
-\section*{Some basic information}\label{some-basic-information}}
-\addcontentsline{toc}{section}{Some basic information}
-
-\begin{itemize}
-\item
-  A script is a text file in which you write your commands (code) and
-  comments.
-\item
-  If you put the \# character in front of a line of text this line will
-  not be executed; this is useful to add comments to your script!
-\item
-  R is case sensitive, so be careful when typing.
-\item
-  To send code from the script to the console, highlight the relevant
-  line of code in your script and click on Run, or select the line and
-  hit ctrl+enter on PCR or cmd+enter on Mac
-\item
-  Access help files for R functions by preceding the name of the
-  function with ? (e.g., ?table)
-\item
-  By pressing the up key, you can go back to the commands you have used
-  before
-\item
-  Press the tab key to auto-complete variable names and commands
-\end{itemize}
-
-\hypertarget{getting-started-in-rstudio}{%
-\section*{Getting Started in RStudio}\label{getting-started-in-rstudio}}
-\addcontentsline{toc}{section}{Getting Started in RStudio}
-
-Begin by opening RStudio (located on the desktop). Your first task is to
-create a new script (this is where we will write our commands). To do
-so, click:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{File }\SpecialCharTok{{-}}\OtherTok{{-}\textgreater{}}\NormalTok{ NewFile }\SpecialCharTok{{-}}\OtherTok{{-}\textgreater{}}\NormalTok{ RScript}
-\end{Highlighting}
-\end{Shaded}
-
-Your screen should now have four panes:
-
-\begin{itemize}
-\item
-  the Script (top left)
-\item
-  the Console (bottom left)
-\item
-  the Environment/History (top right)
-\item
-  Files/Plots/Packages/Help/Viewer (bottom right)
-\end{itemize}
-
-\hypertarget{a-simple-example}{%
-\section*{A simple example}\label{a-simple-example}}
-\addcontentsline{toc}{section}{A simple example}
-
-The Script (top left) is where we write our commands for R. You can try
-this out for a first time by writing a small snipped of code as follows:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x }\OtherTok{\textless{}{-}} \StringTok{"I can\textquotesingle{}t wait to learn Computational Text Analysis"} \CommentTok{\#Note the quotation marks!}
-\end{Highlighting}
-\end{Shaded}
-
-To tell R to run the command, highlight the relevant row in your script
-and click the Run button (top right of the Script) - or hold down
-ctrl+enter on Windows or cmd+enter on Mac - to send the command to the
-Console (bottom left), where the actual evaluation and calculations are
-taking place. These shortcut keys will become very familiar to you very
-quickly!
-
-Running the command above creates an object named `x', that contains the
-words of your message.
-
-You can now see `x' in the Environment (top right). To view what is
-contained in x, type in the Console (bottom left):
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(x)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] "I can't wait to learn Computational Text Analysis"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# or alternatively you can just type:}
-
-\NormalTok{x}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] "I can't wait to learn Computational Text Analysis"
-\end{verbatim}
-
-\hypertarget{loading-packages}{%
-\section*{Loading packages}\label{loading-packages}}
-\addcontentsline{toc}{section}{Loading packages}
-
-The `base' version of R is very powerful but it will not be able to do
-everything on its own, at least not with ease. For more technical or
-specialized forms of analysis, we will need to load new packages.
-
-This is when we will need to install a so-called `package'---a program
-that includes new tools (i.e., functions) to carry out specific tasks.
-You can think of them as `extensions' enhancing R's capacities.
-
-To take one example, we might want to do something a little more
-exciting than print how excited we are about this course. Let's make a
-map instead.
-
-This might sound technical. But the beauty of the packaged extensions of
-R is that they contain functions to perform specialized types of
-analysis with ease.
-
-We'll first need to install one of these packages, which you can do as
-below:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-After the package is installed, we then need to load it into our
-environment by typing library(). Note that, here, you don't need to wrap
-the name of the package in quotation marks. So this will do the trick:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
--- Attaching packages --------------------------------------- tidyverse 1.3.1 --
-\end{verbatim}
-
-\begin{verbatim}
-v ggplot2 3.3.6     v purrr   0.3.4
-v tibble  3.1.7     v dplyr   1.0.9
-v tidyr   1.2.0     v stringr 1.4.0
-v readr   2.1.2     v forcats 0.5.1
-\end{verbatim}
-
-\begin{verbatim}
--- Conflicts ------------------------------------------ tidyverse_conflicts() --
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()
-\end{verbatim}
-
-What now? Well, let's see just how easy it is to visualize some data
-using ggplot which is a package that comes bundled into the larger
-tidyverse package.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[H]
-
-{\centering \includegraphics{./intro_files/figure-pdf/unnamed-chunk-12-1.pdf}
-
-}
-
-\end{figure}
-
-If we wanted to save where we'd got to with making our plots, we would
-want to save our scripts, and maybe the data we used as well, so that we
-could return to it at a later stage.
-
-\hypertarget{saving-your-objects-plots-and-scripts}{%
-\section*{Saving your objects, plots and
-scripts}\label{saving-your-objects-plots-and-scripts}}
-\addcontentsline{toc}{section}{Saving your objects, plots and scripts}
-
-\begin{itemize}
-\item
-  Saving scripts: To save your script in RStudio (i.e.~the top left
-  panel), all you need to do is click File --\textgreater{} Save As (and
-  choose a name for your script). Your script will be something like:
-  myfilename.R.
-\item
-  Saving plots: If you have made any plots you would like to save, click
-  Export (in the plotting pane) and choose a relevant file extension
-  (e.g.~.png, .pdf, etc.) and size.
-\item
-  To save \textbf{individual} objects (for example x from above) from
-  your environment, run the following command (choosing a suitable
-  filename):
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{save}\NormalTok{(x,}\AttributeTok{file=}\StringTok{"myobject.RData"}\NormalTok{)}
-\FunctionTok{load}\NormalTok{(}\AttributeTok{file=}\StringTok{"myobject.RData"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  To save \textbf{all} of your objects (i.e.~everything in the top right
-  panel) at once, run the following command (choosing a suitable
-  filename):
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{save.image}\NormalTok{(}\AttributeTok{file=}\StringTok{"myfilname.RData"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  Your objects can be re-loaded into R during your next session by
-  running:
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{load}\NormalTok{(}\AttributeTok{file=}\StringTok{"myfilename.RData"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-There are many other file formats you might use to save any output. We
-will encounter these as the course progresses.
-
-\hypertarget{knowing-where-r-saves-your-documents}{%
-\section*{Knowing where R saves your
-documents}\label{knowing-where-r-saves-your-documents}}
-\addcontentsline{toc}{section}{Knowing where R saves your documents}
-
-If you are at home, when you open a new script make sure to check and
-set your working directory (i.e.~the folder where the files you create
-will be saved). To check your working directory use the getwd() command
-(type it into the Console or write it in your script in the Source
-Editor):
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{getwd}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-To set your working directory, run the following command, substituting
-the file directory of your choice. Remember that anything following the
-`\#' symbol is simply a clarifying comment and R will not process it.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\DocumentationTok{\#\# Example for Mac }
-\FunctionTok{setwd}\NormalTok{(}\StringTok{"/Users/Documents/mydir/"}\NormalTok{) }
-\DocumentationTok{\#\# Example for PC }
-\FunctionTok{setwd}\NormalTok{(}\StringTok{"c:/docs/mydir"}\NormalTok{) }
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{practicing-in-r}{%
-\section*{Practicing in R}\label{practicing-in-r}}
-\addcontentsline{toc}{section}{Practicing in R}
-
-The best way to learn R is to use it. These workshops on text analysis
-will not be the place to become fully proficient in R. They will,
-however, be a chance to conduct some hands-on analysis with applied
-examples in a fast-expanding field. And the best way to learn is through
-doing. So give it a shot!
-
-For some further practice in the R programming language, look no further
-than (\textbf{wickham\_r\_2017?}) and, for tidy text analysis,
-(\textbf{silge\_text\_2017?}).
-
-\begin{itemize}
-\item
-  The free online book by Hadley Wickham ``R for Data Science'' is
-  available \href{https://r4ds.had.co.nz/}{here}
-\item
-  The free online book by Julia Silge and David Robinson ``Text Mining
-  with R'' is available \href{https://www.tidytextmining.com/}{here}
-\item
-  For more practice with R, you may want to consult a set of interactive
-  tutorials, available through the package ``learnr.'' Once you've
-  installed this package, you can go through the tutorials yourselves by
-  calling:
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(learnr)}
-
-\FunctionTok{available\_tutorials}\NormalTok{() }\CommentTok{\# this will tell you the names of the tutorials available}
-
-\FunctionTok{run\_tutorial}\NormalTok{(}\AttributeTok{name =} \StringTok{"ex{-}data{-}basics"}\NormalTok{, }\AttributeTok{package =} \StringTok{"learnr"}\NormalTok{) }\CommentTok{\#this will launch the interactive tutorial in a new Internet browser window}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{one-final-note}{%
-\section*{One final note}\label{one-final-note}}
-\addcontentsline{toc}{section}{One final note}
-
-Once you've dipped into the ``R for Data Science'' book you'll hear a
-lot about the so-called tidyverse in R. This is essentially a set of
-packages that use an alternative, and more intuitive, way of interacting
-with data.
-
-The main difference you'll notice here is that, instead of having
-separate lines for each function we want to run, or wrapping functions
-inside functions, sets of functions are ``piped'' into each other using
-``pipe'' functions, which look have the appearance:
-\texttt{\%\textgreater{}\%}.
-
-I will be using ``tidy'' syntax in the weekly exercises for these
-computational text analysis workshops. If anything is unclear, I can
-provide the equivalents in ``base'' R too. But a lot of the useful text
-analysis packages are now composed with `tidy' syntax.
-
-\bookmarksetup{startatroot}
-
 \hypertarget{managing-data-and-code}{%
 \chapter*{Managing data and code}\label{managing-data-and-code}}
 \addcontentsline{toc}{chapter}{Managing data and code}
 
-\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, opacityback=0, breakable, leftrule=.75mm, colframe=quarto-callout-note-color-frame, arc=.35mm, toprule=.15mm, bottomrule=.15mm, left=2mm, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, breakable, bottomrule=.15mm, left=2mm, colback=white, leftrule=.75mm, arc=.35mm, rightrule=.15mm, opacityback=0, toprule=.15mm]
 \begin{minipage}[t]{5.5mm}
 \textcolor{quarto-callout-note-color}{\faInfo}
 \end{minipage}%
@@ -1018,17 +651,6 @@ UNIX is old, but it is still mainstream, and it will be. Moreover,
 \href{https://en.wikipedia.org/wiki/Unix_philosophy}{the UNIX
 philosophy} (``Do One Thing And Do It Well'')---minimalist, modular
 software development---is highly and widely influential.
-
-\begin{figure}
-
-{\centering \includegraphics{https://upload.wikimedia.org/wikipedia/commons/1/1b/Ken_Thompson_and_Dennis_Ritchie--1973.jpg}
-
-}
-
-\caption{Ken Thompson and Dennis Ritchie, key proponents of the Unix
-philosophy}
-
-\end{figure}
 
 \hypertarget{kernel}{%
 \subsubsection*{Kernel}\label{kernel}}
@@ -2307,7 +1929,8 @@ For more information, watch the following video:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(gitcreds)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"gitcreds"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(gitcreds)}
 
 \CommentTok{\# First time only }
 \FunctionTok{gitcreds\_set}\NormalTok{()}
@@ -2359,13 +1982,6 @@ Next time, if you want to use SSH, remember the following.
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Additional tips}
-
-When you try to clone a git repo, you can get the links like the above
-by clicking the CODE action button on GitHub.
-
-\includegraphics{./misc/ssh.png}
-
 \hypertarget{configurations}{%
 \subsubsection*{Configurations}\label{configurations}}
 \addcontentsline{toc}{subsubsection}{Configurations}
@@ -2379,24 +1995,28 @@ by clicking the CODE action button on GitHub.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-
 \CommentTok{\# User name and email }
 \ExtensionTok{$}\NormalTok{ git config }\AttributeTok{{-}{-}global}\NormalTok{ user.name }\StringTok{"Firstname Lastname"}
 \ExtensionTok{$}\NormalTok{ git config }\AttributeTok{{-}{-}global}\NormalTok{ user.email username@school.extension}
 \end{Highlighting}
 \end{Shaded}
 
+The first of this \texttt{config} calls asks for your user name as
+specified on Github.
+
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Method 2: using RStudio (if you insist on using R)
+  Method 2: using RStudio
 \end{enumerate}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(usethis)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"usethis"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(usethis)}
+
 \FunctionTok{use\_git\_config}\NormalTok{(}\AttributeTok{user.name =} \StringTok{"\textless{}Firstname Lastname\textgreater{}"}\NormalTok{,}
                \AttributeTok{user.email =} \StringTok{"\textless{}username@school.extension\textgreater{}"}\NormalTok{)}
 \end{Highlighting}
@@ -2408,47 +2028,22 @@ You're all set!
 \subsection*{Cloning a repository}\label{cloning-a-repository}}
 \addcontentsline{toc}{subsection}{Cloning a repository}
 
-Let's clone a repository. The following address is the course I
-co-taught in Spring 2021.
+Let's clone a repository. Here, we're actually going to clone the
+repository for my course book.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ clone https://github.com/PS239T/spring\_2021}
+\FunctionTok{git}\NormalTok{ clone https://github.com/cjbarrie/CS{-}ED}
 \end{Highlighting}
 \end{Shaded}
 
-If you \texttt{cd\ spring\_2021/} you can move to the cloned course
-repository. Cloning: copying a public GitHub repo (remote)
--\textgreater{} Your machine
+If you \texttt{cd\ CS-ED/} you can move to the cloned course repository.
+Cloning: copying a public GitHub repo (remote) -\textgreater{} Your
+machine
 
-If I made some changes in the remote repo, you can apply them to your
-local copy by typing \texttt{git\ pull.} You may get promoted to provide
-a password. Then type the following to switch the remote URL's address
-from HTTPS to SSH.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{git}\NormalTok{ remote set{-}url origin git@github.com:[user]/[repo]}
-\end{Highlighting}
-\end{Shaded}
-
-If this doesn't work and get the following error, try the following
-(assuming that your SSH key was removed). If you're using Mac, try this
-instead: \texttt{ssh-add\ -k\ \textasciitilde{}/.ssh/id\_rsa}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{ssh{-}add}\NormalTok{ \textasciitilde{}/.ssh/id\_rsa}
-\end{Highlighting}
-\end{Shaded}
-
-If you still face difficulties, see
-\href{https://stackoverflow.com/questions/13509293/git-fatal-could-not-read-from-remote-repository}{this
-stack overflow thread}.
-
-If you screwed something up in your local copy, you can just overwrite
-the local copy using the remote repo and make it exactly looks like the
-latter.
+If you accidentally changed something up in your local copy, you can
+just overwrite the local copy using the remote repo and make it exactly
+looks like the latter.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2462,11 +2057,6 @@ latter.
 \FunctionTok{git}\NormalTok{ clean }\AttributeTok{{-}f}
 \end{Highlighting}
 \end{Shaded}
-
-Note that the default branch name changed from master to main:
-https://github.com/github/renaming (Finally!) For this reason, if you're
-interacting with old repositories, the main branch name is likely to
-master.
 
 \textbf{Additional tips} You can see cloning and forking on GitHub, and
 they sound similar. Let me differentiate them.
@@ -2505,14 +2095,26 @@ Create a new directory and move there. Then initialize
 
 Alternatively, you can create a Git repository via GitHub and then clone
 it on your local machine. Perhaps, it is an easier path for new users (I
-also do this all the time). I highly recommend adding README (more on
-why we do this in the following subsection).
+also do this all the time).
+
+We can do this in the following way. First, go to you Github profile and
+click on the Repositories tab. Then click on ``New.'' You'll be asked to
+give the Repo a name and an optional description. I highly recommend
+adding README (more on why we do this in the following subsection). We
+will discuss later on what a .gitignore file is for.
+
+\includegraphics{./images/githubrepo.png}
+
+Once you have created your Repo you can then get the files on your local
+machine by calling the following:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \ExtensionTok{$}\NormalTok{ git clone /path/to/repository}
 \end{Highlighting}
 \end{Shaded}
+
+Where the path will just be the URL for your Repository.
 
 \textbf{Additional tips} If you're unfamiliar with basic Git commands,
 please refer to
@@ -2528,8 +2130,8 @@ These features show how Git works as a version control system.
 If you edited files or added new ones, you need to update your
 repository. In Git terms, this action is called committing changes.
 
-My current pwd is \texttt{spring\_2021}. I created a text file named
-\texttt{test} containing text \texttt{jae.} You can check the file
+My current pwd is \texttt{CS-ED}. I created a text file named
+\texttt{test} containing text \texttt{chris.} You can check the file
 exists by typing `find ``test```.
 
 The following is a typical workflow to reflect this change to the
@@ -2747,24 +2349,6 @@ Dashboards}\label{project-management-github-dashboards}}
 
 I use GitHub dashboards for almost every project that I have done.
 
-\hypertarget{using-git-clients}{%
-\subsection*{Using Git clients}\label{using-git-clients}}
-\addcontentsline{toc}{subsection}{Using Git clients}
-
-Okay. Using command-line Git helps you understand how Git works. Also,
-you know that I'd love to do almost everything in the terminal if
-possible. However, using the command-line Git is sometimes too
-complicated or too buggy. An alternative is using Git clients (GUI).
-
-I use \href{https://www.gitkraken.com/}{Git Kraken} because it's free,
-works on almost every OS (Windows, Mac, and Linux), and is quite
-versatile. It's instrumental in tracing and understanding your
-development process (e.g., commits, branches, pull requests, comments).
-I also heard positive things about
-\href{https://desktop.github.com/}{GitHub Desktop} (Windows and Mac) and
-\href{https://www.sourcetreeapp.com/}{Sourcetree} (Windows). \#\#
-Getting started in R
-
 \hypertarget{the-big-picture-2}{%
 \subsection*{The Big Picture}\label{the-big-picture-2}}
 \addcontentsline{toc}{subsection}{The Big Picture}
@@ -2776,332 +2360,15 @@ objects).
 UNIX Commands (\texttt{cat}) = R Functions (\texttt{print}) Files = R
 Objects
 
-\hypertarget{rstudio}{%
-\subsection*{RStudio}\label{rstudio}}
-\addcontentsline{toc}{subsection}{RStudio}
-
-There are two main ways of interacting with R: using the console or
-using script files (plain text files containing your code).
-
-If R is ready to accept commands, the R console shows a
-\texttt{\textgreater{}} prompt. If it receives a command (by typing,
-copy-pasting, or sent from the script editor using \texttt{Ctrl-Enter};
-\texttt{Command-Enter} will also work on Macs), R will try to execute
-it, and when ready, show the results and come back with a new
-\texttt{\textgreater{}}-prompt to wait for further commands. This is the
-equivalent of the \texttt{\$} in your terminal.
-
-\hypertarget{basic-syntax}{%
-\subsection*{Basic Syntax}\label{basic-syntax}}
-\addcontentsline{toc}{subsection}{Basic Syntax}
-
-\textbf{Comments}
-
-Use \texttt{\#} signs to comment. Comment liberally in your R scripts.
-Anything to the right of a \texttt{\#} is ignored by R. For those of you
-familiar with other languages, there is no doc string, or equivalent to
-```\,``\,``` in R.
-
-\textbf{Assignment operator}
-
-\texttt{\textless{}-} is the assignment operator. It assigns values on
-the right to objects on the left. So, after executing
-\texttt{x\ \textless{}-\ 3}, \texttt{x} value is \texttt{3}. The arrow
-can be read as 3 \textbf{goes into} \texttt{x}. You can also use
-\texttt{=} for assignments.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{USweird }\OtherTok{\textless{}{-}} \StringTok{"Why use lb for pound!"} \CommentTok{\# Use this}
-
-\StringTok{"Why use lb for pound!"} \OtherTok{=}\NormalTok{ USweird}
-\end{Highlighting}
-\end{Shaded}
-
-Nonetheless, \emph{can} does not mean you \emph{should}. It is good
-practice to use \texttt{\textless{}-} for assignments. \texttt{=} should
-only be used to specify the values of arguments of functions. This is
-what Google and Hadley Wickham recommend as well. If they don't convince
-you enough, here's
-\href{https://csgillespie.wordpress.com/2010/11/16/assignment-operators-in-r-vs/}{a
-real example}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{mean}\NormalTok{(}\AttributeTok{x =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{) }\CommentTok{\# Does it save x?}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 5.5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{rm}\NormalTok{(x)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Warning in rm(x): object 'x' not found
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{mean}\NormalTok{(x }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{) }\CommentTok{\# Does it save x?}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 5.5
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{rm}\NormalTok{(x)}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Printing}
-
-In R, an object's contents can be printed by simply executing the object
-name or calling the \texttt{print()} function.
-
-\textbf{Help}
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{?} + object opens a help page for that specific object
-\item
-  \texttt{??} + object searches help pages containing the name of the
-  object
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{?mean}
-\NormalTok{??mean}
-\FunctionTok{help}\NormalTok{(mean)}
-
-\CommentTok{\# The above three will do the same. }
-
-\FunctionTok{example}\NormalTok{(ls) }\CommentTok{\# provides an example(s) for how to use ls }
-
-\FunctionTok{help.search}\NormalTok{(}\StringTok{"visualization"}\NormalTok{) }\CommentTok{\# search functions and packages that have "visualization" in their descriptions}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{environment}{%
-\subsection*{Environment}\label{environment}}
-\addcontentsline{toc}{subsection}{Environment}
-
-Environment = a collection of pairs
-
-\hypertarget{objects}{%
-\subsubsection*{Objects}\label{objects}}
-\addcontentsline{toc}{subsubsection}{Objects}
-
-\begin{itemize}
-\tightlist
-\item
-  List objects in your current environment
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Create a numeric object }
-\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{)}
-
-\CommentTok{\# List the object }
-\FunctionTok{ls}\NormalTok{()}
-
-\CommentTok{\# Remove the object }
-\FunctionTok{rm}\NormalTok{(x)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  Remove objects from your current environment
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Create an object }
-\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{5}
-
-\CommentTok{\# Remove the object }
-\FunctionTok{rm}\NormalTok{(x)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  Remove all objects from your current environment
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Create an object }
-\NormalTok{a }\OtherTok{\textless{}{-}} \DecValTok{7}
-
-\NormalTok{b }\OtherTok{\textless{}{-}} \DecValTok{3}
-
-\CommentTok{\# Remove the object }
-\FunctionTok{rm}\NormalTok{(}\AttributeTok{list =} \FunctionTok{ls}\NormalTok{())}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{itemize}
-\tightlist
-\item
-  Force memory release
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Garbage collect; for more information, type ?gc() }
-
-\FunctionTok{gc}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{packages}{%
-\subsubsection*{Packages}\label{packages}}
-\addcontentsline{toc}{subsubsection}{Packages}
-
-\texttt{install.packages(package-name)} will download a package from one
-of the CRAN mirrors, assuming that a binary is available for your
-operating system.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# From CRAN}
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{) }
-
-\CommentTok{\# Load package }
-\FunctionTok{library}\NormalTok{(dplyr)}
-
-\CommentTok{\# From GitHub }
-\NormalTok{devtools}\SpecialCharTok{::}\FunctionTok{install\_GitHub}\NormalTok{(}\StringTok{"jaeyk/tidytweetjson"}\NormalTok{) }\CommentTok{\# my own package }
-
-\CommentTok{\# Unload package }
-\CommentTok{\# detach("package:stats", unload=TRUE)}
-\end{Highlighting}
-\end{Shaded}
-
-\textbf{Tips}
-
-If you have multiple packages to install, then please consider using the
-\texttt{pacman} package. The following is an example. First, you install
-\texttt{pacman}. Then, you load several libraries by using
-\texttt{p\_load()} method.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"pacman"}\NormalTok{)}
-
-\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(}
-\NormalTok{  ggplot2,}
-\NormalTok{  dplyr, }
-\NormalTok{  broom}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-If you don't like to use \texttt{pacman,} the other option is to create
-a list (we're going to learn what is list soon).
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{pkgs }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{, }\StringTok{"dplyr"}\NormalTok{, }\StringTok{"broom"}\NormalTok{)}
-
-\FunctionTok{install.packages}\NormalTok{(pkgs)}
-\end{Highlighting}
-\end{Shaded}
-
-Still, we have to write two lines. The more straightforward, the better,
-right? Here's another approach that can simplify the code further.
-
-Note that \texttt{lapply()} applies (there's a family of apply
-functions) a function to a list. In this case, library to pkgs.
-\texttt{apply} is an advanced concept related to anonymous functions. We
-will learn about it later when we study functions.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{inst }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(pkgs, library, }
-               \AttributeTok{character.only =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{project-oriented-research}{%
-\section*{Project-oriented research}\label{project-oriented-research}}
-\addcontentsline{toc}{section}{Project-oriented research}
-
-\hypertarget{the-big-picture-3}{%
-\subsection*{The Big Picture}\label{the-big-picture-3}}
-\addcontentsline{toc}{subsection}{The Big Picture}
-
-\textbf{Computational reproducibility}
-
-\begin{itemize}
-\item
-  Replication = code + data
-\item
-  Computational reproduciblity = code + data + environment +
-  distribution
-\item
-  Reproducibility checklist by
-  \href{http://www.biostat.jhsph.edu/~rpeng/}{Roger Peng}
-
-  \begin{enumerate}
-  \def\labelenumi{\arabic{enumi}.}
-  \item
-    Start with science (avoid vague questions and concepts)
-  \item
-    Don't do things by hand (not only about automation but also
-    documentation)
-  \item
-    Don't point and click (same problem)
-  \item
-    Teach a computer (automation also solves documentation to some
-    extent)
-  \item
-    Use some version control
-  \item
-    Don't save output (instead, keep the input and code)
-  \item
-    Set your seed
-  \item
-    Think about the entire pipeline
-  \end{enumerate}
-\end{itemize}
-
-\hypertarget{setup-1}{%
-\subsubsection*{Setup}\label{setup-1}}
-\addcontentsline{toc}{subsubsection}{Setup}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(}
-\NormalTok{  tidyverse, }\CommentTok{\# tidyverse}
-\NormalTok{  here }\CommentTok{\# computational reproducibility}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{motivation}{%
-\subsubsection*{Motivation}\label{motivation}}
-\addcontentsline{toc}{subsubsection}{Motivation}
+\subsection*{Motivation}\label{motivation}}
+\addcontentsline{toc}{subsection}{Motivation}
 
 Why do you need to make your research computationally reproducible?: for
-your self-interest and public benefits.
-
-\includegraphics{https://GitHub.com/dlab-berkeley/efficient-reproducible-project-management-in-R/blob/master/misc/screenshot.png?raw=true}
+your own sanity and for public benefit. That is, it makes your life a
+whole lot easier to have a history of what you've done and why. And it
+makes research more transparent and reproducible: others can see what
+you've done, how you've done it---and they can go off and build on this.
 
 \hypertarget{how-to-organize-files-in-a-project}{%
 \subsubsection*{How to organize files in a
@@ -3131,6 +2398,10 @@ name\_of\_the\_project
 \begin{itemize}
 \tightlist
 \item
+  01\_script\_that\_does\_first\_thing.R
+\item
+  02\_script\_that\_does\_second\_thing.R
+\item
   data:
 
   \begin{itemize}
@@ -3143,13 +2414,11 @@ name\_of\_the\_project
 \item
   figures
 \item
-  packrat (optional)
+  functions
 \item
   reports (PDF, HTML, TEX, etc.,)
 \item
   results (model outcomes, etc.,)
-\item
-  scripts (i.e., functions)
 \item
   .gitignore (for Git)
 \item
@@ -3168,7 +2437,7 @@ name\_of\_the\_project
 
 Step 3. Launch R Studio. Choose File \textgreater{} New project
 \textgreater{} Browse existing directories \textgreater{} Create
-project. This allows each project has its workspace.
+project. This means each project has its own workspace.
 
 Step 4. Organize files by putting them in separate subdirectories and
 sensibly naming them.
@@ -3192,41 +2461,49 @@ sensibly naming them.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{itemize}
-\tightlist
-\item
-  Separate read-only data from processed data and put in the
-  \texttt{processed\_data} subdirectory.
-\end{itemize}
+And separate into \texttt{raw} and \texttt{processed}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{dir.create}\NormalTok{(here}\SpecialCharTok{::}\FunctionTok{here}\NormalTok{(}\StringTok{"us\_election"}\NormalTok{, }\StringTok{"processed\_data"}\NormalTok{))}
+\FunctionTok{dir.create}\NormalTok{(here}\SpecialCharTok{::}\FunctionTok{here}\NormalTok{(}\StringTok{"us\_election/data/"}\NormalTok{, }\StringTok{"raw"}\NormalTok{))}
+\FunctionTok{dir.create}\NormalTok{(here}\SpecialCharTok{::}\FunctionTok{here}\NormalTok{(}\StringTok{"us\_election/data/"}\NormalTok{, }\StringTok{"processed"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{itemize}
 \tightlist
 \item
-  Put your code in the \texttt{src} subdirectory.
+  Separate figures into the \texttt{figures} subdirectory.
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{dir.create}\NormalTok{(here}\SpecialCharTok{::}\FunctionTok{here}\NormalTok{(}\StringTok{"us\_election"}\NormalTok{, }\StringTok{"src"}\NormalTok{))}
+\FunctionTok{dir.create}\NormalTok{(here}\SpecialCharTok{::}\FunctionTok{here}\NormalTok{(}\StringTok{"us\_election"}\NormalTok{, }\StringTok{"figures"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{itemize}
 \tightlist
 \item
-  Put generated outputs (e.g., tables, figures) in the \texttt{outputs}
-  subdirectory and treat them as disposable.
+  Put any reports in the \texttt{reports} subdirectory.
 \end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{dir.create}\NormalTok{(here}\SpecialCharTok{::}\FunctionTok{here}\NormalTok{(}\StringTok{"us\_election"}\NormalTok{, }\StringTok{"outputs"}\NormalTok{))}
+\FunctionTok{dir.create}\NormalTok{(here}\SpecialCharTok{::}\FunctionTok{here}\NormalTok{(}\StringTok{"us\_election"}\NormalTok{, }\StringTok{"reports"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Put generated results in the `results`` subdirectory and treat them as
+  disposable.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dir.create}\NormalTok{(here}\SpecialCharTok{::}\FunctionTok{here}\NormalTok{(}\StringTok{"us\_election"}\NormalTok{, }\StringTok{"results"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3234,8 +2511,6 @@ sensibly naming them.
 \tightlist
 \item
   Put your custom functions in the \texttt{functions} subdirectory.
-  Then, you can gather some of these functions and distribute them as an
-  open-source library.
 \end{itemize}
 
 \begin{Shaded}
@@ -3265,19 +2540,21 @@ rscript (e.g., \texttt{setup.r}) and run it in the terminal using
 \NormalTok{\}}
 
 \CommentTok{\# Apply function }
-\NormalTok{purrr}\SpecialCharTok{::}\FunctionTok{map}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"data"}\NormalTok{, }\StringTok{"processed\_data"}\NormalTok{, }\StringTok{"src"}\NormalTok{, }\StringTok{"outputs"}\NormalTok{, }\StringTok{"functions"}\NormalTok{), create\_dirs)}
+\NormalTok{purrr}\SpecialCharTok{::}\FunctionTok{map}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"data"}\NormalTok{, }\StringTok{"figures"}\NormalTok{, }\StringTok{"reports"}\NormalTok{, }\StringTok{"results"}\NormalTok{, }\StringTok{"functions"}\NormalTok{), create\_dirs)}
 \end{Highlighting}
 \end{Shaded}
 
-\textbf{Challenge}
+Of course, you don't have to use these exact names. But here's an
+example of how I tend to structure my directories---and you'll see it
+follows this basic structure.
 
-Set a project structure for a project named ``starwars.''
+\includegraphics{./images/direx.png}
 
 \hypertarget{how-to-organize-code-in-an-r-markdown-file}{%
-\subsubsection*{How to organize code in an R markdown
+\subsection*{How to organize code in an R markdown
 file}\label{how-to-organize-code-in-an-r-markdown-file}}
-\addcontentsline{toc}{subsubsection}{How to organize code in an R
-markdown file}
+\addcontentsline{toc}{subsection}{How to organize code in an R markdown
+file}
 
 \begin{itemize}
 \item
@@ -3492,18 +2769,6 @@ reproducible}
   \end{itemize}
 \end{itemize}
 
-\textbf{Challenge}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Can you define computational reproducibility?
-\item
-  Can you explain why sharing code and data is not enough for
-  computational reproducibility
-\end{enumerate}
-
 \hypertarget{references-1}{%
 \subsection*{References}\label{references-1}}
 \addcontentsline{toc}{subsection}{References}
@@ -3551,15 +2816,397 @@ reproducible}
   \end{itemize}
 \end{itemize}
 
-\hypertarget{writing-code-how-to-code-like-a-professional}{%
-\section*{Writing code: How to code like a
-professional}\label{writing-code-how-to-code-like-a-professional}}
-\addcontentsline{toc}{section}{Writing code: How to code like a
-professional}
+\bookmarksetup{startatroot}
 
-\hypertarget{the-bic-piture}{%
-\subsection*{The Bic Piture}\label{the-bic-piture}}
-\addcontentsline{toc}{subsection}{The Bic Piture}
+\hypertarget{introduction-to-r}{%
+\chapter*{Introduction to R}\label{introduction-to-r}}
+\addcontentsline{toc}{chapter}{Introduction to R}
+
+This section is designed to ensure you are familiar with the R
+environment.
+
+\hypertarget{getting-started-with-r-at-home}{%
+\section*{Getting started with R at
+home}\label{getting-started-with-r-at-home}}
+\addcontentsline{toc}{section}{Getting started with R at home}
+
+Given that we're all working from home these days, you'll need to
+download R and RStudio onto your own devices. R is the name of the
+programming language that we'll be using for coding exercises; RStudio
+is the IDE (``Integrated Development Environment''), i.e., the piece of
+software that almost everyone uses when working in R.
+
+You can download both of these on Windows and Mac easily and for free.
+This is one of the first reasons to use an ``open-source'' programming
+language: it's free and everyone can contribute!
+
+IT Services at the University of Edinburgh have provided a
+\href{https://uoe.sharepoint.com/sites/hss/sps/itservices/SPSShareSpaceManagement/Moblabdoc/SitePages/Computational-Text-Analysis.aspx?cid=59b29656-3df8-4c19-9423-24765076e742}{walkthrough}
+of what is needed for you to get started. I also break this down below:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Install R for Mac from here: https://cran.r-project.org/bin/macosx/.
+  Install R for Windows from here:
+  https://cran.r-project.org/bin/windows/base/.
+\item
+  Download RStudio for Windows or Mac from here:
+  https://rstudio.com/products/rstudio/download/, choosing the Free
+  version: this is what most people use and is more than enough for all
+  of our needs.
+\end{enumerate}
+
+\textbf{All programs are free. Make sure to load everything listed above
+for your operating system or R will not work properly!}
+
+\hypertarget{some-basic-information}{%
+\section*{Some basic information}\label{some-basic-information}}
+\addcontentsline{toc}{section}{Some basic information}
+
+\begin{itemize}
+\item
+  A script is a text file in which you write your commands (code) and
+  comments.
+\item
+  If you put the \# character in front of a line of text this line will
+  not be executed; this is useful to add comments to your script!
+\item
+  R is case sensitive, so be careful when typing.
+\item
+  To send code from the script to the console, highlight the relevant
+  line of code in your script and click on Run, or select the line and
+  hit ctrl+enter on PCR or cmd+enter on Mac
+\item
+  Access help files for R functions by preceding the name of the
+  function with ? (e.g., ?table)
+\item
+  By pressing the up key, you can go back to the commands you have used
+  before
+\item
+  Press the tab key to auto-complete variable names and commands
+\end{itemize}
+
+\hypertarget{getting-started-in-rstudio}{%
+\section*{Getting Started in RStudio}\label{getting-started-in-rstudio}}
+\addcontentsline{toc}{section}{Getting Started in RStudio}
+
+Begin by opening RStudio (located on the desktop). Your first task is to
+create a new script (this is where we will write our commands). To do
+so, click:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{File }\SpecialCharTok{{-}}\OtherTok{{-}\textgreater{}}\NormalTok{ NewFile }\SpecialCharTok{{-}}\OtherTok{{-}\textgreater{}}\NormalTok{ RScript}
+\end{Highlighting}
+\end{Shaded}
+
+Your screen should now have four panes:
+
+\begin{itemize}
+\item
+  the Script (top left)
+\item
+  the Console (bottom left)
+\item
+  the Environment/History (top right)
+\item
+  Files/Plots/Packages/Help/Viewer (bottom right)
+\end{itemize}
+
+\hypertarget{a-simple-example}{%
+\section*{A simple example}\label{a-simple-example}}
+\addcontentsline{toc}{section}{A simple example}
+
+The Script (top left) is where we write our commands for R. You can try
+this out for a first time by writing a small snipped of code as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \StringTok{"I can\textquotesingle{}t wait to learn Computational Text Analysis"} \CommentTok{\#Note the quotation marks!}
+\end{Highlighting}
+\end{Shaded}
+
+To tell R to run the command, highlight the relevant row in your script
+and click the Run button (top right of the Script) - or hold down
+ctrl+enter on Windows or cmd+enter on Mac - to send the command to the
+Console (bottom left), where the actual evaluation and calculations are
+taking place. These shortcut keys will become very familiar to you very
+quickly!
+
+Running the command above creates an object named `x', that contains the
+words of your message.
+
+You can now see `x' in the Environment (top right). To view what is
+contained in x, type in the Console (bottom left):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "I can't wait to learn Computational Text Analysis"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# or alternatively you can just type:}
+
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "I can't wait to learn Computational Text Analysis"
+\end{verbatim}
+
+\hypertarget{loading-packages}{%
+\section*{Loading packages}\label{loading-packages}}
+\addcontentsline{toc}{section}{Loading packages}
+
+The `base' version of R is very powerful but it will not be able to do
+everything on its own, at least not with ease. For more technical or
+specialized forms of analysis, we will need to load new packages.
+
+This is when we will need to install a so-called `package'---a program
+that includes new tools (i.e., functions) to carry out specific tasks.
+You can think of them as `extensions' enhancing R's capacities.
+
+To take one example, we might want to do something a little more
+exciting than print how excited we are about this course. Let's make a
+map instead.
+
+This might sound technical. But the beauty of the packaged extensions of
+R is that they contain functions to perform specialized types of
+analysis with ease.
+
+We'll first need to install one of these packages, which you can do as
+below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+After the package is installed, we then need to load it into our
+environment by typing library(). Note that, here, you don't need to wrap
+the name of the package in quotation marks. So this will do the trick:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+-- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+\end{verbatim}
+
+\begin{verbatim}
+v ggplot2 3.3.6     v purrr   0.3.4
+v tibble  3.1.7     v dplyr   1.0.9
+v tidyr   1.2.0     v stringr 1.4.0
+v readr   2.1.2     v forcats 0.5.1
+\end{verbatim}
+
+\begin{verbatim}
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+What now? Well, let's see just how easy it is to visualize some data
+using ggplot which is a package that comes bundled into the larger
+tidyverse package.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{./intror_files/figure-pdf/unnamed-chunk-12-1.pdf}
+
+}
+
+\end{figure}
+
+If we wanted to save where we'd got to with making our plots, we would
+want to save our scripts, and maybe the data we used as well, so that we
+could return to it at a later stage.
+
+\hypertarget{saving-your-objects-plots-and-scripts}{%
+\section*{Saving your objects, plots and
+scripts}\label{saving-your-objects-plots-and-scripts}}
+\addcontentsline{toc}{section}{Saving your objects, plots and scripts}
+
+\begin{itemize}
+\item
+  Saving scripts: To save your script in RStudio (i.e.~the top left
+  panel), all you need to do is click File --\textgreater{} Save As (and
+  choose a name for your script). Your script will be something like:
+  myfilename.R.
+\item
+  Saving plots: If you have made any plots you would like to save, click
+  Export (in the plotting pane) and choose a relevant file extension
+  (e.g.~.png, .pdf, etc.) and size.
+\item
+  To save \textbf{individual} objects (for example x from above) from
+  your environment, run the following command (choosing a suitable
+  filename):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{save}\NormalTok{(x,}\AttributeTok{file=}\StringTok{"myobject.RData"}\NormalTok{)}
+\FunctionTok{load}\NormalTok{(}\AttributeTok{file=}\StringTok{"myobject.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  To save \textbf{all} of your objects (i.e.~everything in the top right
+  panel) at once, run the following command (choosing a suitable
+  filename):
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{save.image}\NormalTok{(}\AttributeTok{file=}\StringTok{"myfilname.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\tightlist
+\item
+  Your objects can be re-loaded into R during your next session by
+  running:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{load}\NormalTok{(}\AttributeTok{file=}\StringTok{"myfilename.RData"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+There are many other file formats you might use to save any output. We
+will encounter these as the course progresses.
+
+\hypertarget{knowing-where-r-saves-your-documents}{%
+\section*{Knowing where R saves your
+documents}\label{knowing-where-r-saves-your-documents}}
+\addcontentsline{toc}{section}{Knowing where R saves your documents}
+
+If you are at home, when you open a new script make sure to check and
+set your working directory (i.e.~the folder where the files you create
+will be saved). To check your working directory use the getwd() command
+(type it into the Console or write it in your script in the Source
+Editor):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{getwd}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+To set your working directory, run the following command, substituting
+the file directory of your choice. Remember that anything following the
+`\#' symbol is simply a clarifying comment and R will not process it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Example for Mac }
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"/Users/Documents/mydir/"}\NormalTok{) }
+\DocumentationTok{\#\# Example for PC }
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"c:/docs/mydir"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{practicing-in-r}{%
+\section*{Practicing in R}\label{practicing-in-r}}
+\addcontentsline{toc}{section}{Practicing in R}
+
+The best way to learn R is to use it. These workshops on text analysis
+will not be the place to become fully proficient in R. They will,
+however, be a chance to conduct some hands-on analysis with applied
+examples in a fast-expanding field. And the best way to learn is through
+doing. So give it a shot!
+
+For some further practice in the R programming language, look no further
+than Wickham and Grolemund (2017) and, for tidy text analysis, Silge and
+Robinson (2017).
+
+\begin{itemize}
+\item
+  The free online book by Hadley Wickham ``R for Data Science'' is
+  available \href{https://r4ds.had.co.nz/}{here}
+\item
+  The free online book by Julia Silge and David Robinson ``Text Mining
+  with R'' is available \href{https://www.tidytextmining.com/}{here}
+\item
+  For more practice with R, you may want to consult a set of interactive
+  tutorials, available through the package ``learnr.'' Once you've
+  installed this package, you can go through the tutorials yourselves by
+  calling:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(learnr)}
+
+\FunctionTok{available\_tutorials}\NormalTok{() }\CommentTok{\# this will tell you the names of the tutorials available}
+
+\FunctionTok{run\_tutorial}\NormalTok{(}\AttributeTok{name =} \StringTok{"ex{-}data{-}basics"}\NormalTok{, }\AttributeTok{package =} \StringTok{"learnr"}\NormalTok{) }\CommentTok{\#this will launch the interactive tutorial in a new Internet browser window}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{one-final-note}{%
+\section*{One final note}\label{one-final-note}}
+\addcontentsline{toc}{section}{One final note}
+
+Once you've dipped into the ``R for Data Science'' book you'll hear a
+lot about the so-called tidyverse in R. This is essentially a set of
+packages that use an alternative, and more intuitive, way of interacting
+with data.
+
+The main difference you'll notice here is that, instead of having
+separate lines for each function we want to run, or wrapping functions
+inside functions, sets of functions are ``piped'' into each other using
+``pipe'' functions, which look have the appearance:
+\texttt{\%\textgreater{}\%}.
+
+I will be using ``tidy'' syntax in the weekly exercises for these
+computational text analysis workshops. If anything is unclear, I can
+provide the equivalents in ``base'' R too. But a lot of the useful text
+analysis packages are now composed with `tidy' syntax.
+
+\bookmarksetup{startatroot}
+
+\hypertarget{code-style-guide}{%
+\chapter*{Code style guide}\label{code-style-guide}}
+\addcontentsline{toc}{chapter}{Code style guide}
+
+\begin{tcolorbox}[enhanced jigsaw, colframe=quarto-callout-note-color-frame, breakable, bottomrule=.15mm, left=2mm, colback=white, leftrule=.75mm, arc=.35mm, rightrule=.15mm, opacityback=0, toprule=.15mm]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-note-color}{\faInfo}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+The following introductory section is taken, in slightly adapted form,
+from Jae Yeon Kim's ``Computational Thinking for Social Scientists.'' It
+is reproduced here for ease of access. To consult the full book, go to
+\url{https://jaeyk.github.io/comp_thinking_social_science/}.\end{minipage}%
+\end{tcolorbox}
+
+\hypertarget{the-big-piture}{%
+\section*{The Big Piture}\label{the-big-piture}}
+\addcontentsline{toc}{section}{The Big Piture}
 
 \begin{itemize}
 \tightlist
@@ -3589,8 +3236,8 @@ is in a consistent style. -
 \end{itemize}
 
 \hypertarget{write-readable-code}{%
-\subsection*{Write readable code}\label{write-readable-code}}
-\addcontentsline{toc}{subsection}{Write readable code}
+\section*{Write readable code}\label{write-readable-code}}
+\addcontentsline{toc}{section}{Write readable code}
 
 \begin{itemize}
 \item
@@ -3879,7 +3526,7 @@ supported by some source code editors in the form of snippets. -
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Data}
-
+\FunctionTok{library}\NormalTok{(tibble)}
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{) }\CommentTok{\# for reproducibility }
 
 \NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\StringTok{"a"} \OtherTok{=} \FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{99}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{), }\AttributeTok{size =} \DecValTok{5}\NormalTok{ , }\AttributeTok{replace=} \ConstantTok{TRUE}\NormalTok{),}
@@ -4040,35 +3687,6 @@ author of \emph{Refactoring}
 Loading required package: testthat
 \end{verbatim}
 
-\begin{verbatim}
-
-Attaching package: 'testthat'
-\end{verbatim}
-
-\begin{verbatim}
-The following object is masked from 'package:dplyr':
-
-    matches
-\end{verbatim}
-
-\begin{verbatim}
-The following object is masked from 'package:purrr':
-
-    is_null
-\end{verbatim}
-
-\begin{verbatim}
-The following objects are masked from 'package:readr':
-
-    edition_get, local_edition
-\end{verbatim}
-
-\begin{verbatim}
-The following object is masked from 'package:tidyr':
-
-    matches
-\end{verbatim}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(testthat)}
@@ -4127,9 +3745,9 @@ Journal paper} (2011).
 \end{Shaded}
 
 \hypertarget{asking-questions-minimal-reproducible-example}{%
-\subsection*{Asking questions: Minimal reproducible
+\section*{Asking questions: Minimal reproducible
 example}\label{asking-questions-minimal-reproducible-example}}
-\addcontentsline{toc}{subsection}{Asking questions: Minimal reproducible
+\addcontentsline{toc}{section}{Asking questions: Minimal reproducible
 example}
 
 \begin{itemize}
@@ -4180,8 +3798,8 @@ Copy the following code and type \texttt{reprex()} in the console.
 \end{Shaded}
 
 \hypertarget{references-2}{%
-\subsection*{References}\label{references-2}}
-\addcontentsline{toc}{subsection}{References}
+\section*{References}\label{references-2}}
+\addcontentsline{toc}{section}{References}
 
 \begin{itemize}
 \item
@@ -4227,8 +3845,8 @@ Copy the following code and type \texttt{reprex()} in the console.
 
 \bookmarksetup{startatroot}
 
-\hypertarget{week-1}{%
-\chapter{Week 1}\label{week-1}}
+\hypertarget{week-1-intro.-to-css}{%
+\chapter{Week 1: Intro. to CSS}\label{week-1-intro.-to-css}}
 
 This week will be dedicated to a more general introduction to
 computational social science and what it means to think
@@ -4271,7 +3889,7 @@ applicable attitude and skill set everyone, not just computer
 scientists, would be eager to learn and use.'' But what is computational
 thinking?
 
-It asks:
+In summary, it asks:
 
 \begin{itemize}
 \tightlist
@@ -4312,8 +3930,36 @@ Slides for week one are available
 
 \bookmarksetup{startatroot}
 
-\hypertarget{week-2}{%
-\chapter{Week 2}\label{week-2}}
+\hypertarget{week-2-filter-bubbles-and-echo-chambers}{%
+\chapter{Week 2: Filter bubbles and echo
+chambers}\label{week-2-filter-bubbles-and-echo-chambers}}
+
+This week will be focusing on a substantive problem relating to social
+media and politics. Namely, we will be thinking about so-called ``echo
+chambers'' or ``filter bubbles.'' These refer to platform produced---or
+algorithmically produced---information environments where the user is
+exposed only to one sort of political information.
+
+And, normally, this political content is composed of information and
+opinions agreeable to the user.
+
+Why is this a problem? The argument runs that this is a problem because
+a healthy society requires citizens to hear, be exposed to, and debate
+opposing opinions. Without this, societies might become increasingly
+contentious and polarized.
+
+But how do we study this? And what does computation have to do with it?
+
+\hypertarget{essential-reading-1}{%
+\section{Essential reading:}\label{essential-reading-1}}
+
+\begin{itemize}
+\item
+  Bail (2021) (chapters 1-3)
+\item
+  Fletcher, Robertson, and Nielsen (2021)
+\item
+\end{itemize}
 
 \bookmarksetup{startatroot}
 
@@ -4338,26 +3984,45 @@ Slides for week one are available
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-lazer2020}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-bail2021}{}}%
+Bail, Chris. 2021. {``Breaking the Social Media Prism.''} In. Princeton
+University Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-fletcher2021}{}}%
+Fletcher, Richard, Craig T. Robertson, and Rasmus Kleis Nielsen. 2021.
+{``How Many People Live in Politically Partisan Online News Echo
+Chambers in Different Countries?''} \emph{Journal of Quantitative
+Description: Digital Media} 1 (August).
+\url{https://doi.org/10.51685/jqd.2021.020}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-lazer_computational_2020}{}}%
 Lazer, David M. J., Alex Pentland, Duncan J. Watts, Sinan Aral, Susan
 Athey, Noshir Contractor, Deen Freelon, et al. 2020. {``Computational
-Social Science: Obstacles and Opportunities.''} \emph{Science} 369
+Social Science: {Obstacles} and Opportunities.''} \emph{Science} 369
 (6507): 1060--62. \url{https://doi.org/10.1126/science.aaz8170}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-lazer2021}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-lazer_meaningful_2021}{}}%
 Lazer, David, Eszter Hargittai, Deen Freelon, Sandra Gonzalez-Bailon,
 Kevin Munger, Katherine Ognyanova, and Jason Radford. 2021.
 {``Meaningful Measures of Human Society in the Twenty-First Century.''}
 \emph{Nature} 595 (7866): 189--96.
 \url{https://doi.org/10.1038/s41586-021-03660-7}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-salganik2017}{}}%
-Salganik, Matthew J. 2017. \emph{Bit by Bit: Social Research in the
-Digital Age}. Princeton, NJ.: Princeton University Press.
+\leavevmode\vadjust pre{\hypertarget{ref-salganik_bit_2017}{}}%
+Salganik, Matthew J. 2017. \emph{Bit by {Bit}: {Social} {Research} in
+the {Digital} {Age}}. Princeton, NJ.: Princeton University Press.
 
-\leavevmode\vadjust pre{\hypertarget{ref-wing2006}{}}%
+\leavevmode\vadjust pre{\hypertarget{ref-silge_text_2017}{}}%
+Silge, Julia, and David Robinson. 2017. \emph{Text {Mining} with {R}:
+{A} {Tidy} {Approach}}. London: O'Reilly.
+
+\leavevmode\vadjust pre{\hypertarget{ref-wickham_r_2017}{}}%
+Wickham, Hadley, and Garrett Grolemund. 2017. \emph{R for {Data}
+{Science}}. London: O'Reilly Media.
+
+\leavevmode\vadjust pre{\hypertarget{ref-wing_computational_2006}{}}%
 Wing, Jeannette M. 2006. {``Computational Thinking.''}
-\emph{Communications of the ACM} 49 (3): 3335.
+\emph{Communications of the ACM} 49 (3): 33--35.
 
 \end{CSLReferences}
 

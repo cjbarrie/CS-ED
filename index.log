@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.11)  23 AUG 2022 13:34
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.11)  23 AUG 2022 15:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1335,80 +1335,52 @@ ndard glyph set (RS)
 
 ]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.665pt on input line 363.
+(Font)              scaled to size 7.665pt on input line 367.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.475pt on input line 363.
+(Font)              scaled to size 5.475pt on input line 367.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95099pt on input line 363.
+(Font)              scaled to size 10.95099pt on input line 367.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.66568pt on input line 363.
+(Font)              scaled to size 7.66568pt on input line 367.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.4755pt on input line 363.
+(Font)              scaled to size 5.4755pt on input line 367.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 363.
+(Font)              scaled to size 10.94882pt on input line 367.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.66417pt on input line 363.
+(Font)              scaled to size 7.66417pt on input line 367.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.47441pt on input line 363.
-[5] [6]
-Overfull \hbox (59.96754pt too wide) in paragraph at lines 477--481
-[]\TU/lmr/m/n/10.95 Download RStudio for Windows or Mac from here: https://rstu
-dio.com/products/rstudio/download/,
- []
-
-[7
-
-] [8]
-Overfull \hbox (13.13986pt too wide) in paragraph at lines 628--628
-[]\TU/lmtt/m/n/10.95 -- Attaching packages ------------------------------------
---- tidyverse 1.3.1 --[] 
- []
-
-[9]
-Overfull \hbox (13.13986pt too wide) in paragraph at lines 639--639
-[]\TU/lmtt/m/n/10.95 -- Conflicts ------------------------------------------ ti
-dyverse_conflicts() --[] 
- []
-
-File: ./intro_files/figure-pdf/unnamed-chunk-12-1.pdf Graphic file (type pdf)
-<use ./intro_files/figure-pdf/unnamed-chunk-12-1.pdf>
-[10] [11]
-Underfull \hbox (badness 2359) in paragraph at lines 765--768
-[]\TU/lmr/m/n/10.95 For some further practice in the R programming language, lo
-ok no further than
- []
-
-[12] [13
+(Font)              scaled to size 5.47441pt on input line 367.
+[5] [6] [7
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 917--922
+Underfull \hbox (badness 10000) in paragraph at lines 550--555
 
  []
 
-[14]
-Overfull \hbox (92.70142pt too wide) in paragraph at lines 991--994
+[8]
+Overfull \hbox (92.70142pt too wide) in paragraph at lines 624--627
 []\TU/lmr/m/n/10.95 The following materials on UNIX and Shell are adapted from 
 [the software carpentry](https://bids.GitHub.io/2015-
  []
 
-[15]
+[9]
 
-LaTeX Warning: File `https://upload.wikimedia.org/wikipedia/commons/1/1b/Ken_Th
-ompson_and_Dennis_Ritchie--1973.jpg' not found on input line 1024.
+LaTeX Warning: File `https://miro.medium.com/max/1032/1*GuB5q_bWOSZa-8sDg1lEDA.
+png' not found on input line 719.
 
-! Unable to load picture or PDF file 'https://upload.wikimedia.org/wikipedia/co
-mmons/1/1b/Ken_Thompson_and_Dennis_Ritchie--1973.jpg'.
+! Unable to load picture or PDF file 'https://miro.medium.com/max/1032/1*GuB5q_
+bWOSZa-8sDg1lEDA.png'.
 <to be read again> 
                    }
-l.1024 ...n_Thompson_and_Dennis_Ritchie--1973.jpg}
+l.719 ...om/max/1032/1*GuB5q_bWOSZa-8sDg1lEDA.png}
                                                    
 Here is how much of TeX's memory you used:
- 39535 strings out of 476179
- 820973 string characters out of 5809544
+ 39494 strings out of 476179
+ 818519 string characters out of 5809544
  1420537 words of memory out of 5000000
- 59676 multiletter control sequences out of 15000+600000
- 475714 words of font info for 81 fonts, out of 8000000 for 9000
+ 59639 multiletter control sequences out of 15000+600000
+ 475706 words of font info for 80 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,8n,121p,10600b,929s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,8n,121p,10600b,927s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (15 pages).
+Output written on index.pdf (9 pages).
