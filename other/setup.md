@@ -1,4 +1,4 @@
-The following setup steps are taken, in slightly adapted form, from Jae Yeon Kim's "Computational Thinking for Social Scientists." It is reproduced here for ease of access. To consult the full book, go to <https://jaeyk.github.io/comp_thinking_social_science/>.
+The following setup steps are taken, in slightly adapted form, from Jae Yeon Kim's "Computational Thinking for Social Scientists" and from Jae Yeom Kim and Rachel Bernhard's course "Computational Tools and Techniques for Social Science." It is reproduced here for ease of access. To consult the full book, go to <https://jaeyk.github.io/comp_thinking_social_science/>. To consult their course, go to <https://github.com/PS239T/spring_2021>.
 
 # Setup
 
