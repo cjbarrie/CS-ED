@@ -1,7 +1,7 @@
 # Managing data and code {.unnumbered}
 
 ::: {.callout-note appearance="simple"}
-The following introductory section is taken, in slightly adapted form, from Jae Yeon Kim's "Computational Thinking for Social Scientists." It is reproduced here for ease of access. To consult the full book, go to <https://jaeyk.github.io/comp_thinking_social_science/>.
+The following introductory section is taken, in slightly adapted form, from Jae Yeon Kim's "Computational Thinking for Social Scientists." It is reproduced here for ease of access. To consult the full book, go to <https://jaeyk.github.io/comp_thinking_social_science>.
 :::
 
 ## The Command Line
@@ -209,23 +209,6 @@ $ pwd
 /home/jae
 ```
 
-**Additional tips**
-
-You can also download files to your computer in the terminal.
-
-1.  Install wget utility
-
-``` sh
-# sudo = super user 
-sudo apt-get install wget 
-```
-
-2.  Download target files
-
-``` sh
-wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb
-```
-
 > #### Home Directory
 >
 > The home directory path will look different on different operating systems. For example, on Linux, it will look like `/home/jae,` and on Windows, it will be similar to `C:\Documents and Settings\jae.` Note that it may look slightly different for different versions of Windows.
@@ -238,7 +221,7 @@ wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.d
 
 > If you're working on a Mac, the file structure will look similar, but not identical. The following image shows a file system graph for the typical Mac.
 
-![File Directory](images/dirtree.png)
+![File Directory](/Users/cbarrie6/Dropbox/Teaching/Edinburgh/teaching/CS_22-23/CS-ED/_book/images/dirtree.png)
 
 We know that our current working directory `/home/jae` is stored inside `/home` because `/home` is the first part of its name. Similarly, we know that `/home` is stored inside the root directory `/` because its name begins with `/`.
 

@@ -10,6 +10,23 @@ print("Computational Sociology")
 The book is a "live" document meaning I will be updating as we progress together through the course.
 :::
 
+## Structure
+
+The course is structured of alternating weeks of substantive and technical instruction.
+
+| Week | Focus                                                 |
+|------|-------------------------------------------------------|
+| 1    | Intro. Computational Social Science                   |
+| 2    | Filter Bubbles and Echo Chambers                      |
+| 3    | Web tracking and Network Analysis                     |
+| 4    | Misinformation and Fake News                          |
+| 5    | Linked surveys and Social media analysis              |
+| 6    | Polarization and Radicalization                       |
+| 7    | Online experiments and Bots                           |
+| 8    | Violence and Protest                                  |
+| 9    | Social media tracking and Natural Language Processing |
+| 10   | Guest lecture: TBD                                    |
+
 ## License
 
 This website is (and will always be) **free to use**, and is licensed under the [Creative Commons Attribution-NonCommercial-NoDerivs 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) License.

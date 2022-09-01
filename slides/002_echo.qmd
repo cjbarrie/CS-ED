@@ -1,0 +1,15 @@
+---
+title: "Week 2"
+subtitle: "Computational Sociology"
+author: Christopher Barrie
+format:
+  revealjs:
+    chalkboard: true
+editor: visual
+---
+
+## Introduction
+
+1.  Housekeeping
+2.  Echo Chambers and Filter Bubbles
+

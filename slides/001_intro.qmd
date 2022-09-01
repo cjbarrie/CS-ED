@@ -10,15 +10,17 @@ editor: visual
 
 ## Introduction
 
-1. Housekeeping
-2. Intro. CSS
-2. Computational thinking
+1.  Housekeeping
+2.  Intro. CSS
+3.  Computational thinking
 
 ## Housekeeping
 
-- 
-- 
-- 
+-   
+
+-   
+
+-   
 
 ## Intro.: Computational Social Science
 

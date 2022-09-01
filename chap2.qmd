@@ -12,6 +12,12 @@ But how do we study this? And what does computation have to do with it?
 
 -   @bail2021 (chapters 1-3)
 
--   @fletcher2021
+-   @guess2021
 
--   
+-   @levy2021
+
+## Additional reading:
+
+## Slides
+
+Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/002_echo.html)

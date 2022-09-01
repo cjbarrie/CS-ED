@@ -41,4 +41,4 @@ We'll discuss a concrete example of this in our lecture.
 
 ## Slides
 
-Slides for week one are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/000_intro.html)
+Slides for week one are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/001_intro.html)

@@ -21,6 +21,11 @@ book:
     - chap3.qmd
     - chap4.qmd
     - chap5.qmd
+    - chap6.qmd
+    - chap7.qmd
+    - chap8.qmd
+    - chap9.qmd
+    - chap10.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -28,8 +33,8 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
+  #pdf:
+   # documentclass: scrreprt
 
 editor: visual
 
