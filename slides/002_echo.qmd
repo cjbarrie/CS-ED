@@ -13,3 +13,85 @@ editor: visual
 1.  Housekeeping
 2.  Echo Chambers and Filter Bubbles
 
+## Introduction: Echo Chambers
+
+-   Who follows people they don't like on Twitter/Weibo/TikTok?
+
+## Introduction: Echo Chambers
+
+-   Who follows people they don't like on Twitter/Weibo/TikTok?
+
+-   Who wants to give me their Twitter handle?
+
+    -   How would you describe yourself politically?
+    -   Would you believe me if I told you I already knew this?
+
+## Introduction: Echo Chambers
+
+```{r, echo = F}
+library(academictwitteR)
+library(ggplot2)
+library(dplyr)
+
+userfwing <- readRDS("data/cjbfwing.rds")
+ids <- userfwing$id
+```
+
+```{r, eval = F, echo = T}
+library(academictwitteR)
+library(ggplot2)
+library(dplyr)
+
+get_user_id("cbarrie")
+cjb_ID <- "95226101"
+userfwing <- get_user_following(cjb_ID)
+ids <- userfwing$id
+```
+
+## Introduction: Echo Chambers
+
+```{r, echo = F}
+library(tweetscores)
+results <- readRDS("data/cjbtscore.rds")
+plot(results)
+```
+
+```{r, eval = F}
+devtools::install_github("pablobarbera/twitter_ideology/pkg/tweetscores")
+library(tweetscores)
+
+results <- estimateIdeology("cbarrie", ids)
+plot(results)
+```
+
+## Introduction: Echo Chambers
+
+Why am I showing you this?
+
+-   Because *the reason* we can estimate ideology like this is because:
+
+    -   We tend to follow people we agree with
+
+    -   How come...?
+
+## Dissonance is costly
+
+Festinger (1957)
+
+But is this the reason we follow people we agree with?
+
+## Trust as alternative explanation
+
+We might follow consonant opinion because we find it more trustworthy...
+
+But why does this all matter for the internet
+
+## Post-broadcast democracy
+
+Prior and post-broadcast democracy; Sunstein and the Internet
+
+But also we can be algorithmically manipulated
+
+## Filter bubbles
+
+Parisier and filter bubbles

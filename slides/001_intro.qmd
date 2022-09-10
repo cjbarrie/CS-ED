@@ -16,11 +16,13 @@ editor: visual
 
 ## Housekeeping
 
--   
+-   Room for each week
 
--   
+-   Teaching expectations
 
--   
+-   Pairs (fill in Google sheet)
+
+-   Questions?
 
 ## Intro.: Computational Social Science
 
