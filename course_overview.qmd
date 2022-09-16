@@ -24,17 +24,17 @@ On alternate weeks, we will discuss how these phenomena have been studied---usin
 
 ## A Provocation
 
-Unlike other courses you may take, I'm going to be taking a particular position on a question each week during the lecture. I want to invite you to *prove me wrong*. 
+Unlike other courses you may take, I'm going to be taking a particular position on a question each week during the lecture. I want to invite you to *prove me wrong*.
 
 I'll be encouraging you to do this at our flash talks (see below) every other week after the lecture has finished. You're also free to air your opinions on Twitter, tag me, and I'll respond. Alternatively, you can write a blog post on a platform such as Medium, Substack, whatever you might choose.
 
-The idea is for this to be an ongoing conversation, debate, and opportunity for us to hear each side out. 
+The idea is for this to be an ongoing conversation, debate, and opportunity for us to hear each side out.
 
 ## Course pre-preparation {.unnumbered}
 
 **NOTE**: Before the lecture in Week 2, students should complete two introductory R exercises.
 
-1.  First, you should consult the introduction to file directories and Github [here](https://cjbarrie.github.io/CS-ED/intro.html). This is crucial to properly logging and saving the work you produce.
+1.  First, you should consult the introduction to file directories and Github [here](https://cjbarrie.github.io/CS-ED/terminal_and_git.html). This is crucial to properly logging and saving the work you produce.
 
 2.  Second, you should consult the worksheet [here](https://cjbarrie.github.io/CS-ED/intro.html), which is an introduction to setting up and understanding the very basics of working in R. S
 
@@ -61,12 +61,8 @@ At the subsequent week's lecture, I will pick on a pair at random to answer each
 
 On the weeks where you are not going to be tasked with a coding assignment, you're not off the hook... I will again be selecting a pair at random (the same as your coding pair) to talk respond to me on the subject of the the readings. I will pick a different pair for each reading (i.e., \~ 1/3 chance again).
 
-I will be taking a position in response to these readings (I won't tell you which one) and I'd like you to try to respond (a bit of devil's advocacy). This is good practice for critically thinking through each side of a question---and the empirical evidence for those respective positions. 
+I will be taking a position in response to these readings (I won't tell you which one) and I'd like you to try to respond (a bit of devil's advocacy). This is good practice for critically thinking through each side of a question---and the empirical evidence for those respective positions.
 
 ### Final assessment {.unnumbered}
 
-Assessment takes the form of **one** summative assessment. This will be a 4000 word essay on a subject of your choosing (with prior approval by me). For this, you will be required to select from a range of data sources I will provide. You may also suggest your own data source.
-
-You will be asked to: a) formulate a research question; b) use at least one computational technique that we have studied; c) conduct an analysis of the data source you have provided; d) write up the initial findings; and e) outline potential extensions of your analysis.
-
-You will then provide the code you used in reproducible (markdown) format and will be assessed on both the substantive content of your essay contribution (the social science part) as well as your demonstrated competency in coding and text analysis (the computational part).
+Assessment takes the form of **one** summative assessment. This will be a 4000 word essay that will take the form of a review, replication, and extension of a published article. More details will follow.

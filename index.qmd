@@ -15,7 +15,7 @@ The book is a "live" document meaning I will be updating as we progress together
 The course is structured of alternating weeks of substantive and technical instruction.
 
 | Week | Focus                                                 | Coding skills                                                                                                                                                         | Workflow skills              | Worksheet |
-|-------|-------------------------|--------------------|------------|----------|
+|------|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|-----------|
 | 1    | Intro. Computational Social Science                   | [Introductory exercises](https://cjbarrie.github.io/CS-ED/intror.html) + [RTC Workshop by Ugur Ozdemir](https://research-training-centre.sps.ed.ac.uk/micro-methods/) | Directories, Git, and Github |           |
 | 2    | Filter Bubbles and Echo Chambers                      | [R4DS chap.3](https://r4ds.had.co.nz/data-visualisation.html) and [R4DS chap.4](https://r4ds.had.co.nz/workflow-basics.html)                                          |                              |           |
 | 3    | Web tracking and Network Analysis                     | [R4DS chap.5](https://r4ds.had.co.nz/transform.html)                                                                                                                  | Markdown                     |           |
