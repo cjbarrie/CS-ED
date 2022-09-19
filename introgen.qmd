@@ -4,7 +4,7 @@
 The following introductory section is taken, in slightly adapted form, from Jae Yeon Kim's "Computational Thinking for Social Scientists." It is reproduced here for ease of access. To consult the full book, go to <https://jaeyk.github.io/comp_thinking_social_science/>.
 :::
 
-## The Big Piture
+## The Big Picture
 
 -   What is code style?
 
