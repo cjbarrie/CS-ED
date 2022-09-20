@@ -24,6 +24,17 @@ editor: visual
 
 -   Questions?
 
+## Computational thinking
+
+It asks:
+
+- what is computable?;
+- it states the difficulty of a problem in computational terms;
+- it asks whether an approximate solution is good enough;
+- and it requires imagination to abstract into an approximate solution;
+- to problems that might apply across almost every academic discipline imaginable
+
+
 ## Intro.: Computational Social Science
 
 -   What is it?
