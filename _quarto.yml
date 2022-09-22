@@ -16,6 +16,7 @@ book:
     - terminal_and_git.qmd
     - intror.qmd
     - introgen.qmd
+    - repro_steps.qmd
     - chap1.qmd
     - chap2.qmd
     - chap3.qmd

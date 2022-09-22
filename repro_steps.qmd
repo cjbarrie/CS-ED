@@ -1,0 +1,95 @@
+# Reproducible workflows {.unnumbered}
+
+This is a walkthrough example of how we might go about producing a reproducible piece of research.
+
+There are several steps to this:
+
+1.  We all need to create a Github account.
+2.  We get our computer talking to Git by logging our Github credentials (either SSH or HTTPS approach)
+3.  We create a Github Repo
+4.  We create an R "Project"
+5.  We start writing our code
+6.  We "commit" and then "push" our changes when ready
+7.  Once everything is complete, we write up in Markdown format
+
+## Setting up Github credentials
+
+Once we've got our Github account, we're ready to get our computer talking to Github. We do this in the following way:
+
+```{r, eval = F}
+install.packages("usethis") #if you haven't already installed
+library(usethis)
+
+usethis::create_github_token()
+
+gitcreds::gitcreds_set()
+
+```
+
+You log your credentials there and you're all set.
+
+## Creating a Github Repo
+
+We first need to use our Github account (that we made in step one) by creating a "Repo." This is just the place where we're going to be logging and storing all our code and materials.
+
+To do this, we go on to our Github account a select "New" next to the "Recent Repositories" tab. Mine looks like this:
+
+## ![](images/Screenshot%202022-09-22%20at%2009.09.00.png)
+
+Once we've done that, we can name and describe our Repo as below. We also add a "README," which will be a kind of landing page online but will serve as the main explainer file should anyone want to download and reproduce your research.
+
+![](images/Screenshot%202022-09-22%20at%2009.09.34.png)
+
+We then press Create and you'll be redirected to your new repository:
+
+![](images/Screenshot%202022-09-22%20at%2009.12.36.png)
+
+You're ready for the next step!
+
+## Creating an R Project
+
+Next we create an R Project by selection File --\> New Project.
+
+You'll see a window like this pop up:
+
+![](images/Screenshot%202022-09-22%20at%2009.04.32.png)
+
+And you should select Version Control, whereupon you'll be asked:
+
+![](images/Screenshot%202022-09-22%20at%2009.04.50.png)
+
+to choose either Git or Subversion. Choose Git. Then you'll be asked to put in the name of the URL of the Github Repo you've created.
+
+![](images/Screenshot%202022-09-22%20at%2009.05.01-01.png)
+
+And here we will enter the URL of the Github Repo we just created: <https://github.com/cjbarrie/CS-ED_example>.
+
+## We start writing our code
+
+Now that we're in our new R Project, we can start adding some contents!
+
+At the start, your directory will look something like this:
+
+![](images/Screenshot%202022-09-22%20at%2009.14.22.png)
+
+We add a new script by pressing the top left icon of some white paper with a green + sign next to it. Or we can go to File --\> New File --\> R Script.
+
+Here I'm just writing a dummy example where I write a pointless function that prints a string followed by "for Computational Sociology."
+
+![](images/Screenshot%202022-09-22%20at%2009.16.36.png)
+
+Once we've done this we can "Commit" and "Push." And remember when we Commit we describe what this "Commit" (basically a version at which you've placed a yard stick or marker) is doing. Here I write that I am adding the first script.
+
+![](images/Screenshot%202022-09-22%20at%2009.16.58.png)
+
+Then commit and push to our Github Repo we've set up within this R Project.
+
+At which point we can go back to our "Remote" version of our work (the version that's hosted on Github) and see if the changes are recorded there:
+
+![](images/Screenshot%202022-09-22%20at%2009.17.39.png)
+
+Ta da! Congratulations: you're on your to producing reproducible research :).
+
+## Writing up in Markdown
+
+TO COME!
