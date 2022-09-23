@@ -26,6 +26,10 @@ gitcreds::gitcreds_set()
 
 ```
 
+And you can do this directly in RStudio like this:
+
+![](images/Screenshot%202022-09-23%20at%2014.36.42.png)
+
 You log your credentials there and you're all set.
 
 ## Creating a Github Repo
