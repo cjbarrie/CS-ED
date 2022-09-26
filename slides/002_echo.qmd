@@ -24,6 +24,10 @@ editor: visual
 -   Who wants to give me their Twitter handle?
 
     -   How would you describe yourself politically?
+
+-   Who wants to give me their Twitter handle?
+
+    -   How would you describe yourself politically?
     -   Would you believe me if I told you I already knew this?
 
 ## Introduction: Echo Chambers
@@ -74,24 +78,229 @@ Why am I showing you this?
 
     -   How come...?
 
+## Why does all this matter?
+
+## 
+
+![](images/Screenshot%202022-09-23%20at%2015.11.45.png)
+
+## 
+
+![](images/Screenshot%202022-09-23%20at%2015.15.51.png)
+
+## 
+
+![](images/Screenshot%202022-09-23%20at%2015.17.10.png)
+
+## 
+
+![](images/Screenshot%202022-09-23%20at%2015.17.57.png)
+
+## But is any of this... true?
+
+Three questions:
+
+1.  How do we select among range of (both political and non-political) information?
+
+## But is any of this... true?
+
+Three questions:
+
+1.  How do we select among range of (both political and non-political) information?
+2.  Why do we select into (some) political information (and not other)?
+
+## But is any of this... true?
+
+Three questions:
+
+1.  How do we select among range of (both political and non-political) information?
+2.  Why do we select into (some) political information (and not other)?
+3.  How does situation now compare to before (social media)?
+
+## News consumption is small
+
+1.  How do we select among range of (both political and non-political) information?
+
+## News consumption is small
+
+[![](images/Screenshot%202022-09-26%20at%2014.14.09.png)](https://www.cambridge.org/core/books/postbroadcast-democracy/A0D17A3CD156A0D1BB4318EE5DBCC60B)
+
+## News consumption is small
+
+[![](images/Screenshot%202022-09-26%20at%2013.52.20-01.png)](https://www.science.org/doi/10.1126/sciadv.aay3539)
+
+## News consumption is small
+
+Compare to...
+
+## News consumption is small
+
+[![](images/Screenshot%202022-09-26%20at%2013.55.17.png)](https://www.pewresearch.org/politics/2022/06/16/politics-on-twitter-one-third-of-tweets-from-u-s-adults-are-political/)
+
+## News consumption is small
+
+Shows importance of:
+
+1.  Considering information *ecosystem*
+2.  Keeping in mind the *denominator* not just the numerator
+
+## Most people aren't settled
+
+1.  How do we select among range of (both political and non-political) information?
+
+## Most people aren't settled
+
+> "Most people...are simply not so rigid in their information-seeking behavior that they will expose themselves only to ideas that they find congenial" (Zaller 1992)
+
+Instead: RAS model...
+
+## Most people aren't settled
+
+RAS = Receive-Accept-Sample
+
+**Receive**: Opinions derive from elites (and more politically aware, more likely to receive)
+
+**Accept:** Less politically aware, more likely to accept conflicting information
+
+**Sample**: Decisions based on whatever is salient at that time
+
+So... only the most politically aware are very rigid?
+
+## Most people aren't settled
+
+[![](images/Screenshot%202022-09-26%20at%2014.33.38.png)](https://www.cambridge.org/core/books/nature-and-origins-of-mass-opinion/70B1485D3A9CFF55ADCCDD42FC7E926A)
+
 ## Dissonance is costly
 
-Festinger (1957)
+2.  Why do we select into (some) political information (and not other)?
+
+## Dissonance is costly
+
+![](images/Screenshot%202022-09-26%20at%2014.45.10.png)
+
+## Dissonance is costly
+
+> "The existence of appreciable dissonance and the consequent pressure to reduce it will lead to the seeking out of information which will introduce consonances and to the avoidance of information which will increase the already existing dissonance" (Festinger 1957)
+
+Implications:
+
+1.  Extremely large dissonance --\> seeking out more dissonant information
+2.  Extremely low dissonance --\> seeking out more consonant information
+3.  i.e., non-linear relationship between dissonance and selective exposure
+
+## Dissonance is costly?
 
 But is this the reason we follow people we agree with?
 
 ## Trust as alternative explanation
 
+2.  Why do we select into (some) political information (and not other)?
+
 We might follow consonant opinion because we find it more trustworthy...
 
-But why does this all matter for the internet
+In other words, people select into news they believe is balanced/credible.
+
+## Trust as alternative explanation
+
+[![](images/Screenshot%202022-09-26%20at%2015.50.54.png)](https://journals.sagepub.com/doi/full/10.1177/0093650215613136)
+
+## So what...?
+
+But why does this all matter for the internet and social media?
 
 ## Post-broadcast democracy
 
-Prior and post-broadcast democracy; Sunstein and the Internet
+[![](images/Screenshot%202022-09-26%20at%2015.54.45.png)](https://www.cambridge.org/core/books/postbroadcast-democracy/A0D17A3CD156A0D1BB4318EE5DBCC60B)
 
-But also we can be algorithmically manipulated
+## Post-broadcast democracy
+
+High-choice media environments --\> Divisions in political knowledge
+
+Some very aware 🤓
+
+Some very unaware 😴
+
+## #republic
+
+[![](images/Screenshot%202022-09-26%20at%2015.57.31.png)](https://press.princeton.edu/books/hardcover/9780691175515/republic)
+
+## #republic
+
+Online media environments --\> Selection into homogeneous groups
+
+Sunstein emphasizes threat of:
+
+> people's growing power to filter what they see, and also providers' growing power to filter for each of us, based on what they know about us (Sunstein 2017)
+
+Note: emphasis on both demand and supply...
+
+So where are algorithms in all of this?
 
 ## Filter bubbles
 
-Parisier and filter bubbles
+[![](images/Screenshot%202022-09-26%20at%2016.03.08.png)](https://www.ted.com/talks/eli_pariser_beware_online_filter_bubbles?language=en)
+
+## Filter bubbles
+
+Algorithmic learning --\> Increased content personalization
+
+Result: amplified selective exposure
+
+## But what's the evidence?
+
+A number of ways we can study:
+
+1.  Ask people survey questions (measurement error and recall bias)
+2.  Install web trackers (better... but what about other media sources?)
+3.  Experiments (but external validity?)
+4.  Use other computational wizardry 🧙
+
+## But what's the evidence?
+
+[![](images/Screenshot%202022-09-26%20at%2016.10.18.png)](https://journalqd.org/article/view/2585)
+
+## But what's the evidence?
+
+[![](images/Screenshot%202022-09-26%20at%2016.13.30.png)](https://onlinelibrary.wiley.com/doi/10.1111/ajps.12589)
+
+## But what's the evidence?
+
+[![](images/Screenshot%202022-09-26%20at%2016.15.58.png)](https://www.aeaweb.org/articles?id=10.1257/aer.20191777)
+
+## But what's the evidence?
+
+[![](images/Screenshot%202022-09-26%20at%2016.19.26.png)](https://www.science.org/doi/10.1126/science.aaq1433)
+
+## What about before?
+
+Let's zoom out a moment...
+
+What was it like before? Were we deliberative? Did we speak to the other side?
+
+Important question to determine:
+
+1.  What constitutes an "echo chamber" (cf. Guess 2021)
+2.  Whether this is an effect of the Internet, or
+3.  Whether this is an effect of garden variety selective exposure
+
+## What about before?
+
+[![](images/Screenshot%202022-09-26%20at%2016.32.24.png)](https://www.cambridge.org/core/journals/american-political-science-review/article/facilitating-communication-across-lines-of-political-difference-the-role-of-mass-media/59FA5A11AF6875C9BDADA19C6CEBBE9F)
+
+## What about before?
+
+[![](images/Screenshot%202022-09-26%20at%2016.35.09.png)](https://www.cambridge.org/core/books/citizens-politics-and-social-communication/7321AD52DFC261FC7FF44A5ECAD5C719)
+
+## Is this surprising?
+
+Well basic social theory suggests otherwise:
+
+1.  Social homophily is prevalent
+2.  Homophily often extends to politics
+3.  Meaning networks of interaction likely conform to this framework
+
+## In conclusion
+
+1.  We can use computational tools to measure information consumption. But;
+2.  To do so we need also to consider the denominator. And;
+3.  We need to consider what it was like before
