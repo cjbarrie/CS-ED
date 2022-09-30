@@ -1,5 +1,7 @@
 # Web tracking and networks {.unnumbered}
 
+## Browser tracking
+
 This is a walk through example that explores how to use web-tracking data.
 
 We'll also be using some of the skills you've learned from [R4DS](https://r4ds.had.co.nz/) so far, namely:
@@ -98,4 +100,28 @@ And once we have this, it's pretty easy for us to start plotting the data like s
 wbdata_mp %>%
   ggplot() +
   geom_bar(aes(domain, n), stat = "identity")
+```
+
+## Analyzing network data
+
+```{r}
+library(igraph)
+library(tidygraph)
+
+conov_net <- read_graph("data/replication/icwsm_polarization/all.graphml", format = "graphml")
+
+edges <- read.table("data/replication/icwsm_polarization/all.edgelist.txt")
+
+nodes <- read.table("data/replication/icwsm_polarization/all.nodes.txt")
+
+edges %>% 
+  head(5) %>%
+  kbl() %>%
+  kable_styling(c("striped", "hover", "condensed", "responsive"))
+
+nodes %>% 
+  head(5) %>%
+  kbl() %>%
+  kable_styling(c("striped", "hover", "condensed", "responsive"))
+
 ```
