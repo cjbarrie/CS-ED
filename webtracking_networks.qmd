@@ -52,6 +52,7 @@ library(kableExtra)
 
 wbdata %>% 
   select(domain, searchTerms, urlId) %>%
+  head(5) %>%
   kbl() %>%
   kable_styling(c("striped", "hover", "condensed", "responsive"))
 ```
