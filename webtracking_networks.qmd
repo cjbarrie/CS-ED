@@ -1,4 +1,4 @@
-# Web tracking and networks {.unnumbered}
+# Worksheet 1: Web tracking and networks {.unnumbered}
 
 ## Browser tracking
 
