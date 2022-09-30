@@ -27,6 +27,7 @@ book:
     - chap8.qmd
     - chap9.qmd
     - chap10.qmd
+    - webtracking_networks.qmd
     - references.qmd
 
 bibliography: references.bib

@@ -1,0 +1,100 @@
+# Web tracking and networks {.unnumbered}
+
+This is a walk through example that explores how to use web-tracking data.
+
+We'll also be using some of the skills you've learned from [R4DS](https://r4ds.had.co.nz/) so far, namely:
+
+1.  Curating data with e.g. `filter` and `select` functions in the `dplyr` package
+2.  Visualizing with the `ggplot2` package
+
+Let's first install and load these packages. The below code first checks if the package is installed. If it's not installed it then installs it. By using the function `library` followed by the name of the package in parentheses, we load these packages into memory so we can use them:
+
+```{r}
+#if not already install, first run:
+if (!require("dplyr")) install.packages("dplyr")
+if (!require("ggplot2")) install.packages("ggplot2")
+
+library(dplyr)
+library(ggplot2)
+```
+
+We are going to use some data that I collected using the "Web Historian" Chrome Extension that you'll be able to add to your own Chrome Browsers by following the steps [here](https://webhistorian.github.io/edu_edition.html).
+
+[![](images/Screenshot%202022-09-30%20at%2016.53.34.png)](https://webhistorian.github.io/edu_edition.html)
+
+By clicking on the image above, you'll be taken to the Web Historian homepage. Click through to the "install from the Chrome Store" link to add to your own browsers.
+
+[![](images/Screenshot%202022-09-30%20at%2016.53.45.png)](https://chrome.google.com/webstore/detail/web-historian-education-e/chpcblajbmmlbhecpnnadmjmlbhkloji)
+
+As long as you have Chrome installed, you'll then be able to install this browser extension on your own computers.
+
+Once you've spent some time using the extension, you'll have a good amount of data on your browsing habits stored. We can then read in these data, which by default are output as a JSON file. We read this in using the `jsonlite` package. Remember to first install the package if you don't already have it installed:
+
+```{r}
+#if not already install, first run:
+if (!require("jsonlite")) install.packages("jsonlite")
+library(jsonlite)
+
+wbdata <- jsonlite::fromJSON("data/web_historian_data.json")
+```
+
+If you're downloading these data locally onto your computers, you can use the following link to do so:
+
+```{r, eval = F}
+wbdata <- jsonlite::fromJSON(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/web_historian_data.json?raw=true")))
+```
+
+What do these data look like? We can take a look below:
+
+```{r, echo = F}
+library(dplyr)
+library(kableExtra)
+
+wbdata %>% 
+  select(domain, searchTerms, urlId) %>%
+  kbl() %>%
+  kable_styling(c("striped", "hover", "condensed", "responsive"))
+```
+
+The data contain more columns than this, but we'll focus on these three columns for now. How do we select just these three columns and thereby reduce the size of our dataset? To do so, we just need to use the `select` function in the `dplyr` package:
+
+```{r}
+wbdata_short <- wbdata %>% 
+  select(domain, searchTerms, urlId)
+```
+
+What's the most popular website in my browsing behaviour? To find out, we'll have to count how many times I've accessed a particular domain. This is pretty straightforward. We first `group_by` the domain of interest and then we use the `count` function to tally up the number of visits per domain:
+
+```{r}
+wbdata %>% 
+  group_by(domain) %>%
+  count() 
+```
+
+At the moment, this is sorted alphabetically, which isn't very intuitive. Let's instead tell R to display in descending order the number of visits to each domain with the `arrange` function:
+
+```{r}
+wbdata %>% 
+  group_by(domain) %>%
+  count() %>%
+  arrange(desc(n))
+```
+
+We can see clearly that I favour Google as a search engine... and that I've been doing some travel booking recently, as well as using the survey platform Qualtrics.
+
+We can then gather together the most popular domains and save them in a separate `data.frame` object I'm calling `wbdata_mp`.
+
+```{r}
+wbdata_mp <- wbdata %>% 
+  group_by(domain) %>%
+  count() %>%
+  filter(n >5)
+```
+
+And once we have this, it's pretty easy for us to start plotting the data like so:
+
+```{r}
+wbdata_mp %>%
+  ggplot() +
+  geom_bar(aes(domain, n), stat = "identity")
+```
