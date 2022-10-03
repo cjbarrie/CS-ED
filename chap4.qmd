@@ -1,1 +1,21 @@
-# Week 4
+# Week 4: Misinformation and fake news
+
+For the last couple of weeks we have discussed questions of echo chambers and filter bubbles. For the next couple of weeks, we will be discussing another phenomenon that has seen lots of headlines of late: misinformation and fake news.
+
+This is a phenomenon closely related to the rise of the Internet and so-called "high-choice" media environments where the production of information is less centralized than it was before.
+
+And fake news, as well as misinformation, have been linked to a set of important political outcomes---from the result of elections to conspiracy belief or vaccine hesitancy (in the Covid-19 age).
+
+## Essential reading:
+
+@allen2020
+
+@guess2020
+
+@vosoughi2018
+
+## Additional reading:
+
+@bail2019
+
+@grinberg2019
