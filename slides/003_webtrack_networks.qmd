@@ -219,6 +219,10 @@ And these elements of network data have their names:
 
 ## Example: @conover2011
 
+![](images/Screenshot%202022-10-03%20at%2017.59.02.png)
+
+## Example: @conover2011
+
 -   Manually annotated 1000 tweets for left-right affiliation
 
     -   Measured frequency of cross-ideological retweeting/mentioning
