@@ -6,6 +6,7 @@ format:
   revealjs:
     chalkboard: true
 editor: visual
+bibliography: /Users/cbarrie6/Dropbox/Teaching/Edinburgh/teaching/CS_22-23/CS-ED/references.bib
 ---
 
 ## Introduction
