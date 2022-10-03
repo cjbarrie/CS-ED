@@ -11,7 +11,7 @@ We'll also be using some of the skills you've learned from [R4DS](https://r4ds.h
 
 Let's first install and load these packages. The below code first checks if the package is installed. If it's not installed it then installs it. By using the function `library` followed by the name of the package in parentheses, we load these packages into memory so we can use them:
 
-```{r}
+```{r, message=F, warning=F}
 #if not already install, first run:
 if (!require("dplyr")) install.packages("dplyr")
 if (!require("ggplot2")) install.packages("ggplot2")
@@ -32,8 +32,8 @@ As long as you have Chrome installed, you'll then be able to install this browse
 
 Once you've spent some time using the extension, you'll have a good amount of data on your browsing habits stored. We can then read in these data, which by default are output as a JSON file. We read this in using the `jsonlite` package. Remember to first install the package if you don't already have it installed:
 
-```{r}
-#if not already install, first run:
+```{r, message=F, warning=F}
+#if not already installed, first run:
 if (!require("jsonlite")) install.packages("jsonlite")
 library(jsonlite)
 
