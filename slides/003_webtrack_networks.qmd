@@ -1,0 +1,238 @@
+---
+title: "Week 3"
+subtitle: "Computational Sociology"
+author: Christopher Barrie
+format:
+  revealjs:
+    chalkboard: true
+editor: visual
+---
+
+## Introduction
+
+1.  Housekeeping
+2.  Web tracking and Networks
+
+## Introduction: Web tracking
+
+-   Web tracking a core concern in the study of digital society
+
+    -   1994: HTTP cookie is introduced
+
+    -   2010: term "zombie cookies" is coined
+
+    -   2020: Apple bans third-party cookies
+
+## 
+
+[![](images/Screenshot%202022-10-03%20at%2015.14.31.png)](https://www.theatlantic.com/technology/archive/2014/08/advertising-is-the-internets-original-sin/376041/)
+
+## Introduction: Web tracking
+
+-   And has led to major legislation, e.g.:
+
+    -   GDPR in EU
+
+    -   Draft Online Safety Bill in UK
+
+## Introduction: Web tracking
+
+-   Is now core of enornmous marketplace:
+
+    -   "data profiling" or "cookie profiling"
+
+-   And you can view your own profile!
+
+    -   [Google Profile](https://adssettings.google.com/authenticated?hl=en)
+
+## 
+
+[![](images/Screenshot%202022-10-03%20at%2014.51.53.png)](https://www.statista.com/statistics/237974/online-advertising-spending-worldwide/)
+
+## But it's also useful for us...
+
+Web-tracking methods make accessible:
+
+-   Granular, real-time data on information consumption
+
+-   Amenable to experimental intervention
+
+-   Complementary data source for survey research
+
+## Web-tracking data
+
+What does it look like?
+
+Comes in many forms that might include
+
+1.  Website visited
+2.  Search terms (inputs)
+3.  Time spent
+4.  Website from which link originated (e.g., going to another website from Twitter)
+
+## Web-tracking data
+
+What does it look like?
+
+And some add-ons can measure even more, such as:
+
+1.  Section of screen scrolled to
+2.  Time spent looking at section
+3.  Button clicks (events)
+
+## You can look at this too
+
+There are many add-ons/extensions to popular browsers such as Chrome and Firefox.
+
+These include:
+
+1.  [Web Historian](https://webhistorian.github.io/edu_edition.html)
+2.  [StayFree](https://stayfreeapps.com)
+
+## An example from @kulshrestha2020
+
+[![](images/Screenshot%202022-10-03%20at%2015.09.01.png)](https://github.com/gesiscss/web_tracking/blob/master/research/web_routineness/release/00_1_Adding_Category.ipynb)
+
+## An example from...me
+
+![](images/Screenshot%202022-10-03%20at%2015.16.04-01.png)
+
+## What can we do with this data?
+
+View and predicts user habits:
+
+-   @kulshrestha2020 find very predictable patterns of routineness
+
+-   estimate aggregate patterns of information consumption
+
+## What can we do with this data?
+
+Pair with surveys to:
+
+-   understand variation according to demographic attributes
+
+-   understand variation according to ideological attributes
+
+## Example: @stier2021
+
+-   7,775 participants who have web-tracking software installed
+
+-   surveyed for attributes often linked to information inequality
+
+    -   *country, age, gender, education, political interest, and political extremism*
+
+-   surveys + web-tracking behaviour combined
+
+## Example: @stier2021
+
+![](images/Screenshot%202022-10-03%20at%2016.05.18.png)
+
+## Example: @stier2021
+
+-   Webpages classified accorded to hand-coded list + ML classifier
+
+-   Panel structure that controls for within-person characteristics
+
+## Example: @stier2021
+
+![](images/Screenshot%202022-10-03%20at%2016.09.01.png)
+
+## Introduction: Networks
+
+What we do and see online is often organized in the form of interactions or ties, e.g.:
+
+-   Emailing a friend or colleague
+
+-   Retweeting a news article
+
+-   Hyperlinks within domains
+
+## Introduction: Networks
+
+Any such interaction or link therefore has two types of data associated:
+
+1.  The origin of the link (e.g., the person who sent the email)
+2.  The destination of the link (e.g., the recipient of that email)
+
+## Introduction: Networks
+
+And these elements of network data have their names:
+
+1.  An individual unit in the network: a "node" or "vertex" (plu.: vertices)
+2.  A link between one node and another node: an "edge" or a "tie"
+
+## 
+
+[![](images/GraphExample-690x371.png)](http://www.martingrandjean.ch/introduction-to-network-visualization-gephi/)
+
+## What does the data look like?
+
+![](images/Screenshot%202022-10-03%20at%2016.31.03.png)
+
+## What does the data look like?
+
+![](images/Screenshot%202022-10-03%20at%2016.44.56.png)
+
+## And it's useful for us...
+
+-   For estimating political preferences (cf. last week's lecture)
+
+-   For understanding information consumption and e.g.:
+
+    -   polarization in news exposure
+
+    -   diversity in news consumption
+
+-   For tracking information diffusion and e.g.:
+
+    -   spread of rumours
+
+    -   spread of fake news
+
+## Example: @conover2011
+
+-   Data: 250,000 tweets collected before 2010 US midterms
+
+-   45,000 individual users
+
+-   Tweets tagged for political content
+
+## Example: @conover2011
+
+-   Tagging of political content was with
+
+    -   Jaccard coefficient to determine frequently co-occurring tweets:
+
+        -   $\sigma(S,T) = \frac{|S\cap T|}{|S\cup T|}$ where $S$ is a set of tweets containing seed hashtag and $T$ a set of tweets containing another hashtag
+
+## Example: @conover2011
+
+-   Then filtered data according to appearance of political hashtags
+
+    -   Generated retweet and mentions node and edge data
+
+        -   Plotted data using community detection algorithm
+
+## Example: @conover2011
+
+![](images/Screenshot%202022-10-03%20at%2017.45.36.png)
+
+## Example: @conover2011
+
+-   Manually annotated 1000 tweets for left-right affiliation
+
+    -   Measured frequency of cross-ideological retweeting/mentioning
+
+        -   Inferred overall community membership from these statistics
+
+        -   Inferred membership of (left-right) community from community detection statistic
+
+## A note on computational thinking
+
+-   Taking digital trace data and:
+
+    -   Asking questions that can be articulated in computational terms
+
+    -   Enriching that data (through computational/non-computational means)
+
+    -   Abstracting that data into approximate solution

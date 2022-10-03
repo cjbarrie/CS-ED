@@ -105,6 +105,10 @@ wbdata_mp %>%
 
 ## Analyzing network data
 
+::: {.callout-note appearance="simple"}
+This section is adapted in part from the exercise written by Tod Van Gunten for SICSS 22 [here](https://github.com/cjbarrie/sicss_22/blob/main/organizer_materials/gunten/mp_tweet_networks_v2.R#L187).
+:::
+
 ```{r, message= F, verbose = F}
 library(igraph)
 library(tidygraph)
