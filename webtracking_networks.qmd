@@ -99,12 +99,13 @@ And once we have this, it's pretty easy for us to start plotting the data like s
 ```{r}
 wbdata_mp %>%
   ggplot() +
-  geom_bar(aes(domain, n), stat = "identity")
+  geom_bar(aes(domain, n), stat = "identity") +
+  coord_flip()
 ```
 
 ## Analyzing network data
 
-```{r}
+```{r, message=F, verbose = F}}
 library(igraph)
 library(tidygraph)
 library(dplyr)
@@ -145,7 +146,7 @@ The edges record the links between one account and another account. These might 
 
 For each of the nodes and edges, the numbers refer to the individual unique ID of the node and the unique ID of the edge. So, in the first row: 4522 and 617 refer to the IDs of a "tie" or link between one node and another node---and this is what we refer to as an "edge."
 
-```{r}
+```{r, message=F, verbose = F}
 library(tidylog)
 
 colnames(nodes) <- c("node1", "lr")
@@ -155,6 +156,8 @@ rt_samp <- edges %>%
   filter(type == "retweet")
 
 ```
+
+Note here we're loading a new package `tidylog`, which is helpful because it outputs information on the success or failure of any data joins we're doing---and tells us what any filter has done to our data. It's good practice to have this loaded when you're wrangling data as it helps avoid mistakes.
 
 Here, we have first renamed our columns to something more intuitive: i.e., "node1" to refer to the nodes from which any tie is formed (because they retweet or mention another account) and "lr" to refer to the left-right orientation of the account that is doing the retweeting or mentioning.
 

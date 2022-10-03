@@ -1,0 +1,17 @@
+---
+title: "Week 3"
+subtitle: "Computational Sociology"
+author: Christopher Barrie
+format:
+  revealjs:
+    chalkboard: true
+editor: visual
+---
+
+## Introduction
+
+1.  Housekeeping
+2.  Web tracking and Networks
+
+## Introduction: Web tracking and Networks
+

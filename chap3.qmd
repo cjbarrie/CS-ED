@@ -6,7 +6,7 @@ One of these tools was web-tracking---a subject we will discuss in detail this w
 
 A new type of analysis, which we didn't cover in the articles last week, is so-called "network analysis" where we look at the structure of information flow, human-to-human or user-to-user connections. Here, we will discuss the basic structure of network data as well as how it can be used to tell us something about selective exposure online.
 
-The replication task for this week will give you an example of network data, what it looks like, and how we can manipulate it to speak to some of the questions in the echo chambers literature.
+The replication task for this week will give you an example of web tracking network data, what it looks like, and how we can manipulate it to speak to some of the questions in the echo chambers literature.
 
 ## Essential reading:
 
@@ -25,3 +25,7 @@ The replication task for this week will give you an example of network data, wha
 -   @mosleh2021
 
 -   @chen2021
+
+## Slides
+
+Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/003_webtrack_networks.html)
