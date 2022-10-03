@@ -105,7 +105,7 @@ wbdata_mp %>%
 
 ## Analyzing network data
 
-```{r, message=F, verbose = F}}
+```{r, message= F, verbose = F}
 library(igraph)
 library(tidygraph)
 library(dplyr)
