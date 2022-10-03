@@ -107,21 +107,118 @@ wbdata_mp %>%
 ```{r}
 library(igraph)
 library(tidygraph)
+library(dplyr)
+library(RColorBrewer)
+library(classInt)
 
 conov_net <- read_graph("data/replication/icwsm_polarization/all.graphml", format = "graphml")
 
-edges <- read.table("data/replication/icwsm_polarization/all.edgelist.txt")
-
 nodes <- read.table("data/replication/icwsm_polarization/all.nodes.txt")
 
-edges %>% 
-  head(5) %>%
-  kbl() %>%
-  kable_styling(c("striped", "hover", "condensed", "responsive"))
+edges <- read.table("data/replication/icwsm_polarization/all.edgelist.txt")
 
 nodes %>% 
   head(5) %>%
   kbl() %>%
   kable_styling(c("striped", "hover", "condensed", "responsive"))
 
+edges %>% 
+  head(5) %>%
+  kbl() %>%
+  kable_styling(c("striped", "hover", "condensed", "responsive"))
+
 ```
+
+Here we can see in the first table what we refer to in the networks world as "nodes" and in the second what we call "edges."
+
+You can download these data on your machines with:
+
+```{r, eval = F}
+nodes <- read.table(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/all.nodes.txt?raw=true")))
+
+edges <- read.table(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/all.edgelist.txt?raw=true")))
+```
+
+A node is the name for any individual entity in our networks (so here: a Twitter account) along with its "left-right" political leaning label.
+
+The edges record the links between one account and another account. These might be "retweets" or they might be "mentions." And we can visualize these separately.
+
+For each of the nodes and edges, the numbers refer to the individual unique ID of the node and the unique ID of the edge. So, in the first row: 4522 and 617 refer to the IDs of a "tie" or link between one node and another node---and this is what we refer to as an "edge."
+
+```{r}
+library(tidylog)
+
+colnames(nodes) <- c("node1", "lr")
+colnames(edges) <- c("node1", "node2", "type", "n", "id")
+rt_samp <- edges %>%
+  left_join(nodes, by = "node1") %>%
+  filter(type == "retweet")
+
+```
+
+Here, we have first renamed our columns to something more intuitive: i.e., "node1" to refer to the nodes from which any tie is formed (because they retweet or mention another account) and "lr" to refer to the left-right orientation of the account that is doing the retweeting or mentioning.
+
+For the edges data, we have done the same, but we also have columns for the node to which one node is making a connection by either retweeting or mentioning. Here, I'm referring to these accounts as "node2" because this is the node with which the edge is formed.
+
+We then also have a column in the edges data for "type" and this refers to whether the edge between two nodes is a retweet or a mention. Finally, we have the "n" (or count) of retweets or mentions between two nodes, and a unique identifier or "id".
+
+```{r}
+rt_samp$node1 <- as.character(rt_samp$node1)
+rt_samp$node2 <- as.character(rt_samp$node2)
+
+igraph_rt_samp <- graph_from_edgelist(
+  as.matrix(rt_samp[,c("node1","node2")]),
+  directed = T
+)
+
+plot(simplify(igraph_rt_samp), 
+     vertex.label = NA, 
+     vertex.size = 2,
+     edge.arrow.size = 0)
+```
+
+In the above, we have then converted the "class" of the `$node1` and `$node2` objects to the character class so we can properly reformat them into the matrix type class required to make an `igraph` object, which is the class of object we need in order to use the `igraph` package.
+
+Once we have made our igraph object, which here we're calling `igraph_rt_samp` since this is an `igraph` object containing a sample of retweets, we are ready to plot.
+
+Here, we are simply plotting the network, and specifying a few styling options, which change the size of the vertices (another name for nodes) and remove the default arrows that appear on these plots (as they just clutter the visualization).
+
+```{r}
+
+samp_attr <- data.frame(
+  node = V(igraph_rt_samp)$name,
+  node.seq = 1:length(V(igraph_rt_samp)$name)
+  # ,
+  # degree.in = degree(igraph_rt_samp, mode = "in"), #unhash this to also estimate indegree
+  # between.dir = betweenness(igraph_rt_samp, directed = T,normalized = T), #unhash this to also estimate betweenness
+  # between.undir = betweenness(igraph_rt_samp, directed = F, normalized = T) #unhash this to also estimate betweenness (undirected)
+)
+
+nodes$node <- as.character(nodes$node)
+nodes <- nodes %>%
+  mutate(lrcolor = recode(lr,
+                              "right" = "#DE0100",
+                              "left" = "#0015BC",
+                              "-" = "#a6a49f")
+  )
+
+samp_attr_lr <- samp_attr %>%
+  left_join(nodes, by = "node")
+
+plot(simplify(igraph_rt_samp), 
+     vertex.label = NA, 
+     vertex.size = 4,
+     vertex.color = samp_attr_lr$lrcolor,
+     edge.arrow.size = 0)
+
+```
+
+Notice, however, that the above plot doesn't display any information on the left-right orientation of the nodes (or accounts). To do this, we need to add in information on the ideological orientation of users. We can do this by using the `mutate` and `recode` functions in the `tidyverse`.
+
+First we create an object that just orders all our nodes into one `data.frame` object. Note you can unhash some of these rows to also get some additional statistics such as betweenness and indegree.
+
+We choose hex colors based on the standard colors for the "Democrat" and "Republican" parties in the US: i.e., red for Republicans and blue for Democrats.
+
+We then add this into our `samp_attr_lr` object where we have recorded the attributes of each of our edges.
+
+Now we can plot: and we see that we already have a network visualization that looks similar to that in Figure 1 of the @conover2011 article.
