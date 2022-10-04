@@ -139,9 +139,9 @@ Here we can see in the first table what we refer to in the networks world as "no
 You can download these data on your machines with:
 
 ```{r, eval = F}
-nodes <- read.table(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/all.nodes.txt?raw=true")))
+nodes <- read.table(url("https://github.com/cjbarrie/CS-ED/blob/main/data/all.nodes.txt?raw=true"))
 
-edges <- read.table(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/all.edgelist.txt?raw=true")))
+edges <- read.table(url("https://github.com/cjbarrie/CS-ED/blob/main/data/all.edgelist.txt?raw=true"))
 ```
 
 A node is the name for any individual entity in our networks (so here: a Twitter account) along with its "left-right" political leaning label.
