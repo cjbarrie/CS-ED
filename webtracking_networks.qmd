@@ -103,6 +103,11 @@ wbdata_mp %>%
   coord_flip()
 ```
 
+### Questions
+
+1.  Count the types of things I'm doing online (column "transType" in the `wbdata`). What is my most frequent type of interaction with the web?
+2.  Change the colour of the bars in the bar graph.
+
 ## Analyzing network data
 
 ::: {.callout-note appearance="simple"}
@@ -229,3 +234,8 @@ We choose hex colors based on the standard colors for the "Democrat" and "Republ
 We then add this into our `samp_attr_lr` object where we have recorded the attributes of each of our edges.
 
 Now we can plot: and we see that we already have a network visualization that looks similar to that in Figure 1 of the @conover2011 article.
+
+### Questions
+
+1.  Count how many "left" nodes there are and how many "right" nodes there are.
+2.  Add arrows to the network plot and increase their width (hint: see [here](https://r-graph-gallery.com/248-igraph-plotting-parameters.html))
