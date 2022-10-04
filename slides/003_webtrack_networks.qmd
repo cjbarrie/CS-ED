@@ -241,3 +241,8 @@ And these elements of network data have their names:
     -   Enriching that data (through computational/non-computational means)
 
     -   Abstracting that data into approximate solution
+
+## References
+
+::: {#refs}
+:::
