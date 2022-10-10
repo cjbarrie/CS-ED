@@ -1,0 +1,222 @@
+---
+title: "Week 4"
+subtitle: "Computational Sociology"
+author: Christopher Barrie
+format:
+  revealjs:
+    chalkboard: true
+editor: visual
+bibliography: /Users/cbarrie6/Dropbox/Teaching/Edinburgh/teaching/CS_22-23/CS-ED/references.bib
+---
+
+## Introduction
+
+1.  Housekeeping
+2.  Web tracking and Networks
+
+## Introduction: Misinformation and fake news
+
+-   When is the last time you read some misinfo. online?
+
+## Introduction: Misinformation and fake news
+
+-   Do you think others are more exposed than you?
+    -   Why?
+
+## Introduction: Misinformation and fake news
+
+-   When is the last time you believed some misinformation/fake news online?
+
+## Introduction: Misinformation and fake news
+
+-   When is the last time you believed some misinformation/fake news online?
+    -   Do you think it affected you?
+
+        -   How?
+
+## Why it matters
+
+[![](images/Screenshot%202022-10-10%20at%2014.08.06.png)](https://www.theguardian.com/books/2017/nov/02/fake-news-is-very-real-word-of-the-year-for-2017)
+
+## Why it matters
+
+[![](images/Screenshot%202022-10-10%20at%2014.05.20.png)](https://publications.parliament.uk/pa/cm201719/cmselect/cmcumeds/1791/1791.pdf)
+
+## Why it matters
+
+[![](images/Screenshot%202022-10-10%20at%2014.02.52.png)](https://www.nytimes.com/2022/03/04/business/china-russia-ukraine-disinformation.html)
+
+## But what is it?
+
+Often abused terms...
+
+**Misinformation**: (un)knowingly false information
+
+**Disinformation**: knowingly false information often spread to advance a particular cause or viewpoint
+
+**Fake news**: knowingly false information often designed to look like real news
+
+## Some examples
+
+**Misinformation**: the claim that exiting the European Union would deliver £350m
+
+[![](images/Screenshot%202022-10-10%20at%2014.16.37.png)](https://fullfact.org/europe/350-million-week-boris-johnson-statistics-authority-misuse/)
+
+## Some examples
+
+**Disinformation**: the claim that Russia's invasion of Ukraine is a result of US treaty non-compliance and NATO aggression
+
+[![](images/Screenshot%202022-10-10%20at%2016.36.04.png)](https://news.cgtn.com/news/2022-02-26/Why-would-Russia-want-to-develop-its-security-guarantees--17XSXiM8qm4/index.html)
+
+## Some examples
+
+**Fake news**: the claim that Ukraine is organizing nuclear strike on Russia
+
+![](images/Screenshot%202022-10-10%20at%2016.45.05.png)
+
+## So what questions should we be asking?
+
+1.  Do we all get exposed to misinformation/fake news?
+2.  What are the effects on
+    1.  Individual level?
+
+    2.  Institutional level?
+
+## So what questions should we be asking?
+
+1.  Do we all get exposed to misinformation/fake news?
+
+## Exposure heterogeneity
+
+Different types of people are more/less likely to be exposed to misinformation and fake news
+
+Different types of people are more/less likely to *believe* misinformation and fake news
+
+## Exposure heterogeneity
+
+[![](images/Screenshot%202022-10-10%20at%2017.31.51.png)](https://www.science.org/doi/10.1126/sciadv.aay3539)
+
+## Exposure heterogeneity
+
+In @allen2020 we see that:
+
+-   Older individuals more likely to consume fake news
+
+-   2% consumed more fake news than mainstream news
+
+    -   But only .7% spent more than 1 min. per day
+
+So is 2% a big number or a small number?
+
+What do we have to consider here?
+
+## Exposure heterogeneity
+
+In @allen2020 we see that:
+
+-   Older individuals more likely to consume fake news
+
+-   2% consumed more fake news than mainstream news
+
+    -   But only .7% spent more than 1 min. per day
+
+So is 2% a big number or a small number?
+
+What do we have to consider here?
+
+1.  The (voting) population of the US
+2.  The size of the information ecosystem
+
+## Exposure heterogeneity
+
+Do these trends generalize?
+
+## Exposure heterogeneity
+
+See @guess2019
+
+[![](images/Screenshot%202022-10-10%20at%2017.40.33.png)](https://www.science.org/doi/10.1126/sciadv.aau4586)
+
+## Exposure heterogeneity
+
+It's not just age...
+
+But also cognitive traits. See @pennycook2019 for more details.
+
+[![](images/Screenshot%202022-10-10%20at%2018.09.26.png)](https://www.nature.com/articles/s41562-020-0833-x)
+
+## Exposure heterogeneity
+
+And partisan selective exposure (cf. Week 2) extends to fake news too:
+
+[![](images/Screenshot%202022-10-10%20at%2018.00.41.png)](https://www.nature.com/articles/s41562-020-0833-x)
+
+## Exposure heterogeneity
+
+Confirmed by other studies too such as @osmundsen2021
+
+[![](images/Screenshot%202022-10-10%20at%2019.16.26.png)](https://www.cambridge.org/core/journals/american-political-science-review/article/partisan-polarization-is-the-primary-psychological-motivation-behind-political-fake-news-sharing-on-twitter/3F7D2098CD87AE5501F7AD4A7FA83602)
+
+## A summary so far...
+
+So consumption:
+
+1.  Differs by age
+2.  Differs by partisan position
+3.  Differs by cognitive traits (reflection)
+
+## But what does all this do?
+
+In other words: does consumption of fake news/misinformation have consequences for politics/society/democracy?
+
+One hypothesis:
+
+-   Despite small overall consumption share, misinformation consumption has outsized effects among small subpopulation
+
+## But what does all this do?
+
+Some evidence from @guess2020a
+
+[![](images/Screenshot%202022-10-10%20at%2019.05.26.png)](https://misinforeview.hks.harvard.edu/article/fake-news-limited-effects-on-political-participation/)
+
+## But what does all this do?
+
+Some evidence from @guess2020a
+
+[![](images/Screenshot%202022-10-10%20at%2019.06.59.png)](https://misinforeview.hks.harvard.edu/article/fake-news-limited-effects-on-political-participation/)
+
+## But what does all this do?
+
+Though some experimental evidence from @guess2020a suggests effect on voting but not other types of political participation (or trust in media).
+
+[![](images/Screenshot%202022-10-10%20at%2019.11.23.png)](https://misinforeview.hks.harvard.edu/article/fake-news-limited-effects-on-political-participation/)
+
+## But what does all this do?
+
+Though other work by @bail2019 shows that exposure to misinformation by Internet Research Agency trolls had no effect on important political attitudes and behaviours
+
+[![](images/Screenshot%202022-10-10%20at%2019.14.45.png)](https://www.pnas.org/doi/10.1073/pnas.1906420116)
+
+## In summary
+
+-   Different types of people are exposed to different types of untrustworthy content
+-   The size of this consumption is likely small
+    -   But what is small after all...?
+-   The effects are most obvious for beliefs
+    -   More work needed on political behavioural effects
+
+## A note on computational thinking
+
+This week:
+
+-   We see what's measurable (and what isn't) using digital data
+    -   e.g., with the @allen2020 article
+-   We see how we can extend and validate theoretical models by using digital trace data
+    -   e.g., with the article by @vosoughi2018
+-   We see how we can combine multiple sources of information to approach an approximate solution to a question
+    -   e.g. with the article by @guess2020
+
+## References
+
+::: {#refs}
+:::
