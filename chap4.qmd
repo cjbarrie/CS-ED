@@ -25,4 +25,3 @@ And fake news, as well as misinformation, have been linked to a set of important
 ## Slides
 
 Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/004_misinfo.html)
-

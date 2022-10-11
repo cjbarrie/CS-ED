@@ -1,1 +1,13 @@
-# Week 5
+# Week 5: Linked surveys and social media analysis
+
+This week we're going to be looking at two techniques for analyzing the digital world using computational techniques. And we're going to be thinking about how we use these techniques to answer questions specific to the field of misinformation research.
+
+The first are linked surveys. These are a type of survey that combine traditional survey analysis, often deployed through online means, with linked social media or other digital trace data. We're going to be talking about challenges of probability and non-probability sampling online as well as questions of response and recall.
+
+The second I generally refer to as "social media analysis." The reason I refer to this so generally is that the analysis of social media data often combines multiple different tools in the computational researcher's toolkit.
+
+## Essential reading:
+
+@guess2019
+
+@gonzález-bailón2021
