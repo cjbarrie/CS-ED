@@ -28,6 +28,7 @@ book:
     - chap9.qmd
     - chap10.qmd
     - webtracking_networks.qmd
+    - data_ingest_apis.qmd
     - references.qmd
 
 bibliography: references.bib
