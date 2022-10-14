@@ -78,6 +78,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -279,6 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#using-apis" id="toc-using-apis" class="nav-link active" data-scroll-target="#using-apis">Using APIs</a>
   <ul class="collapse">
   <li><a href="#other-apis-r-packages" id="toc-other-apis-r-packages" class="nav-link" data-scroll-target="#other-apis-r-packages">Other APIs (R packages)</a></li>
+  <li><a href="#rehydrating-tweets" id="toc-rehydrating-tweets" class="nav-link" data-scroll-target="#rehydrating-tweets">Rehydrating tweets</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/cjbarrie/CS-ED/edit/master/data_ingest_apis.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
@@ -302,9 +322,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<p>In what follows, we’ll go through some examples of how to collect data from Twitter. Twitter has a number of access points (APIs) and the amount and variety of data you can access depends on your permissions. These are explained below.</p>
+<p>Often, articles using Twitter data share the replication materials as tweet “IDs”. This is because the Terms of Service for the Twitter API dictate that, for reproduction purposes, it is not permitted to share the raw contents of tweets. Instead, we have to “rehydrate” these tweets. An example of this from <span class="citation" data-cites="barrie2021">Barrie and Frey (<a href="references.html#ref-barrie2021" role="doc-biblioref">2021</a>)</span> is provided below.</p>
 <section id="using-apis" class="level2">
 <h2 class="anchored" data-anchor-id="using-apis">Using APIs</h2>
-<p>To practice these skills, you might want to create a new account for your academic research. But you needn’t create a new account to follow the steps below. You can simply use your own account—if you have one—as using the developer tools will not change anything about your public Twitter account.</p>
+<p>To practice these skills, you might want to create a new Twitter account for your academic research. But you needn’t create a new account to follow the steps below. You can simply use your own Twitter account—if you have one—as using the developer tools will not change anything about your public Twitter account.</p>
 <p><img src="data/twitterdev.png" class="img-fluid" style="width:100.0%"></p>
 <p>Before proceeding, we’ll load the remaining packages we will need for this tutorial.</p>
 <div class="cell">
@@ -326,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Navigate to “Keys and tokens” on this page, and click generate in the Access token &amp; secret box as below:</p>
 <p><img src="data/twitterdev6.png" class="img-fluid" style="width:50.0%"></p>
 <p>Record these as well. Once you have all of these keys and tokens recorded somewhere safe, you are ready to collect data!</p>
-<p>This is pretty simple using the <tt>rtweet</tt> package. Below, we’ll collect the last 50 tweets of the founder of Twitter: Jack Dorsey.</p>
+<p>This is pretty simple using the <code>rtweet</code> package. Below, we’ll collect the last 50 tweets of the founder of Twitter: Jack Dorsey.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>api_key <span class="ot">&lt;-</span><span class="st">" XXXXXXXXXXXXXXXXXXXXXXX"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>api_key_secret <span class="ot">&lt;-</span> <span class="st">"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span></span>
@@ -418,7 +440,7 @@ See you then! ✊🏾 https://t.co/ACnRhdabEy </td>
 
 </div>
 </div>
-<p>Now you can play around with the different API calls possible with the <tt>rtweet</tt> package. See the full documentation <a href="https://cran.r-project.org/web/packages/rtweet/rtweet.pdf">here</a> and <a href="https://github.com/ropensci/rtweet">here</a>.</p>
+<p>Now you can play around with the different API calls possible with the <code>rtweet</code> package. See the full documentation <a href="https://cran.r-project.org/web/packages/rtweet/rtweet.pdf">here</a> and <a href="https://github.com/ropensci/rtweet">here</a>.</p>
 <p>And for those interested, you can my package to collect tweets from the Academic Research Product Track API <a href="https://github.com/cjbarrie/academictwitteR">here</a>.</p>
 <p>Getting access to the Academic Research Product Track is a bit more complicated but for more information on how to apply see <a href="https://developer.twitter.com/en/solutions/academic-research/products-for-researchers">here</a>.</p>
 <p>In order to use the Twitter Academic Research Product Track you will first need to obtain an authorization token. You will find details about the process of obtaining authorization <a href="https://developer.twitter.com/en/solutions/academic-research/application-info">here</a>.</p>
@@ -560,12 +582,125 @@ See you then! ✊🏾 https://t.co/ACnRhdabEy </td>
 <section id="other-apis-r-packages" class="level3">
 <h3 class="anchored" data-anchor-id="other-apis-r-packages">Other APIs (R packages)</h3>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/manifestoR/index.html">https://cran.r-project.org/web/packages/manifestoR/index.html</a></li>
-<li><a href="https://cran.r-project.org/web/packages/vkR/vkR.pdf">https://cran.r-project.org/web/packages/vkR/vkR.pdf</a></li>
-<li><a href="https://cran.r-project.org/web/packages/tuber/index.html">https://cran.r-project.org/web/packages/tuber/index.html</a></li>
+<li><a href="https://cran.r-project.org/web/packages/manifestoR/index.html" class="uri">https://cran.r-project.org/web/packages/manifestoR/index.html</a></li>
+<li><a href="https://cran.r-project.org/web/packages/vkR/vkR.pdf" class="uri">https://cran.r-project.org/web/packages/vkR/vkR.pdf</a></li>
+<li><a href="https://cran.r-project.org/web/packages/tuber/index.html" class="uri">https://cran.r-project.org/web/packages/tuber/index.html</a></li>
 </ul>
+</section>
+<section id="rehydrating-tweets" class="level3">
+<h3 class="anchored" data-anchor-id="rehydrating-tweets">Rehydrating tweets</h3>
+<p>As noted above, tweets are also often shared in the form of “IDs.” This is the case for the article by <span class="citation" data-cites="barrie2021">Barrie and Frey (<a href="references.html#ref-barrie2021" role="doc-biblioref">2021</a>)</span>. You can see some of the original tweet IDs we used for this article <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/5ZVMOR">here</a>.</p>
+<p>We would then “hydrate” these tweets as follows using the <code>academictwitteR</code> package.</p>
+<p>I have provided a sample of these IDs for this worksheet, which you can consult yourselves.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tweet_IDs <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/wm_IDs_samp.rds"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tweet_IDs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "823360655835168640" "822727580923154432" "822953780127862784"
+[4] "823136522199253120" "821584199949942784" "822868286979342208"</code></pre>
+</div>
+</div>
+<p>And you can download these tweets from online to your own machines as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tweet_IDs <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">gzcon</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cjbarrie/CS-ED/blob/main/data/wm_IDs_samp.rds?raw=true"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then we would rehydrate these tweets as follows using the <code>academictwitteR</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#throws an error still for some IDs (looking into this)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>hydrated_tweets <span class="ot">&lt;-</span> <span class="fu">hydrate_tweets</span>(tweet_IDs, <span class="at">errors =</span> T,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">data_path =</span> <span class="st">"data/hydrated_tweets/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you can’t get access to an Academic Research Product Track API account, there are other ways still of getting the raw tweet data from publicly shared tweet IDs. One is the “hydrator” desktop <a href="https://github.com/DocNow/hydrator#readme">tool</a> made by organization Documenting the Now.</p>
+<p>You can see more of their work—and download the hydrator tool <a href="https://www.docnow.io/">here</a>. There you will also find publicly available datasets of tweet IDs that you can hydrate yourselves.</p>
+<p>For the article by <span class="citation" data-cites="barrie2021">Barrie and Frey (<a href="references.html#ref-barrie2021" role="doc-biblioref">2021</a>)</span>, they inferred the ideological position of individual users based on who they followed on Twitter. We won’t do this for the Women’s March IDs. But you can follow the steps below in order to estimate the ideology of my own Twitter account “@cbarrie”.</p>
+<p>First we need to get the my user ID (the unique set of integers that identifies an account). We can do this using <code>academictwitteR</code> or by using <a href="https://tweeterid.com/" class="uri">https://tweeterid.com/</a>.</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: R2WinBUGS</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: coda</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: boot</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>##
+## tweetscores: tools for the analysis of Twitter data</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>## Pablo Barbera (USC)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>## www.tweetscores.com
+##</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(academictwitteR)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"pablobarbera/twitter_ideology/pkg/tweetscores"</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tweetscores)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#use https://tweeterid.com/ to convert your username to an ID</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#OR</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#get user @cbarrie</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">get_user_id</span>(<span class="st">"cbarrie"</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>cjb_ID <span class="ot">&lt;-</span> <span class="st">"95226101"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can get the IDs of the accounts I follow and have a look at them:</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find who he's following</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>userfwing <span class="ot">&lt;-</span> <span class="fu">get_user_following</span>(cjb_ID)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#get their IDs if you wanted to further analysis on the following network of @cbarrie</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>ids <span class="ot">&lt;-</span> userfwing<span class="sc">$</span>id</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ids)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "1451947528333762562" "326311946"           "2458351124"         
+[4] "29943199"            "124852105"           "111456333"          </code></pre>
+</div>
+</div>
+<p>We can then have a look at the public metrics (number of followers, tweets etc.) of the accounts I follow. And we could visualize these if we wished.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get the user metrics of whom @cbarrie is following</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>userfwing_metrics <span class="ot">&lt;-</span> userfwing<span class="sc">$</span>public_metrics</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#plot </span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>userfwing_metrics <span class="sc">%&gt;%</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="fu">log</span>(followers_count)),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> .<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="data_ingest_apis_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Then finally we can use the <code>tweetscores</code> package to estimate the ideological position of the user in question. Though note that I only follow 2 of the relevant elites stored in this package so the estimates might not be accurate!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">estimateIdeology</span>(<span class="st">"cbarrie"</span>, ids)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Ignoring unknown parameters: width</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="data_ingest_apis_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>And that is, essentially, how the ideology estimates were calculated in <span class="citation" data-cites="barrie2021">Barrie and Frey (<a href="references.html#ref-barrie2021" role="doc-biblioref">2021</a>)</span> (except for a lot more people…!).</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-barrie2021" class="csl-entry" role="doc-biblioentry">
+Barrie, Christopher, and Arun Frey. 2021. <span>“Faces in the Crowd: Twitter as Alternative to Protest Surveys.”</span> Edited by Barbara Guidi. <em>PLOS ONE</em> 16 (11): e0259972. <a href="https://doi.org/10.1371/journal.pone.0259972">https://doi.org/10.1371/journal.pone.0259972</a>.
+</div>
+</div>
 </section>
 </section>
 
