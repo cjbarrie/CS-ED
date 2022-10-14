@@ -383,3 +383,5 @@ plot(results)
 results <- readRDS("data/cjbtscore.rds")
 plot(results)
 ```
+
+And that is, essentially, how the ideology estimates were calculated in @barrie2021 (except for a lot more people...!).
