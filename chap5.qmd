@@ -11,3 +11,7 @@ The second is a standalone example social media analysis. The analysis of social
 @guess2019
 
 @gonzález-bailón2021
+
+## Additional reading:
+
+@barrie2021
