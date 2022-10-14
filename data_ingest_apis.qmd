@@ -1,10 +1,14 @@
 # Worksheet 2: Importing data and APIs {.unnumbered}
 
+In what follows, we'll go through some examples of how to collect data from Twitter. Twitter has a number of access points (APIs) and the amount and variety of data you can access depends on your permissions. These are explained below.
+
+Often, articles using Twitter data share the replication materials as tweet "IDs". This is because the Terms of Service for the Twitter API dictate that, for reproduction purposes, it is not permitted to share the raw contents of tweets. Instead, we have to "rehydrate" these tweets. An example of this from @barrie2021 is provided below.
+
 ## Using APIs
 
-To practice these skills, you might want to create a new account for your academic research. But you needn't create a new account to follow the steps below. You can simply use your own account---if you have one---as using the developer tools will not change anything about your public Twitter account. 
+To practice these skills, you might want to create a new Twitter account for your academic research. But you needn't create a new account to follow the steps below. You can simply use your own Twitter account---if you have one---as using the developer tools will not change anything about your public Twitter account.
 
-![](data/twitterdev.png){width=100%}
+![](data/twitterdev.png){width="100%"}
 
 Before proceeding, we'll load the remaining packages we will need for this tutorial.
 
@@ -19,26 +23,25 @@ Click on Apply in the navigation bar on the top right of the page. You'll be ask
 
 Once you have authorization, a new tab will appear in the navigation bar at the top of the develop portal, as below:
 
-![](data/twitterdev2.png){width=100%}
+![](data/twitterdev2.png){width="100%"}
 
 Navigate to the developer portal and you will there be able to create a new "app" to query the API. You see in my account that I have several apps for different purposes.
 
-![](data/twitterdev3.png){width=100%}
-We can create a new app on this page too. When we click "Create App" we will first be asked to name the app. Most importantly, we will then be given an "API key"; an "API secret key"; and a "Bearer token" as below.
+![](data/twitterdev3.png){width="100%"} We can create a new app on this page too. When we click "Create App" we will first be asked to name the app. Most importantly, we will then be given an "API key"; an "API secret key"; and a "Bearer token" as below.
 
-![](data/twitterdev4.png){width=30%}
+![](data/twitterdev4.png){width="30%"}
 
 You **MUST** make a record of these. Once you have done so, you can then use these to access the API. Once you have recorded these, navigate to the App setting tabs for the App you've created now listed in the Overview tab on the left hand side navigation window.
 
-![](data/twitterdev5.png){width=50%}
+![](data/twitterdev5.png){width="50%"}
 
 Navigate to "Keys and tokens" on this page, and click generate in the Access token & secret box as below:
 
-![](data/twitterdev6.png){width=50%}
+![](data/twitterdev6.png){width="50%"}
 
 Record these as well. Once you have all of these keys and tokens recorded somewhere safe, you are ready to collect data!
 
-This is pretty simple using the <tt>rtweet</tt> package. Below, we'll collect the last 50 tweets of the founder of Twitter: Jack Dorsey. 
+This is pretty simple using the `rtweet` package. Below, we'll collect the last 50 tweets of the founder of Twitter: Jack Dorsey.
 
 ```{r, eval=FALSE}
 api_key <-" XXXXXXXXXXXXXXXXXXXXXXX"
@@ -61,7 +64,7 @@ head(jacktweets)
 
 ```
 
-Once you have enter your keys, tokens, and key/token secrets, store them with the `create_token()` function. Here, we are collecting the last 50 tweets for Jack Dorsey, though you can change this by specifying a higher n---be aware, though, that the maximum you are able to collect with the basic API access is 3200 tweets. 
+Once you have enter your keys, tokens, and key/token secrets, store them with the `create_token()` function. Here, we are collecting the last 50 tweets for Jack Dorsey, though you can change this by specifying a higher n---be aware, though, that the maximum you are able to collect with the basic API access is 3200 tweets.
 
 ```{r, echo=F, warning=-F, message=F}
 
@@ -76,51 +79,51 @@ kbl(jacktweets[1:10,]) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
 ```
 
-Now you can play around with the different API calls possible with the <tt>rtweet</tt> package. See the full documentation [here](https://cran.r-project.org/web/packages/rtweet/rtweet.pdf) and [here](https://github.com/ropensci/rtweet).
+Now you can play around with the different API calls possible with the `rtweet` package. See the full documentation [here](https://cran.r-project.org/web/packages/rtweet/rtweet.pdf) and [here](https://github.com/ropensci/rtweet).
 
 And for those interested, you can my package to collect tweets from the Academic Research Product Track API [here](https://github.com/cjbarrie/academictwitteR).
 
 Getting access to the Academic Research Product Track is a bit more complicated but for more information on how to apply see [here](https://developer.twitter.com/en/solutions/academic-research/products-for-researchers).
 
-In order to use the Twitter Academic Research Product Track you will first need to obtain an authorization token. You will find details about the process of obtaining authorization [here](https://developer.twitter.com/en/solutions/academic-research/application-info). 
+In order to use the Twitter Academic Research Product Track you will first need to obtain an authorization token. You will find details about the process of obtaining authorization [here](https://developer.twitter.com/en/solutions/academic-research/application-info).
 
 **In order to gain authorization you first need a Twitter account.**
 
 First, Twitter will ask for details about your academic profile. Per the documentation linked above, they will ask for the following:
 
-> Your full name as it is appears on your institution’s documentation
-> 
->   Links to webpages that help establish your identity; provide one or more of the following:
-> 
->   - A link to your profile in your institution’s faculty or student directory
->   - A link to your Google Scholar profile
->   - A link to your research group, lab or departmental website where you are listed
-> 
->   Information about your academic institution: its name, country, state, and city
-> 
->   Your department, school, or lab name
-> 
->   Your academic field of study or discipline at this institution
-> 
->   Your current role as an academic (whether you are a graduate student, doctoral candidate,       post-doc, professor, research scientist, or other faculty member)
+> Your full name as it is appears on your institution's documentation
+>
+> Links to webpages that help establish your identity; provide one or more of the following:
+>
+> -   A link to your profile in your institution's faculty or student directory
+> -   A link to your Google Scholar profile
+> -   A link to your research group, lab or departmental website where you are listed
+>
+> Information about your academic institution: its name, country, state, and city
+>
+> Your department, school, or lab name
+>
+> Your academic field of study or discipline at this institution
+>
+> Your current role as an academic (whether you are a graduate student, doctoral candidate, post-doc, professor, research scientist, or other faculty member)
 
 Twitter will then ask for details of the proposed research project. Here, questions include:
 
-> 1. What is the name of your research project?
+> 1.  What is the name of your research project?
 >
-> 2. Does this project receive funding from outside your academic institution? If yes, please list all your sources of funding.
+> 2.  Does this project receive funding from outside your academic institution? If yes, please list all your sources of funding.
 >
-> 3. In English, describe your research project. Minimum 200 characters.
+> 3.  In English, describe your research project. Minimum 200 characters.
 >
-> 4. In English, describe how Twitter data via the Twitter API will be used in your research project. Minimum 200 characters.
+> 4.  In English, describe how Twitter data via the Twitter API will be used in your research project. Minimum 200 characters.
 >
-> 5. In English, describe your methodology for analyzing Twitter data, Tweets, and/or Twitter users. Minimum 200 characters.
+> 5.  In English, describe your methodology for analyzing Twitter data, Tweets, and/or Twitter users. Minimum 200 characters.
 >
-> 6. Will your research present Twitter data individually or in aggregate?
+> 6.  Will your research present Twitter data individually or in aggregate?
 >
-> 7. In English, describe how you will share the outcomes of your research (include tools, data, and/or other resources you hope to build and share). Minimum 200 characters.
+> 7.  In English, describe how you will share the outcomes of your research (include tools, data, and/or other resources you hope to build and share). Minimum 200 characters.
 >
-> 8. Will your analysis make Twitter content or derived information available to a government entity?
+> 8.  Will your analysis make Twitter content or derived information available to a government entity?
 
 Once you have gained authorization for your project you will be able to see the new project on your Twitter developer portal.
 
@@ -132,11 +135,11 @@ The new "v2 endpoints" refer to the v2 API, introduced around the same time as t
 
 In summary the Academic Research product track allows the authorized user:
 
-1. Access to the full archive of (as-yet-undeleted) tweets published on Twitter
-2. A higher monthly tweet cap (10m--or 20x what was previously possible with the standard v1.1 API)
-3. Ability to access these data with more precise filters permitted by the v2 API
+1.  Access to the full archive of (as-yet-undeleted) tweets published on Twitter
+2.  A higher monthly tweet cap (10m--or 20x what was previously possible with the standard v1.1 API)
+3.  Ability to access these data with more precise filters permitted by the v2 API
 
-If you do get authorization for using the Twitter Academic API, you can then follow the next steps to begin collecting data. Instead of four different keys or secrets, we will have one "bearer token" that we use, associated with one of the apps that we created as above. This is all we then need to begin collecting data. 
+If you do get authorization for using the Twitter Academic API, you can then follow the next steps to begin collecting data. Instead of four different keys or secrets, we will have one "bearer token" that we use, associated with one of the apps that we created as above. This is all we then need to begin collecting data.
 
 First we need to load the package into memory as follows.
 
@@ -156,7 +159,7 @@ and enter authorization credentials as below:
 
 ![](data/TWITTER_BEARER.gif)
 
-This will mean that the bearer token is automatically called during API calls. It also avoids the inadvisable practice of hard-coding authorization credentials into scripts. 
+This will mean that the bearer token is automatically called during API calls. It also avoids the inadvisable practice of hard-coding authorization credentials into scripts.
 
 The workhorse function is `get_all_tweets()`, which is able to collect tweets matching a specific search query or all tweets by a specific set of users.
 
@@ -174,7 +177,7 @@ tweets <-
   
 ```
 
-Here, we are collecting tweets containing a hashtag related to the Black Lives Matter movement over the period January 1, 2020 to January 5, 2020. 
+Here, we are collecting tweets containing a hashtag related to the Black Lives Matter movement over the period January 1, 2020 to January 5, 2020.
 
 We have also set an upper limit of one million tweets. When collecting large amounts of Twitter data we recommend including a `data_path` and setting `bind_tweets = FALSE` such that data is stored as JSON files and can be bound at a later stage upon completion of the API query.
 
@@ -252,7 +255,8 @@ get_all_tweets(
 )
 
 ```
-, this will be capturing tweets by users "cbarrie" or "jack" containing the words "twitter" *or* social. 
+
+, this will be capturing tweets by users "cbarrie" or "jack" containing the words "twitter" *or* social.
 
 Finally, we may wish to query an exact phrase. To do so, we can either input the phrase in escape quotes, e.g., `query ="\"Black Lives Matter\""` or we can use the optional parameter `exact_phrase = T` to search for tweets containing the exact phrase string:
 
@@ -276,6 +280,106 @@ And the Twitter API is, of course, not the only API out there!
 
 ### Other APIs (R packages)
 
-- [https://cran.r-project.org/web/packages/manifestoR/index.html](https://cran.r-project.org/web/packages/manifestoR/index.html)
-- [https://cran.r-project.org/web/packages/vkR/vkR.pdf](https://cran.r-project.org/web/packages/vkR/vkR.pdf)
-- [https://cran.r-project.org/web/packages/tuber/index.html](https://cran.r-project.org/web/packages/tuber/index.html)
+-   <https://cran.r-project.org/web/packages/manifestoR/index.html>
+-   <https://cran.r-project.org/web/packages/vkR/vkR.pdf>
+-   <https://cran.r-project.org/web/packages/tuber/index.html>
+
+### Rehydrating tweets
+
+As noted above, tweets are also often shared in the form of "IDs." This is the case for the article by @barrie2021. You can see some of the original tweet IDs we used for this article [here](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/5ZVMOR).
+
+We would then "hydrate" these tweets as follows using the `academictwitteR` package.
+
+I have provided a sample of these IDs for this worksheet, which you can consult yourselves.
+
+```{r}
+tweet_IDs <- readRDS("data/wm_IDs_samp.rds")
+head(tweet_IDs)
+```
+
+And you can download these tweets from online to your own machines as follows:
+
+```{r, eval = F}
+tweet_IDs <- readRDS(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/wm_IDs_samp.rds?raw=true")))
+```
+
+Then we would rehydrate these tweets as follows using the `academictwitteR` package:
+
+```{r, eval = F}
+#throws an error still for some IDs (looking into this)
+hydrated_tweets <- hydrate_tweets(tweet_IDs, errors = T,
+                                  data_path = "data/hydrated_tweets/")
+```
+
+If you can't get access to an Academic Research Product Track API account, there are other ways still of getting the raw tweet data from publicly shared tweet IDs. One is the "hydrator" desktop [tool](https://github.com/DocNow/hydrator#readme) made by organization Documenting the Now.
+
+You can see more of their work---and download the hydrator tool [here](https://www.docnow.io/). There you will also find publicly available datasets of tweet IDs that you can hydrate yourselves.
+
+For the article by @barrie2021, they inferred the ideological position of individual users based on who they followed on Twitter. We won't do this for the Women's March IDs. But you can follow the steps below in order to estimate the ideology of my own Twitter account "\@cbarrie".
+
+First we need to get the my user ID (the unique set of integers that identifies an account). We can do this using `academictwitteR` or by using <https://tweeterid.com/>.
+
+```{r, echo = F}
+library(dplyr)
+library(ggplot2)
+library(academictwitteR)
+library(tweetscores)
+```
+
+```{r, eval = F}
+library(dplyr)
+library(ggplot2)
+library(academictwitteR)
+devtools::install_github("pablobarbera/twitter_ideology/pkg/tweetscores")
+library(tweetscores)
+#use https://tweeterid.com/ to convert your username to an ID
+#OR
+#get user @cbarrie
+get_user_id("cbarrie")
+cjb_ID <- "95226101"
+```
+
+Now we can get the IDs of the accounts I follow and have a look at them:
+
+```{r, eval = T, echo = F}
+userfwing <- readRDS("data/cjbfwing.rds")
+ids <- userfwing$id
+```
+
+```{r, eval = F}
+#find who he's following
+userfwing <- get_user_following(cjb_ID)
+#get their IDs if you wanted to further analysis on the following network of @cbarrie
+ids <- userfwing$id
+head(ids)
+```
+
+```{r, eval = T, echo = F}
+head(ids)
+```
+
+We can then have a look at the public metrics (number of followers, tweets etc.) of the accounts I follow. And we could visualize these if we wished.
+
+```{r}
+#get the user metrics of whom @cbarrie is following
+userfwing_metrics <- userfwing$public_metrics
+
+#plot 
+userfwing_metrics %>%
+  ggplot() +
+  geom_histogram(aes(log(followers_count)),
+                 binwidth = .5)
+```
+
+Then finally we can use the `tweetscores` package to estimate the ideological position of the user in question. Though note that I only follow 2 of the relevant elites stored in this package so the estimates might not be accurate!
+
+```{r, eval = F}
+results <- estimateIdeology("cbarrie", ids)
+
+plot(results)
+```
+
+```{r, eval =T, echo = F}
+results <- readRDS("data/cjbtscore.rds")
+plot(results)
+```
