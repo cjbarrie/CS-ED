@@ -368,7 +368,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="writing-up-in-markdown" class="level2">
 <h2 class="anchored" data-anchor-id="writing-up-in-markdown">Writing up in Markdown</h2>
-<p>TO COME!</p>
+<p>Let’s say we want to answer one of the questions in <a href="https://cjbarrie.github.io/CS-ED/webtracking_networks.html">Worksheet 1</a>.</p>
+<p>We’d first open our R Project that we’ve already linked to Github by following the steps above.</p>
+<p>Within this project, we’d then open a new .Rmd file as follows, selecting the pdf output format and naming it “Worksheet 1”.</p>
+<p><img src="images/Screenshot%202022-10-17%20at%2011.54.02.png" class="img-fluid"></p>
+<p>We’ll be met with a document that looks something like this:</p>
+<p><img src="images/Screenshot%202022-10-17%20at%2011.54.45.png" class="img-fluid"></p>
+<p>The section that reads</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>is just setting some default display options, e.g., the formatting of figure sizes and other optional typesetting parameters. We normally don’t need to worry about this—and these can also be set for each specific chunk of code (rather than as global defaults). You can read more about these <a href="https://rmarkdown.rstudio.com/lesson-3.html">here</a>.</p>
+<p>We can therefore remove all of the template content in order to add our own markdown:</p>
+<p><img src="images/Screenshot%202022-10-17%20at%2011.57.54.png" class="img-fluid"></p>
+<p>And we can now begin to add our answers by inserting our first code chunk. We can also describe what we did above it.</p>
+<p><img src="images/Screenshot%202022-10-17%20at%2012.06.29.png" class="img-fluid"></p>
+<p>Note that here we’re using <code>eval = T</code> and <code>echo = T</code> as we want our code to appear in the markdown output <em>and</em> to be computed (rather than just printed). When we set <code>eval = T</code>, we are telling our machines to run the code specified; when we specify <code>echo = T</code>, we are telling out machines to print the code in the pdf (or html or word) output.</p>
+<p>Now that we’re down, we can press “Render,” which will produce our pdf document.</p>
+<p>We can now “Commit” and “Push” to Github to store this version of our work remotely.</p>
+<p><img src="images/Screenshot%202022-10-17%20at%2012.11.37.png" class="img-fluid"></p>
+<p><img src="images/Screenshot%202022-10-17%20at%2012.11.47.png" class="img-fluid"></p>
+<p>After which we should see it on our remote version as below:</p>
+<p><img src="images/Screenshot%202022-10-17%20at%2012.15.39.png" class="img-fluid"></p>
+<p>And we’re done! Now just rinse and repeat...</p>
 
 
 </section>
