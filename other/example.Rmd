@@ -1,0 +1,21 @@
+---
+title: "Worksheet 1"
+author: "Christopher Barrie"
+date: "2022-10-17"
+output: pdf_document
+---
+
+## Question 1
+
+In the following, I count the number of different types of `transType` in the web tracking data. I do this by grouping by the `transType` variable and using the function `count()`.
+
+```{r, eval = T, echo = T}
+library(jsonlite)
+library(dplyr)
+
+wbdata <- jsonlite::fromJSON(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/web_historian_data.json?raw=true")))
+
+wbdata_types <- wbdata %>% 
+  group_by(transType) %>%
+  count()
+```
