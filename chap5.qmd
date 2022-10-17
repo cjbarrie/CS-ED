@@ -15,3 +15,8 @@ The second is a standalone example social media analysis. The analysis of social
 ## Additional reading:
 
 @barrie2021
+
+## Slides
+
+Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/005_linked_socdat.html)
+

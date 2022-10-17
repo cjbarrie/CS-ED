@@ -1,0 +1,261 @@
+---
+title: "Week 5"
+subtitle: "Computational Sociology"
+author: Christopher Barrie
+format:
+  revealjs:
+    chalkboard: true
+editor: visual
+bibliography: /Users/cbarrie6/Dropbox/Teaching/Edinburgh/teaching/CS_22-23/CS-ED/references.bib
+---
+
+## Introduction
+
+1.  Housekeeping
+2.  Linked surveys and social media data
+
+## Introduction: Surveys
+
+-   Survey background
+
+-   Innovations in digital surveys
+
+-   Linked survey designs
+
+## Introduction: Surveys
+
+[![](images/neyman-01.png)](https://rss.onlinelibrary.wiley.com/doi/10.1111/j.2397-2335.1934.tb04184.x)
+
+## Introduction: Surveys
+
+[![](images/Screenshot%202021-03-04%20at%206.02.36%20PM.png)](https://journals.sagepub.com/doi/abs/10.1177/002224377200900112)
+
+## Introduction: Surveys
+
+[![](images/Screenshot%202021-03-04%20at%205.20.09%20PM.png)](https://www-jstor-org.ezproxy.is.ed.ac.uk/stable/44428960#metadata_info_tab_contents)
+
+## Introduction: Surveys
+
+Three main types of survey sample:
+
+1.  Representative
+2.  Experimental
+3.  Purposive
+
+## Introduction: Surveys
+
+Three main types of survey sample:
+
+1.  **Representative**
+2.  Experimental
+3.  Purposive
+
+## Representative Surveys
+
+-   Random sample from a larger population (randomization into sample)
+
+    -   National population
+
+    -   (Online) subpopulation
+
+## Representative Surveys
+
+-   Random sample from a larger population (randomization into sample)
+
+    -   National population
+
+        -   Internet-based techniques: 1) snail-mailed online survey; 2) non-probability sampling + matching/post-stratification; 3) active sampling from online panel (e.g., YouGov)
+
+## Representative Surveys
+
+[![](images/Screenshot%202021-03-05%20at%209.33.51%20AM.png)](https://www.pewresearch.org/methods/2016/09/07/text-message-notification-for-web-surveys/)
+
+## Representative Surveys
+
+[![](images/Screenshot%202021-03-05%20at%209.01.37%20AM.png)](https://www.sciencedirect.com/science/article/pii/S0169207014000879)
+
+## Representative Surveys
+
+-   Random sample from a larger population (randomization into sample)
+
+    -   National population
+
+        -   Internet-based techniques: 1) snail-mailed online survey; 2) non-probability sampling + matching/post-stratification; **3) active sampling from online panel (e.g., YouGov)**
+
+## Linked Surveys @guess2019
+
+[![](images/Screenshot%202022-10-17%20at%2014.46.02.png)](https://www.science.org/doi/epdf/10.1126/sciadv.aau4586)
+
+## Surveying
+
+![](images/IMG_1337.jpg)
+
+## Gathering social media data
+
+![](images/IMG_1338.jpg)
+
+## Linking
+
+![](images/IMG_1339.jpg)
+
+## The data
+
+[![](images/Screenshot%202022-10-17%20at%2015.20.55.png)](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/IKDTPZ)
+
+## Some considerations
+
+1.  Observation effects?
+2.  Deletion
+3.  Response bias
+4.  💸
+
+## Introduction: Social media data
+
+How do we get it?
+
+1.  APIs
+2.  Web scraping
+3.  Private agreement
+
+## Introduction: Social media data
+
+How do we get it?
+
+1.  **APIs**
+2.  Web scraping
+3.  Private agreement
+
+## APIs
+
+-   "Application Programming Interface"
+
+    -   A common language, allowing one computer, or piece of software, to speak to another
+
+-   Normally for social science research: "web APIs"
+
+## APIs
+
+[![](images/ebay.png)](https://apievangelist.com/2012/12/20/history-of-apis/)
+
+## APIs
+
+[![](images/twitter.png)](https://apievangelist.com/2012/12/20/history-of-apis/)
+
+## APIs
+
+[![](images/pw.png)](https://www.programmableweb.com/news/apis-show-faster-growth-rate-2019-previous-years/research/2019/07/17)
+
+## APIs
+
+[![](images/arpt.png)](https://developer.twitter.com/en/products/twitter-api/academic-research)
+
+## APIs
+
+[![](images/fbac.png)](https://research.facebook.com/data/)
+
+## APIs versus web scraping
+
+-   When web scraping:
+
+    -   data is optimized for screen legibility
+
+    -   **not** machine legibility
+
+## 
+
+![](images/twitscrap.gif)
+
+## 
+
+![](images/academictwitteR.gif)
+
+## APIs versus web scraping
+
+-   Compare to web scraping, where we:
+
+    -   **get info already displayed on screen according to location markers/selectors**
+
+-   In contrast APIs:
+
+    -   **request** information based on a set of instructions;
+
+    -   the the logics of which are governed by the client (platform in question)
+
+## Using APIs: pre-packaged
+
+```{r, eval = F, echo = T}
+library(academictwitteR)
+
+tweetsblm <- get_all_tweets(
+  query = "BLM",
+  start_tweets = "2020-01-01T00:00:00Z",
+  end_tweets = "2020-01-05T00:00:00Z",
+  bearer_token = get_bearer(),
+  file = "data/blmtweets.rds",
+  data_path = "data/json_data/",
+  n = 500
+)
+
+```
+
+## Using APIs: user-written
+
+```{r, eval = F, echo = T}
+library(httr)
+
+endpoint_url <- "https://api.twitter.com/2/tweets/search/all"
+
+params <- list(
+  "query" = "#happymonday",
+  "start_time" = "2021-01-01T00:00:00Z",
+  "end_time" = "2021-07-31T23:59:59Z"
+)
+```
+
+## Using APIs: user-written
+
+```{r, eval = F}
+
+httr::GET(url = endpoint_url,
+          httr::add_headers(Authorization = paste0("bearer ", Sys.getenv("TWITTER_BEARER"))),
+          query = params)
+```
+
+```{r, echo = F}
+cat("https://api.twitter.com/2/tweets/search/all?query=%23happymonday&start_time=2021-01-01T00%3A00%3A00Z&end_time=2021-07-31T23%3A59%3A59Z")
+```
+
+## Analyzing social media data @gonzález-bailón2021
+
+![](images/IMG_1342.jpg)
+
+## Analyzing social media data
+
+![](images/IMG_1343.jpg)
+
+## Analyzing social media data
+
+![](images/IMG_1348.jpg)
+
+## A note on computational thinking
+
+This week:
+
+-   We approach problems using combinations of data
+
+    -   We combine surveys with social media data
+
+    -   We combine social media data with data on audience reach
+
+-   We use approximations to get at a question in the social world
+
+    -   e.g., we use measures of centrality and audience reach to infer visibility (w/o directly observing)
+
+    -   e.g., we use software solutions (browser extensions) to observe behaviour in the absence of direct observation
+
+-   We adapt non-social-science data to scientific purposes
+
+## References
+
+::: {#refs}
+:::

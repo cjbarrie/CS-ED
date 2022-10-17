@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="004_misinfo_files/libs/clipboard/clipboard.min.js"></script>
-<script src="004_misinfo_files/libs/quarto-html/tabby.min.js"></script>
-<script src="004_misinfo_files/libs/quarto-html/popper.min.js"></script>
-<script src="004_misinfo_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="004_misinfo_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="004_misinfo_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="004_misinfo_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="005_linked_socdat_files/libs/clipboard/clipboard.min.js"></script>
+<script src="005_linked_socdat_files/libs/quarto-html/tabby.min.js"></script>
+<script src="005_linked_socdat_files/libs/quarto-html/popper.min.js"></script>
+<script src="005_linked_socdat_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="005_linked_socdat_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="005_linked_socdat_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="005_linked_socdat_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.0.38">
 
   <meta name="author" content="Christopher Barrie">
-  <title>Week 4</title>
+  <title>Week 5</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="004_misinfo_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="004_misinfo_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="005_linked_socdat_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="005_linked_socdat_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -23,6 +23,70 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
@@ -43,13 +107,13 @@
       margin-left: 2em;
     }
   </style>
-  <link rel="stylesheet" href="004_misinfo_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="004_misinfo_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="004_misinfo_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="004_misinfo_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="004_misinfo_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="004_misinfo_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="004_misinfo_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="005_linked_socdat_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="005_linked_socdat_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="005_linked_socdat_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="005_linked_socdat_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="005_linked_socdat_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="005_linked_socdat_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="005_linked_socdat_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -340,7 +404,7 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">Week 4</h1>
+  <h1 class="title">Week 5</h1>
   <p class="subtitle">Computational Sociology</p>
   <p class="author">Christopher Barrie</p>
 </section>
@@ -349,252 +413,276 @@
 <h2>Introduction</h2>
 <ol type="1">
 <li>Housekeeping</li>
-<li>Misinformation and fake news</li>
+<li>Linked surveys and social media data</li>
 </ol>
 </section>
-<section id="introduction-misinformation-and-fake-news" class="slide level2">
-<h2>Introduction: Misinformation and fake news</h2>
+<section id="introduction-surveys" class="slide level2">
+<h2>Introduction: Surveys</h2>
 <ul>
-<li>When is the last time you read some misinfo. online?</li>
+<li><p>Survey background</p></li>
+<li><p>Innovations in digital surveys</p></li>
+<li><p>Linked survey designs</p></li>
 </ul>
 </section>
-<section id="introduction-misinformation-and-fake-news-1" class="slide level2">
-<h2>Introduction: Misinformation and fake news</h2>
-<ul>
-<li>Do you think others are more exposed than you?
-<ul>
-<li>Why?</li>
-</ul></li>
-</ul>
-</section>
-<section id="introduction-misinformation-and-fake-news-2" class="slide level2">
-<h2>Introduction: Misinformation and fake news</h2>
-<ul>
-<li>When is the last time you believed some misinformation/fake news online?</li>
-</ul>
-</section>
-<section id="introduction-misinformation-and-fake-news-3" class="slide level2">
-<h2>Introduction: Misinformation and fake news</h2>
-<ul>
-<li>When is the last time you believed some misinformation/fake news online?
-<ul>
-<li><p>Do you think it affected you?</p>
-<ul>
-<li>How?</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="why-it-matters" class="slide level2">
-<h2>Why it matters</h2>
+<section id="introduction-surveys-1" class="slide level2">
+<h2>Introduction: Surveys</h2>
 
-<img data-src="images/Screenshot%202022-10-10%20at%2014.08.06.png" class="r-stretch quarto-figure-center"></section>
-<section id="why-it-matters-1" class="slide level2">
-<h2>Why it matters</h2>
+<img data-src="images/neyman-01.png" class="r-stretch quarto-figure-center"></section>
+<section id="introduction-surveys-2" class="slide level2">
+<h2>Introduction: Surveys</h2>
 
-<img data-src="images/Screenshot%202022-10-10%20at%2014.05.20.png" class="r-stretch quarto-figure-center"></section>
-<section id="why-it-matters-2" class="slide level2">
-<h2>Why it matters</h2>
+<img data-src="images/Screenshot%202021-03-04%20at%206.02.36%20PM.png" class="r-stretch quarto-figure-center"></section>
+<section id="introduction-surveys-3" class="slide level2">
+<h2>Introduction: Surveys</h2>
 
-<img data-src="images/Screenshot%202022-10-10%20at%2014.02.52.png" class="r-stretch quarto-figure-center"></section>
-<section id="but-what-is-it" class="slide level2">
-<h2>But what is it?</h2>
-<p>Often abused terms…</p>
-<p><strong>Misinformation</strong>: (un)knowingly false information</p>
-<p><strong>Disinformation</strong>: knowingly false information often spread to advance a particular cause or viewpoint</p>
-<p><strong>Fake news</strong>: knowingly false information often designed to look like real news</p>
-</section>
-<section id="some-examples" class="slide level2">
-<h2>Some examples</h2>
-<p><strong>Misinformation</strong>: the claim that exiting the European Union would deliver £350m</p>
-
-<img data-src="images/Screenshot%202022-10-10%20at%2014.16.37.png" class="r-stretch quarto-figure-center"></section>
-<section id="some-examples-1" class="slide level2">
-<h2>Some examples</h2>
-<p><strong>Disinformation</strong>: the claim that Russia’s invasion of Ukraine is a result of US treaty non-compliance and NATO aggression</p>
-
-<img data-src="images/Screenshot%202022-10-10%20at%2016.36.04.png" class="r-stretch quarto-figure-center"></section>
-<section id="some-examples-2" class="slide level2">
-<h2>Some examples</h2>
-<p><strong>Fake news</strong>: the claim that Ukraine is organizing nuclear strike on Russia</p>
-
-<img data-src="images/Screenshot%202022-10-10%20at%2016.45.05.png" class="r-stretch"></section>
-<section id="so-what-questions-should-we-be-asking" class="slide level2">
-<h2>So what questions should we be asking?</h2>
+<img data-src="images/Screenshot%202021-03-04%20at%205.20.09%20PM.png" class="r-stretch quarto-figure-center"></section>
+<section id="introduction-surveys-4" class="slide level2">
+<h2>Introduction: Surveys</h2>
+<p>Three main types of survey sample:</p>
 <ol type="1">
-<li>Do we all get exposed to misinformation/fake news?</li>
-<li>What are the effects on
-<ol type="1">
-<li><p>Individual level?</p></li>
-<li><p>Institutional level?</p></li>
-</ol></li>
+<li>Representative</li>
+<li>Experimental</li>
+<li>Purposive</li>
 </ol>
 </section>
-<section id="so-what-questions-should-we-be-asking-1" class="slide level2">
-<h2>So what questions should we be asking?</h2>
+<section id="introduction-surveys-5" class="slide level2">
+<h2>Introduction: Surveys</h2>
+<p>Three main types of survey sample:</p>
 <ol type="1">
-<li>Do we all get exposed to misinformation/fake news?</li>
+<li><strong>Representative</strong></li>
+<li>Experimental</li>
+<li>Purposive</li>
 </ol>
 </section>
-<section id="exposure-heterogeneity" class="slide level2">
-<h2>Exposure heterogeneity</h2>
-<p>Different types of people are more/less likely to be exposed to misinformation and fake news</p>
-<p>Different types of people are more/less likely to <em>believe</em> misinformation and fake news</p>
+<section id="representative-surveys" class="slide level2">
+<h2>Representative Surveys</h2>
+<ul>
+<li><p>Random sample from a larger population (randomization into sample)</p>
+<ul>
+<li><p>National population</p></li>
+<li><p>(Online) subpopulation</p></li>
+</ul></li>
+</ul>
 </section>
-<section id="exposure-heterogeneity-1" class="slide level2">
-<h2>Exposure heterogeneity</h2>
+<section id="representative-surveys-1" class="slide level2">
+<h2>Representative Surveys</h2>
+<ul>
+<li><p>Random sample from a larger population (randomization into sample)</p>
+<ul>
+<li><p>National population</p>
+<ul>
+<li>Internet-based techniques: 1) snail-mailed online survey; 2) non-probability sampling + matching/post-stratification; 3) active sampling from online panel (e.g., YouGov)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="representative-surveys-2" class="slide level2">
+<h2>Representative Surveys</h2>
 
-<img data-src="images/Screenshot%202022-10-10%20at%2017.31.51.png" class="r-stretch quarto-figure-center"></section>
-<section id="exposure-heterogeneity-2" class="slide level2">
-<h2>Exposure heterogeneity</h2>
-<p>In <span class="citation" data-cites="allen2020">Allen et al. (<a href="#/ref-allen2020" role="doc-biblioref" onclick="return false;">2020</a>)</span> we see that:</p>
+<img data-src="images/Screenshot%202021-03-05%20at%209.33.51%20AM.png" class="r-stretch quarto-figure-center"></section>
+<section id="representative-surveys-3" class="slide level2">
+<h2>Representative Surveys</h2>
+
+<img data-src="images/Screenshot%202021-03-05%20at%209.01.37%20AM.png" class="r-stretch quarto-figure-center"></section>
+<section id="representative-surveys-4" class="slide level2">
+<h2>Representative Surveys</h2>
 <ul>
-<li><p>Older individuals more likely to consume fake news</p></li>
-<li><p>2% consumed more fake news than mainstream news</p>
+<li><p>Random sample from a larger population (randomization into sample)</p>
 <ul>
-<li>But only .7% spent more than 1 min. per day</li>
+<li><p>National population</p>
+<ul>
+<li>Internet-based techniques: 1) snail-mailed online survey; 2) non-probability sampling + matching/post-stratification; <strong>3) active sampling from online panel (e.g., YouGov)</strong></li>
+</ul></li>
 </ul></li>
 </ul>
-<p>So is 2% a big number or a small number?</p>
-<p>What do we have to consider here?</p>
 </section>
-<section id="exposure-heterogeneity-3" class="slide level2">
-<h2>Exposure heterogeneity</h2>
-<p>In <span class="citation" data-cites="allen2020">Allen et al. (<a href="#/ref-allen2020" role="doc-biblioref" onclick="return false;">2020</a>)</span> we see that:</p>
-<ul>
-<li><p>Older individuals more likely to consume fake news</p></li>
-<li><p>2% consumed more fake news than mainstream news</p>
-<ul>
-<li>But only .7% spent more than 1 min. per day</li>
-</ul></li>
-</ul>
-<p>So is 2% a big number or a small number?</p>
-<p>What do we have to consider here?</p>
+<section id="linked-surveys-guess2019" class="slide level2">
+<h2>Linked Surveys <span class="citation" data-cites="guess2019">Guess, Nagler, and Tucker (<a href="#/ref-guess2019" role="doc-biblioref" onclick="return false;">2019</a>)</span></h2>
+
+<img data-src="images/Screenshot%202022-10-17%20at%2014.46.02.png" class="r-stretch quarto-figure-center"></section>
+<section id="surveying" class="slide level2">
+<h2>Surveying</h2>
+
+<img data-src="images/IMG_1337.jpg" class="r-stretch"></section>
+<section id="gathering-social-media-data" class="slide level2">
+<h2>Gathering social media data</h2>
+
+<img data-src="images/IMG_1338.jpg" class="r-stretch"></section>
+<section id="linking" class="slide level2">
+<h2>Linking</h2>
+
+<img data-src="images/IMG_1339.jpg" class="r-stretch"></section>
+<section id="the-data" class="slide level2">
+<h2>The data</h2>
+
+<img data-src="images/Screenshot%202022-10-17%20at%2015.20.55.png" class="r-stretch quarto-figure-center"></section>
+<section id="some-considerations" class="slide level2">
+<h2>Some considerations</h2>
 <ol type="1">
-<li>The (voting) population of the US</li>
-<li>The size of the information ecosystem</li>
+<li>Observation effects?</li>
+<li>Deletion</li>
+<li>Response bias</li>
+<li>💸</li>
 </ol>
 </section>
-<section id="exposure-heterogeneity-4" class="slide level2">
-<h2>Exposure heterogeneity</h2>
-<p>Do these trends generalize?</p>
-</section>
-<section id="exposure-heterogeneity-5" class="slide level2">
-<h2>Exposure heterogeneity</h2>
-<p>See <span class="citation" data-cites="guess2019">A. Guess, Nagler, and Tucker (<a href="#/ref-guess2019" role="doc-biblioref" onclick="return false;">2019</a>)</span></p>
-
-<img data-src="images/Screenshot%202022-10-10%20at%2017.40.33.png" class="r-stretch quarto-figure-center"></section>
-<section id="exposure-heterogeneity-6" class="slide level2">
-<h2>Exposure heterogeneity</h2>
-<p>It’s not just age…</p>
-<p>But also cognitive traits. See <span class="citation" data-cites="pennycook2019">Pennycook and Rand (<a href="#/ref-pennycook2019" role="doc-biblioref" onclick="return false;">2019</a>)</span> for more details.</p>
-
-<img data-src="images/Screenshot%202022-10-10%20at%2018.09.26.png" class="r-stretch quarto-figure-center"></section>
-<section id="exposure-heterogeneity-7" class="slide level2">
-<h2>Exposure heterogeneity</h2>
-<p>And partisan selective exposure (cf.&nbsp;Week 2) extends to fake news too:</p>
-
-<img data-src="images/Screenshot%202022-10-10%20at%2018.00.41.png" class="r-stretch quarto-figure-center"></section>
-<section id="exposure-heterogeneity-8" class="slide level2">
-<h2>Exposure heterogeneity</h2>
-<p>Confirmed by other studies too such as <span class="citation" data-cites="osmundsen2021">OSMUNDSEN et al. (<a href="#/ref-osmundsen2021" role="doc-biblioref" onclick="return false;">2021</a>)</span></p>
-
-<img data-src="images/Screenshot%202022-10-10%20at%2019.16.26.png" class="r-stretch quarto-figure-center"></section>
-<section id="a-summary-so-far" class="slide level2">
-<h2>A summary so far…</h2>
-<p>So consumption:</p>
+<section id="introduction-social-media-data" class="slide level2">
+<h2>Introduction: Social media data</h2>
+<p>How do we get it?</p>
 <ol type="1">
-<li>Differs by age</li>
-<li>Differs by partisan position</li>
-<li>Differs by cognitive traits (reflection)</li>
+<li>APIs</li>
+<li>Web scraping</li>
+<li>Private agreement</li>
 </ol>
 </section>
-<section id="but-what-does-all-this-do" class="slide level2">
-<h2>But what does all this do?</h2>
-<p>In other words: does consumption of fake news/misinformation have consequences for politics/society/democracy?</p>
-<p>One hypothesis:</p>
+<section id="introduction-social-media-data-1" class="slide level2">
+<h2>Introduction: Social media data</h2>
+<p>How do we get it?</p>
+<ol type="1">
+<li><strong>APIs</strong></li>
+<li>Web scraping</li>
+<li>Private agreement</li>
+</ol>
+</section>
+<section id="apis" class="slide level2">
+<h2>APIs</h2>
 <ul>
-<li>Despite small overall consumption share, misinformation consumption has outsized effects among small subpopulation</li>
+<li><p>“Application Programming Interface”</p>
+<ul>
+<li>A common language, allowing one computer, or piece of software, to speak to another</li>
+</ul></li>
+<li><p>Normally for social science research: “web APIs”</p></li>
 </ul>
 </section>
-<section id="but-what-does-all-this-do-1" class="slide level2">
-<h2>But what does all this do?</h2>
-<p>Some evidence from <span class="citation" data-cites="guess2020a">A. M. Guess et al. (<a href="#/ref-guess2020a" role="doc-biblioref" onclick="return false;">2020</a>)</span></p>
+<section id="apis-1" class="slide level2">
+<h2>APIs</h2>
 
-<img data-src="images/Screenshot%202022-10-10%20at%2019.05.26.png" class="r-stretch quarto-figure-center"></section>
-<section id="but-what-does-all-this-do-2" class="slide level2">
-<h2>But what does all this do?</h2>
-<p>Some evidence from <span class="citation" data-cites="guess2020a">A. M. Guess et al. (<a href="#/ref-guess2020a" role="doc-biblioref" onclick="return false;">2020</a>)</span></p>
+<img data-src="images/ebay.png" class="r-stretch quarto-figure-center"></section>
+<section id="apis-2" class="slide level2">
+<h2>APIs</h2>
 
-<img data-src="images/Screenshot%202022-10-10%20at%2019.06.59.png" class="r-stretch quarto-figure-center"></section>
-<section id="but-what-does-all-this-do-3" class="slide level2">
-<h2>But what does all this do?</h2>
-<p>Though some experimental evidence from <span class="citation" data-cites="guess2020a">A. M. Guess et al. (<a href="#/ref-guess2020a" role="doc-biblioref" onclick="return false;">2020</a>)</span> suggests effect on voting but not other types of political participation (or trust in media).</p>
+<img data-src="images/twitter.png" class="r-stretch quarto-figure-center"></section>
+<section id="apis-3" class="slide level2">
+<h2>APIs</h2>
 
-<img data-src="images/Screenshot%202022-10-10%20at%2019.11.23.png" class="r-stretch quarto-figure-center"></section>
-<section id="but-what-does-all-this-do-4" class="slide level2">
-<h2>But what does all this do?</h2>
-<p>Though other work by <span class="citation" data-cites="bail2019">Bail et al. (<a href="#/ref-bail2019" role="doc-biblioref" onclick="return false;">2019</a>)</span> shows that exposure to misinformation by Internet Research Agency trolls had no effect on important political attitudes and behaviours</p>
+<img data-src="images/pw.png" class="r-stretch quarto-figure-center"></section>
+<section id="apis-4" class="slide level2">
+<h2>APIs</h2>
 
-<img data-src="images/Screenshot%202022-10-10%20at%2019.14.45.png" class="r-stretch quarto-figure-center"></section>
-<section id="in-summary" class="slide level2">
-<h2>In summary</h2>
+<img data-src="images/arpt.png" class="r-stretch quarto-figure-center"></section>
+<section id="apis-5" class="slide level2">
+<h2>APIs</h2>
+
+<img data-src="images/fbac.png" class="r-stretch quarto-figure-center"></section>
+<section id="apis-versus-web-scraping" class="slide level2">
+<h2>APIs versus web scraping</h2>
 <ul>
-<li>Different types of people are exposed to different types of untrustworthy content</li>
-<li>The size of this consumption is likely small
+<li><p>When web scraping:</p>
 <ul>
-<li>But what is small after all…?</li>
-</ul></li>
-<li>The effects are most obvious for beliefs
-<ul>
-<li>More work needed on political behavioural effects</li>
+<li><p>data is optimized for screen legibility</p></li>
+<li><p><strong>not</strong> machine legibility</p></li>
 </ul></li>
 </ul>
 </section>
+<section id="section" class="slide level2">
+<h2></h2>
+
+<img data-src="images/twitscrap.gif" class="r-stretch"></section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+
+<img data-src="images/academictwitteR.gif" class="r-stretch"></section>
+<section id="apis-versus-web-scraping-1" class="slide level2">
+<h2>APIs versus web scraping</h2>
+<ul>
+<li><p>Compare to web scraping, where we:</p>
+<ul>
+<li><strong>get info already displayed on screen according to location markers/selectors</strong></li>
+</ul></li>
+<li><p>In contrast APIs:</p>
+<ul>
+<li><p><strong>request</strong> information based on a set of instructions;</p></li>
+<li><p>the the logics of which are governed by the client (platform in question)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="using-apis-pre-packaged" class="slide level2">
+<h2>Using APIs: pre-packaged</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(academictwitteR)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>tweetsblm <span class="ot">&lt;-</span> <span class="fu">get_all_tweets</span>(</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="at">query =</span> <span class="st">"BLM"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="at">start_tweets =</span> <span class="st">"2020-01-01T00:00:00Z"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="at">end_tweets =</span> <span class="st">"2020-01-05T00:00:00Z"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="at">bearer_token =</span> <span class="fu">get_bearer</span>(),</span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="at">file =</span> <span class="st">"data/blmtweets.rds"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="at">data_path =</span> <span class="st">"data/json_data/"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="at">n =</span> <span class="dv">500</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-apis-user-written" class="slide level2">
+<h2>Using APIs: user-written</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>endpoint_url <span class="ot">&lt;-</span> <span class="st">"https://api.twitter.com/2/tweets/search/all"</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>params <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="st">"query"</span> <span class="ot">=</span> <span class="st">"#happymonday"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="st">"start_time"</span> <span class="ot">=</span> <span class="st">"2021-01-01T00:00:00Z"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="st">"end_time"</span> <span class="ot">=</span> <span class="st">"2021-07-31T23:59:59Z"</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-apis-user-written-1" class="slide level2">
+<h2>Using APIs: user-written</h2>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>https://api.twitter.com/2/tweets/search/all?query=%23happymonday&amp;start_time=2021-01-01T00%3A00%3A00Z&amp;end_time=2021-07-31T23%3A59%3A59Z</code></pre>
+</div>
+</div>
+</section>
+<section id="analyzing-social-media-data-gonzález-bailón2021" class="slide level2">
+<h2>Analyzing social media data <span class="citation" data-cites="gonzález-bailón2021">González-Bailón and De Domenico (<a href="#/ref-gonzález-bailón2021" role="doc-biblioref" onclick="return false;">2021</a>)</span></h2>
+
+<img data-src="images/IMG_1342.jpg" class="r-stretch"></section>
+<section id="analyzing-social-media-data" class="slide level2">
+<h2>Analyzing social media data</h2>
+
+<img data-src="images/IMG_1343.jpg" class="r-stretch"></section>
+<section id="analyzing-social-media-data-1" class="slide level2">
+<h2>Analyzing social media data</h2>
+
+<img data-src="images/IMG_1348.jpg" class="r-stretch"></section>
 <section id="a-note-on-computational-thinking" class="slide level2">
 <h2>A note on computational thinking</h2>
 <p>This week:</p>
 <ul>
-<li>We see what’s measurable (and what isn’t) using digital data
+<li><p>We approach problems using combinations of data</p>
 <ul>
-<li>e.g., with the <span class="citation" data-cites="allen2020">Allen et al. (<a href="#/ref-allen2020" role="doc-biblioref" onclick="return false;">2020</a>)</span> article</li>
+<li><p>We combine surveys with social media data</p></li>
+<li><p>We combine social media data with data on audience reach</p></li>
 </ul></li>
-<li>We see how we can extend and validate theoretical models by using digital trace data
+<li><p>We use approximations to get at a question in the social world</p>
 <ul>
-<li>e.g., with the article by <span class="citation" data-cites="vosoughi2018">Vosoughi, Roy, and Aral (<a href="#/ref-vosoughi2018" role="doc-biblioref" onclick="return false;">2018</a>)</span></li>
+<li><p>e.g., we use measures of centrality and audience reach to infer visibility (w/o directly observing)</p></li>
+<li><p>e.g., we use software solutions (browser extensions) to observe behaviour in the absence of direct observation</p></li>
 </ul></li>
-<li>We see how we can combine multiple sources of information to approach an approximate solution to a question
-<ul>
-<li>e.g.&nbsp;with the article by <span class="citation" data-cites="guess2020">A. M. Guess, Nyhan, and Reifler (<a href="#/ref-guess2020" role="doc-biblioref" onclick="return false;">2020</a>)</span></li>
-</ul></li>
+<li><p>We adapt non-social-science data to scientific purposes</p></li>
 </ul>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-allen2020" class="csl-entry" role="doc-biblioentry">
-Allen, Jennifer, Baird Howland, Markus Mobius, David Rothschild, and Duncan J. Watts. 2020. <span>“Evaluating the Fake News Problem at the Scale of the Information Ecosystem.”</span> <em>Science Advances</em> 6 (14): eaay3539. <a href="https://doi.org/10.1126/sciadv.aay3539">https://doi.org/10.1126/sciadv.aay3539</a>.
-</div>
-<div id="ref-bail2019" class="csl-entry" role="doc-biblioentry">
-Bail, Christopher A., Brian Guay, Emily Maloney, Aidan Combs, D. Sunshine Hillygus, Friedolin Merhout, Deen Freelon, and Alexander Volfovsky. 2019. <span>“Assessing the Russian Internet Research Agency<span>’</span>s Impact on the Political Attitudes and Behaviors of American Twitter Users in Late 2017.”</span> <em>Proceedings of the National Academy of Sciences</em> 117 (1): 243–50. <a href="https://doi.org/10.1073/pnas.1906420116">https://doi.org/10.1073/pnas.1906420116</a>.
-</div>
-<div id="ref-guess2020a" class="csl-entry" role="doc-biblioentry">
-Guess, Andrew M., Dominique Lockett, Benjamin Lyons, Jacob M. Montgomery, Brendan Nyhan, and Jason Reifler. 2020. <span>“<span>“</span>Fake News<span>”</span> May Have Limited Effects on Political Participation Beyond Increasing Beliefs in False Claims.”</span> <em>Harvard Kennedy School Misinformation Review</em>, January. <a href="https://doi.org/10.37016/mr-2020-004">https://doi.org/10.37016/mr-2020-004</a>.
-</div>
-<div id="ref-guess2020" class="csl-entry" role="doc-biblioentry">
-Guess, Andrew M., Brendan Nyhan, and Jason Reifler. 2020. <span>“Exposure to Untrustworthy Websites in the 2016 US Election.”</span> <em>Nature Human Behaviour</em> 4 (5): 472–80. <a href="https://doi.org/10.1038/s41562-020-0833-x">https://doi.org/10.1038/s41562-020-0833-x</a>.
+<div id="ref-gonzález-bailón2021" class="csl-entry" role="doc-biblioentry">
+González-Bailón, Sandra, and Manlio De Domenico. 2021. <span>“Bots Are Less Central Than Verified Accounts During Contentious Political Events.”</span> <em>Proceedings of the National Academy of Sciences</em> 118 (11). <a href="https://doi.org/10.1073/pnas.2013443118">https://doi.org/10.1073/pnas.2013443118</a>.
 </div>
 <div id="ref-guess2019" class="csl-entry" role="doc-biblioentry">
 Guess, Andrew, Jonathan Nagler, and Joshua Tucker. 2019. <span>“Less Than You Think: Prevalence and Predictors of Fake News Dissemination on Facebook.”</span> <em>Science Advances</em> 5 (1). <a href="https://doi.org/10.1126/sciadv.aau4586">https://doi.org/10.1126/sciadv.aau4586</a>.
-</div>
-<div id="ref-osmundsen2021" class="csl-entry" role="doc-biblioentry">
-OSMUNDSEN, MATHIAS, ALEXANDER BOR, PETER BJERREGAARD VAHLSTRUP, ANJA BECHMANN, and MICHAEL BANG PETERSEN. 2021. <span>“Partisan Polarization Is the Primary Psychological Motivation Behind Political Fake News Sharing on Twitter.”</span> <em>American Political Science Review</em> 115 (3): 999–1015. <a href="https://doi.org/10.1017/s0003055421000290">https://doi.org/10.1017/s0003055421000290</a>.
-</div>
-<div id="ref-pennycook2019" class="csl-entry" role="doc-biblioentry">
-Pennycook, Gordon, and David G. Rand. 2019. <span>“Lazy, Not Biased: Susceptibility to Partisan Fake News Is Better Explained by Lack of Reasoning Than by Motivated Reasoning.”</span> <em>Cognition</em> 188 (July): 39–50. <a href="https://doi.org/10.1016/j.cognition.2018.06.011">https://doi.org/10.1016/j.cognition.2018.06.011</a>.
-</div>
-<div id="ref-vosoughi2018" class="csl-entry" role="doc-biblioentry">
-Vosoughi, Soroush, Deb Roy, and Sinan Aral. 2018. <span>“The Spread of True and False News Online.”</span> <em>Science</em> 359 (6380): 1146–51. <a href="https://doi.org/10.1126/science.aap9559">https://doi.org/10.1126/science.aap9559</a>.
 </div>
 </div>
 <div class="footer footer-default">
@@ -605,20 +693,20 @@ Vosoughi, Soroush, Deb Roy, and Sinan Aral. 2018. <span>“The Spread of True an
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="004_misinfo_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="004_misinfo_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="004_misinfo_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="004_misinfo_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="004_misinfo_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="004_misinfo_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="004_misinfo_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="004_misinfo_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="004_misinfo_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="004_misinfo_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="004_misinfo_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="005_linked_socdat_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -814,6 +902,48 @@ Vosoughi, Soroush, Deb Roy, and Sinan Aral. 2018. <span>“The Spread of True an
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

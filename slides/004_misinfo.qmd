@@ -12,7 +12,7 @@ bibliography: /Users/cbarrie6/Dropbox/Teaching/Edinburgh/teaching/CS_22-23/CS-ED
 ## Introduction
 
 1.  Housekeeping
-2.  Web tracking and Networks
+2.  Misinformation and fake news
 
 ## Introduction: Misinformation and fake news
 
