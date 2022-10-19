@@ -7,6 +7,9 @@ You are asked to act as reviewer of the article by @adamic2005. In your review, 
 3.  Review and criticisms of the method used: does the method capture and measure what the authors claim to capture?
 4.  Recommendations for changes: what could the author have done differently?; what other methods might they have used?; what other data might they have used?
 
-In a second part, you should consult the data files that I have included in my Github [here](https://github.com/cjbarrie/CS-ED/tree/main/data/assignment/) You are required to reproduce any *two* of the figures in the published article. These do not have to look *exactly the same* as the published versions but they should display the same data in a similar way.
+In a second part, you should consult the data files that I have included in my Github [here](https://github.com/cjbarrie/CS-ED/blob/main/data/assignment/polblogs.rds) as an R readable `.rds` file. These data list source webpages and linked webpages from the political blogs data in the article by @adamic2005. You should:
+
+1.  Create a table showing the top 20 `sourcepage` domains by frequency of appearance in these data
+2.  Create a bar graph showing the top 10 `linkedpage` domains by number of appearance in these data
 
 Preferably, write up your responses in R Markdown and output to a word document for submission. Include the code you used to reproduce the figures.
