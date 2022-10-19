@@ -1,12 +1,12 @@
 # Assignment: {.unnumbered}
 
-You are asked to act as reviewer of the article by @waller2021. In your review, you should act *as if* the paper has not yet been published. Your reviews should outline:
+You are asked to act as reviewer of the article by @adamic2005. In your review, you should act *as if* the paper has not yet been published. Your reviews should outline:
 
 1.  A *very brief* (200) word summary of the contribution: what question is asks; what data it uses; what it finds.
 2.  Review and criticisms of the data used: is the data appropriate for answering the main research question?; what problems might it have?
 3.  Review and criticisms of the method used: does the method capture and measure what the authors claim to capture?
 4.  Recommendations for changes: what could the author have done differently?; what other methods might they have used?; what other data might they have used?
 
-In a second part, you should consult the data files that I have forked to my Github [here](https://github.com/cjbarrie/social-dimensions-assignment). You are required to reproduce any *two* of the figures in the published article. These do not have to look *exactly the same* as the published versions but they should display the same data in a similar way.
+In a second part, you should consult the data files that I have included in my Github [here](https://github.com/cjbarrie/CS-ED/tree/main/data/assignment/) You are required to reproduce any *two* of the figures in the published article. These do not have to look *exactly the same* as the published versions but they should display the same data in a similar way.
 
 Preferably, write up your responses in R Markdown and output to a word document for submission. Include the code you used to reproduce the figures.
