@@ -1,1 +1,19 @@
-# Week 6
+# Week 6: Polarization and Radicalization
+
+This week we're going to be looking at two key political outcomes often attributed to the influence of new digital domains: polarization and radicalization.
+
+Polarization may refer to various outcomes. Most often, we're referring to so-called "affective polarization;" i.e., dislike of opposing political groups.
+
+Radicalization, meanwhile, refers to the progressive adoption of extreme political beliefs and---potentially---forms of behaviour. One common refrain here is that algorithmic influence leads users to consume ever more radical content. These have been popularized in journalistic articles such as [this one](https://www.nytimes.com/interactive/2019/06/08/technology/youtube-radical.html).
+
+## Essential reading:
+
+@allcott2020
+
+@ledwich2019
+
+## Additional reading:
+
+@waller2021
+
+## Slides
