@@ -30,6 +30,7 @@ book:
     - webtracking_networks.qmd
     - data_ingest_apis.qmd
     - references.qmd
+    - assignment.qmd
 
 bibliography: references.bib
 
