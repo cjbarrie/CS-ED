@@ -1,5 +1,5 @@
 ---
-title: "Week 5"
+title: "Week 6"
 subtitle: "Computational Sociology"
 author: Christopher Barrie
 format:
