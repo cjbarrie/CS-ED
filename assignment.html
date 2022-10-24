@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Sociology (PGSP11583) - 7&nbsp; Week 7</title>
+<title>Computational Sociology (PGSP11583) - Assignment:</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,6 +15,25 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -25,8 +44,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./chap8.html" rel="next">
-<link href="./chap6.html" rel="prev">
+<link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -65,7 +83,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7</span></h1>
+      <h1 class="quarto-secondary-nav-title">Assignment:</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -168,7 +186,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap7.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7</span></a>
+  <a href="./chap7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -203,7 +221,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment.html" class="sidebar-item-text sidebar-link">Assignment:</a>
+  <a href="./assignment.html" class="sidebar-item-text sidebar-link active">Assignment:</a>
   </div>
 </li>
     </ul>
@@ -218,7 +236,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7</span></h1>
+<h1 class="title d-none d-lg-block">Assignment:</h1>
 </div>
 
 
@@ -232,8 +250,26 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<p>You are asked to act as reviewer of the article by <span class="citation" data-cites="adamic2005">Adamic and Glance (<a href="references.html#ref-adamic2005" role="doc-biblioref">2005</a>)</span>. In your review, you should act <em>as if</em> the paper has not yet been published. Your reviews should outline:</p>
+<ol type="1">
+<li>A <em>very brief</em> (200) word summary of the contribution: what question is asks; what data it uses; what it finds.</li>
+<li>Review and criticisms of the data used: is the data appropriate for answering the main research question?; what problems might it have?</li>
+<li>Review and criticisms of the method used: does the method capture and measure what the authors claim to capture?</li>
+<li>Recommendations for changes: what could the author have done differently?; what other methods might they have used?; what other data might they have used?</li>
+</ol>
+<p>In a second part, you should consult the data files that I have included in my Github <a href="https://github.com/cjbarrie/CS-ED/blob/main/data/assignment/polblogs.rds">here</a> as an R readable <code>.rds</code> file. These data list source webpages and linked webpages from the political blogs data in the article by <span class="citation" data-cites="adamic2005">Adamic and Glance (<a href="references.html#ref-adamic2005" role="doc-biblioref">2005</a>)</span>. You should:</p>
+<ol type="1">
+<li>Create a table showing the top 20 <code>sourcepage</code> domains by frequency of appearance in these data</li>
+<li>Create a bar graph showing the top 10 <code>linkedpage</code> domains by number of appearance in these data</li>
+</ol>
+<p>Preferably, write up your responses in R Markdown and output to a word document for submission. Include the code you used to reproduce the figures.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-adamic2005" class="csl-entry" role="doc-biblioentry">
+Adamic, Lada A., and Natalie Glance. 2005. <span>“The Political Blogosphere and the 2004 u.s. Election.”</span> <em>Proceedings of the 3rd International Workshop on Link Discovery - LinkKDD ’05</em>. <a href="https://doi.org/10.1145/1134271.1134277">https://doi.org/10.1145/1134271.1134277</a>.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -335,14 +371,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chap6.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Week 6: Polarization and Radicalization</span></span>
+      <a href="./references.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chap8.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Week 8</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
