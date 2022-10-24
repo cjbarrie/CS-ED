@@ -1,0 +1,185 @@
+---
+title: "Week 5"
+subtitle: "Computational Sociology"
+author: Christopher Barrie
+format:
+  revealjs:
+    chalkboard: true
+editor: visual
+bibliography: /Users/cbarrie6/Dropbox/Teaching/Edinburgh/teaching/CS_22-23/CS-ED/references.bib
+---
+
+## Introduction
+
+1.  Housekeeping
+2.  Polarization and Radicalization
+
+## Introduction: Polarization among voters
+
+[![](images/polarization505px_30fps.gif)](https://www.pewresearch.org/fact-tank/2014/06/12/7-things-to-know-about-polarization-in-america/)
+
+## Introduction: Polarization among legislators
+
+[![](images/Screenshot%202022-10-21%20at%2017.28.48.png)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0123507)
+
+## Introduction: Polarization among legislators
+
+[![](images/Screenshot%202022-10-21%20at%2017.29.02.png)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0123507)
+
+## And you'll never guess what's to blame...
+
+## 
+
+[![](images/Screenshot%202022-10-21%20at%2017.41.29.png)](https://www.nytimes.com/2022/04/21/technology/obama-stanford-tech-regulation.html)
+
+## But why?
+
+-   Why would platforms be polarizing?
+
+    -   Echo chambers/filter bubbles?
+
+    -   Moral outrage?
+
+    -   Exposure to out-groups?
+
+## Echo chambers and filter bubbles
+
+1.  Impedes deliberation
+2.  Impedes common understanding of out-group opinion
+
+...through reinforcing mechanisms of confirmation bias and information enclaves (think back to Week 2)
+
+## Moral outrage
+
+1.  Humans predisposed to engaging with outrage?
+
+    Evolutionary anthropology shows it helps enforce boundaries
+
+2.  Online platforms biased toward outrage?
+
+    Reinforcement through engagement leads to amplification of outrage
+
+## Moral outrage @brady2021
+
+[![](images/Screenshot%202022-10-24%20at%2017.12.55.png)](https://www.science.org/doi/10.1126/sciadv.abe5641)
+
+## Moral outrage
+
+MAD Model by @brady2020
+
+-   *Motivations: "*group-identity-based motivations to share moral-emotional content;"
+
+-   *Attention:* "that such content is especially likely to capture our attention;"
+
+-   *Design:* "the design of social-media platforms amplifies our natural motivational and cognitive tendencies to spread such content"
+
+## Exposure to out-groups @bail2018
+
+[![](images/Screenshot%202022-10-24%20at%2017.24.50.png)](https://www.pnas.org/doi/10.1073/pnas.1804840115)
+
+## Exposure to out-groups
+
+Backfire effects result from:
+
+-   Tendency to counter argue with motivated reasoning (see e.g., @taber2006)
+
+    -   Accentuates perceived differences between groups (see e.g., @lord1979)
+
+        -   Reinforces pre-existing beliefs (see e.g., @nyhan2010)
+
+## Exposure to out-groups
+
+[![](images/pnas.1804840115fig01.jpeg)](https://www.pnas.org/doi/10.1073/pnas.1804840115)
+
+## Exposure to out-groups
+
+[![](images/Screenshot%202022-10-24%20at%2017.27.07.png)](https://www.pnas.org/doi/10.1073/pnas.1804840115)
+
+## But can these all be right?
+
+Consider echo chambers and out-group exposure theories...
+
+So what questions should we be asking?
+
+## Some questions
+
+1.  Does Internet age mean we are exposed to *more* or *less* viewpoint diversity?
+2.  What type of incongruent information *can* convince?
+
+## ...and back to the algorithm: Radicalization
+
+[![](images/Screenshot%202022-10-24%20at%2017.56.25.png)](https://www.nytimes.com/interactive/2019/06/08/technology/youtube-radical.html)
+
+## Radicalization
+
+![](images/Recording%202022-10-24%20at%2017.58.47.gif)
+
+## Radicalization
+
+So why would this make sense?
+
+-   We are attracted toward the lurid, shocking, scandalous
+
+    -   We select into this content
+
+        -   Algorithm feeds us more back
+
+        -   In a reinforcing cycle
+
+## Radicalization
+
+But these kinds of arguments have been made before too...
+
+Think back to high-choice media environments...
+
+## Radicalization
+
+There can be both **supply-side** effects (YouTube algorithm; Cable TV choice etc.)
+
+And also **demand-side** effects (people select into content they were predisposed to like)
+
+## Radicalization @munger2020
+
+[![](images/Screenshot%202022-10-24%20at%2018.05.33.png)](https://journals.sagepub.com/doi/10.1177/1940161220964767)
+
+## Radicalization
+
+![](images/Screenshot%202022-10-24%20at%2018.09.37.png)
+
+## Radicalization @ribeiro2020
+
+![](images/Screenshot%202022-10-24%20at%2018.11.59.png)
+
+## Radicalization
+
+![](images/Screenshot%202022-10-24%20at%2018.11.26-01.png)
+
+## Polarization and Radicalization
+
+Is it as bad as they say it is?
+
+-   Maybe; maybe not.
+
+    -   But there has been notable lack of systematic evidence for some headline-grabbing claims
+
+## Polarization and Radicalization
+
+What can we do better?
+
+-   Get observational data (often proprietary) from companies themselves
+
+-   Consider competing influences (especially for e.g., polarization)
+
+-   Consider non-US contexts
+
+## A note on computational thinking
+
+This week:
+
+1.  Using platform features and APIs to simulate experience (approximation through computation and automation)
+2.  Combining traditional experimental and automated digital techniques
+
+## References
+
+::: {#refs}
+:::

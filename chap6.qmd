@@ -17,3 +17,5 @@ Radicalization, meanwhile, refers to the progressive adoption of extreme politic
 @waller2021
 
 ## Slides
+
+Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/006_polrad.html)
