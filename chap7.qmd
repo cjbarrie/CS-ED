@@ -1,4 +1,8 @@
-# Week 7
+# Week 7: Experiments and Bots
+
+In weeks past we've looked at how we might combine traditional survey techniques with new computational methods and digital trace data. This week, we'll be investigating how the standard experimental design might be extended to the digital domain.
+
+The articles assigned for essential reading deploy bots and other automated techniques in order to manufacture a laboratory-like environment. In the first case, this is by using bots as experimental "confederates;" in the second we are experimenting in the manipulation of the YouTube algorithm.
 
 ## Essential reading:
 
