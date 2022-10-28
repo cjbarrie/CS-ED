@@ -378,7 +378,9 @@ library(vtable)
 sumtable(userfwing_metrics)
 ```
 
-Then finally we can use the `tweetscores` package to estimate the ideological position of the user in question. Though note that I only follow 2 of the relevant elites stored in this package so the estimates might not be accurate!
+You can read more about the `vtable` package [here](https://cran.r-project.org/web/packages/vtable/vignettes/sumtable.html).
+
+\]Then finally we can use the `tweetscores` package to estimate the ideological position of the user in question. Though note that I only follow 2 of the relevant elites stored in this package so the estimates might not be accurate!
 
 ```{r, eval = F}
 results <- estimateIdeology("cbarrie", ids)
