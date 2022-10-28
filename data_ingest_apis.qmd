@@ -371,6 +371,13 @@ userfwing_metrics %>%
                  binwidth = .5)
 ```
 
+We can also produce a table with these summary data as below:
+
+```{r}
+library(vtable)
+sumtable(userfwing_metrics)
+```
+
 Then finally we can use the `tweetscores` package to estimate the ideological position of the user in question. Though note that I only follow 2 of the relevant elites stored in this package so the estimates might not be accurate!
 
 ```{r, eval = F}
@@ -385,3 +392,8 @@ plot(results)
 ```
 
 And that is, essentially, how the ideology estimates were calculated in @barrie2021 (except for a lot more people...!).
+
+### Questions
+
+1.  Obtain access credentials for either the Twitter API or any other API you can found on CRAN or linked in the subsection above "Other APIs (R packages)." Make an API call to obtain some data.
+2.  Make a table summarizing the data
