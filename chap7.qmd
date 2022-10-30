@@ -18,4 +18,4 @@ The articles assigned for essential reading deploy bots and other automated tech
 
 ## Slides
 
-Slides for this week will be available here
+Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/007_bots_experiments.html)
