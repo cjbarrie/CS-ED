@@ -1,0 +1,12 @@
+# Worksheet 3: Bots and Experiments {.unnumbered}
+
+For this worksheet, we will go through how to set up an experiment with the YouTube Recommendation algorithm.
+
+This will partially replicate the technique used in the article by @haroon2022.
+
+## Using the YouTube API
+
+## Questions
+
+1.  
+2.  

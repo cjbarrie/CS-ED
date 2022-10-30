@@ -1,0 +1,196 @@
+---
+title: "Week 7"
+subtitle: "Computational Sociology"
+author: Christopher Barrie
+format:
+  revealjs:
+    chalkboard: true
+editor: visual
+bibliography: /Users/cbarrie6/Dropbox/Teaching/Edinburgh/teaching/CS_22-23/CS-ED/references.bib
+---
+
+## Introduction
+
+1.  Housekeeping
+2.  Bots and Experiments
+
+## Introduction: Experiments
+
+Experiments versus surveys:
+
+In experiments -- randomization into **treatment** not into the sample
+
+## Introduction: Experiments
+
+So how representative does it have to be...?
+
+\--\> Depends on the question and *how* unrepresentative
+
+\--\> Depends on whether we think likely to be treatment effect heterogeneity
+
+## Introduction: Experiments
+
+Treatment could be:
+
+1.  Exposure to some information
+2.  Encouragement to stop using social media
+3.  Playing a game with an individual who votes for opposing political party
+
+...and countless more
+
+## Experiments and the Internet
+
+1.  Online crowd work using online workers
+2.  Online experiments with humans
+3.  Online treatments using bots
+4.  Machine-only experiments without any humans...
+
+## What am I talking about?
+
+## What am I talking about?
+
+1.  Online crowd work using online workers
+
+## 
+
+[![](images/Screenshot%202022-10-29%20at%2017.59.20.png)](https://www.mturk.com/)
+
+## 
+
+[![](images/Screenshot%202022-10-29%20at%2017.59.25.png)](https://www.prolific.co/)
+
+## Crowd workers
+
+MTurk and Prolific (and others) provide:
+
+1.  Constantly live pool of online workers for:
+    1.  For labelling tasks
+
+    2.  Survey tasks
+
+    3.  Experiments
+
+## Crowd workers
+
+But are these representative...?
+
+## 
+
+[![](images/Screenshot%202022-10-29%20at%2018.10.42.png)](https://arxiv.org/pdf/1812.05948.pdf)
+
+## Crowd workers
+
+But do they need to be representative?
+
+-   Remember: experimental research requires randomization into treatment not sample
+
+    -   But how *un*representative can it be?
+
+## Crowd workers
+
+[![](images/Screenshot%202022-10-29%20at%2018.13.21.png)](https://www.sciencedirect.com/science/article/abs/pii/S074756321730506X)
+
+## Crowd workers
+
+So how have these been used...?
+
+## Crowd workers
+
+So how have these been used...?
+
+1.  For data labeling
+
+## Research using crowd workers
+
+[![](images/Screenshot%202022-10-29%20at%2019.23.30.png)](https://www.journals.uchicago.edu/doi/10.1086/715162)
+
+## Crowd workers
+
+So how have these been used...?
+
+1.  For data labeling
+2.  As experimental samples for high-impact research
+
+## Research using crowd workers
+
+[![](images/Screenshot%202022-10-29%20at%2018.20.49.png)](https://www.science.org/doi/10.1126/sciadv.abe5641)
+
+## Research using crowd workers
+
+[![](images/Screenshot%202022-10-29%20at%2019.32.37.png)](https://journals.sagepub.com/doi/abs/10.1177/0003122418759544)
+
+## Bots as treatment
+
+Can code substitute for the *confederate*?
+
+## Bots as treatment
+
+[![](images/Screenshot%202022-10-29%20at%2019.34.54.png)](https://link.springer.com/content/pdf/10.1007/s11109-016-9373-5.pdf)
+
+## Bots as treatment
+
+![](images/Screenshot%202022-10-29%20at%2019.53.31.png)
+
+## Bots as treatment
+
+![](images/Screenshot%202022-10-29%20at%2019.53.54.png)
+
+## Bots as treatment
+
+![](images/Screenshot%202022-10-29%20at%2019.54.05.png)
+
+## Bots as treatment
+
+![](images/Screenshot%202022-10-29%20at%2019.55.45.png)
+
+## Bots as treatment
+
+![](images/Screenshot%202022-10-29%20at%2019.55.54.png)
+
+## Bots as treatment
+
+![](images/Screenshot%202022-10-29%20at%2019.59.54.png)
+
+## Bots as treatment
+
+![](images/Screenshot%202022-10-29%20at%2020.07.01.png)
+
+## Experimenting with machines alone...
+
+[![](images/Screenshot%202022-10-29%20at%2020.10.32.png)](https://arxiv.org/abs/2203.10666)
+
+## Experimenting with machines alone...
+
+![](images/Screenshot%202022-10-29%20at%2020.13.33.png)
+
+## Experimenting with machines alone...
+
+![](images/Screenshot%202022-10-29%20at%2020.14.30.png)
+
+## Experimenting with machines alone...
+
+![](images/Screenshot%202022-10-29%20at%2020.15.26.png)
+
+## Experimenting with machines alone...
+
+![](images/Screenshot%202022-10-29%20at%2020.16.01.png)
+
+## Experimenting with machines alone...
+
+![](images/Screenshot%202022-10-29%20at%2020.18.11.png)
+
+## Experimenting with machines alone...
+
+![](images/Screenshot%202022-10-29%20at%2020.21.24.png)
+
+## A note on computational thinking
+
+This week:
+
+1.  Extending social theory to online world through use of platform affordances
+2.  Auditing algorithmic influence by experimenting with algorithmic output itself--i.e., doing social science experiments without involving any human beings...
+
+## References
+
+::: {#refs}
+:::

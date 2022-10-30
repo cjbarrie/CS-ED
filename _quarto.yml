@@ -29,6 +29,7 @@ book:
     - chap10.qmd
     - webtracking_networks.qmd
     - data_ingest_apis.qmd
+    - bots_experiments.qmd
     - references.qmd
     - assignment.qmd
 
