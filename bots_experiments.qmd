@@ -60,7 +60,7 @@ rel_vids <- readRDS("data/ytvids_recommended.rds")
 paged_table(rel_vids)
 ```
 
-It seems YouTube recommends us back a lot of videos relating to Jordan Peterson. Some of these are from more mainstream outlets; others are from more
+It seems YouTube recommends us back a lot of videos relating to Jordan Peterson. Some of these are from more mainstream outlets; others are from more obscure sources.
 
 ## Questions
 
