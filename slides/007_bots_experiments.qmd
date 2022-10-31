@@ -74,7 +74,7 @@ MTurk and Prolific (and others) provide:
 
 But are these representative...?
 
-## 
+## @posch2018
 
 [![](images/Screenshot%202022-10-29%20at%2018.10.42.png)](https://arxiv.org/pdf/1812.05948.pdf)
 
@@ -86,7 +86,7 @@ But do they need to be representative?
 
     -   But how *un*representative can it be?
 
-## Crowd workers
+## @thomas2017
 
 [![](images/Screenshot%202022-10-29%20at%2018.13.21.png)](https://www.sciencedirect.com/science/article/abs/pii/S074756321730506X)
 
@@ -100,7 +100,7 @@ So how have these been used...?
 
 1.  For data labeling
 
-## Research using crowd workers
+## @rodriguez2022
 
 [![](images/Screenshot%202022-10-29%20at%2019.23.30.png)](https://www.journals.uchicago.edu/doi/10.1086/715162)
 
@@ -111,11 +111,11 @@ So how have these been used...?
 1.  For data labeling
 2.  As experimental samples for high-impact research
 
-## Research using crowd workers
+## @brady2021
 
 [![](images/Screenshot%202022-10-29%20at%2018.20.49.png)](https://www.science.org/doi/10.1126/sciadv.abe5641)
 
-## Research using crowd workers
+## @mize2018
 
 [![](images/Screenshot%202022-10-29%20at%2019.32.37.png)](https://journals.sagepub.com/doi/abs/10.1177/0003122418759544)
 
@@ -123,7 +123,7 @@ So how have these been used...?
 
 Can code substitute for the *confederate*?
 
-## Bots as treatment
+## @munger2016
 
 [![](images/Screenshot%202022-10-29%20at%2019.34.54.png)](https://link.springer.com/content/pdf/10.1007/s11109-016-9373-5.pdf)
 
@@ -155,7 +155,7 @@ Can code substitute for the *confederate*?
 
 ![](images/Screenshot%202022-10-29%20at%2020.07.01.png)
 
-## Experimenting with machines alone...
+## @haroon2022
 
 [![](images/Screenshot%202022-10-29%20at%2020.10.32.png)](https://arxiv.org/abs/2203.10666)
 
