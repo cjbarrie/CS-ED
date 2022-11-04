@@ -1,1 +1,13 @@
-# Week 8
+# Week 8: Violence and protest
+
+This week we will be studying the relationship between violence, protest, and the emergence of new Internet-enabled technologies and social media platforms. This has again been a headline claim in journalistic and other [reports](https://www.amnesty.org/en/latest/news/2022/09/myanmar-facebooks-systems-promoted-violence-against-rohingya-meta-owes-reparations-new-report/)
+
+We will be turning to the scientific literature to examine the evidence and theoretical motivation for these claims.
+
+## Essential reading:
+
+@müller2020
+
+@mooijman2018
+
+@cao2022
