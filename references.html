@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,15 +11,10 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
-  vertical-align: middle;
-}
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -197,7 +192,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chap8.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Week 8</span></a>
+  <a href="./chap8.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Week 8: Violence and protest</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -306,6 +301,11 @@ Kramer, Cameron Marlow, Jaime E. Settle, and James H. Fowler. 2012.
 <span>“A 61-Million-Person Experiment in Social Influence and Political
 Mobilization.”</span> <em>Nature</em> 489 (7415): 295–98. <a href="https://doi.org/10.1038/nature11421">https://doi.org/10.1038/nature11421</a>.
 </div>
+<div id="ref-cao2022" class="csl-entry" role="doc-biblioentry">
+Cao, Andy, Jason Lindo, and Jiee Zhong. 2022. <span>“Can Social Media
+Rhetoric Incite Hate Incidents? Evidence from Trump’s
+<span>"</span>Chinese Virus<span>"</span> Tweets.”</span> <a href="https://doi.org/10.3386/w30588">https://doi.org/10.3386/w30588</a>.
+</div>
 <div id="ref-chen2018" class="csl-entry" role="doc-biblioentry">
 Chen, M. Keith, and Ryne Rohla. 2018. <span>“The Effect of Partisanship
 and Political Advertising on Close Family Ties.”</span> <em>Science</em>
@@ -397,11 +397,22 @@ Levy, Ro’ee. 2021. <span>“Social Media, News Consumption, and
 Polarization: Evidence from a Field Experiment.”</span> <em>American
 Economic Review</em> 111 (3): 831870. <a href="https://doi.org/10.1257/aer.20191777">https://doi.org/10.1257/aer.20191777</a>.
 </div>
+<div id="ref-mooijman2018" class="csl-entry" role="doc-biblioentry">
+Mooijman, Marlon, Joe Hoover, Ying Lin, Heng Ji, and Morteza Dehghani.
+2018. <span>“Moralization in Social Networks and the Emergence of
+Violence During Protests.”</span> <em>Nature Human Behaviour</em> 2 (6):
+389–96. <a href="https://doi.org/10.1038/s41562-018-0353-0">https://doi.org/10.1038/s41562-018-0353-0</a>.
+</div>
 <div id="ref-mosleh2021" class="csl-entry" role="doc-biblioentry">
 Mosleh, Mohsen, Cameron Martel, Dean Eckles, and David G. Rand. 2021.
 <span>“Shared Partisanship Dramatically Increases Social Tie Formation
 in a Twitter Field Experiment.”</span> <em>Proceedings of the National
 Academy of Sciences</em> 118 (7). <a href="https://doi.org/10.1073/pnas.2022761118">https://doi.org/10.1073/pnas.2022761118</a>.
+</div>
+<div id="ref-müller2020" class="csl-entry" role="doc-biblioentry">
+Müller, Karsten, and Carlo Schwarz. 2020. <span>“Fanning the Flames of
+Hate: Social Media and Hate Crime.”</span> <em>Journal of the European
+Economic Association</em>, October. <a href="https://doi.org/10.1093/jeea/jvaa045">https://doi.org/10.1093/jeea/jvaa045</a>.
 </div>
 <div id="ref-munger2016" class="csl-entry" role="doc-biblioentry">
 Munger, Kevin. 2016. <span>“Tweetment Effects on the Tweeted:
@@ -522,8 +533,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
