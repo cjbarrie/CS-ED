@@ -11,3 +11,7 @@ We will be turning to the scientific literature to examine the evidence and theo
 @mooijman2018
 
 @cao2022
+
+## Slides
+
+Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/008_violence_protest.html#/title-slide)

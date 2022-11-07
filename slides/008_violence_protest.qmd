@@ -1,0 +1,190 @@
+---
+title: "Week 8"
+subtitle: "Computational Sociology"
+author: Christopher Barrie
+format:
+  revealjs:
+    chalkboard: true
+editor: visual
+bibliography: /Users/cbarrie6/Dropbox/Teaching/Edinburgh/teaching/CS_22-23/CS-ED/references.bib
+---
+
+## Introduction
+
+1.  Housekeeping
+2.  Violence and Protest
+
+## Introduction: Violence and Protest
+
+![](images/Screenshot%202022-11-07%20at%2016.31.20.png)
+
+## Introduction: Violence and Protest
+
+![](images/Screenshot%202022-11-07%20at%2016.31.30.png)
+
+## So... we're all getting more peaceful, right?
+
+## So... we're all getting more peaceful, right?
+
+But what's the *counterfactual*?
+
+And how do we test this?
+
+## One hypothesis
+
+Despite overall downward trend, social media/Internet has caused more violence than we otherwise would have seen.
+
+## Is this a claim people are making?
+
+[![](images/Screenshot%202022-11-07%20at%2016.34.58.png)](https://www.nytimes.com/2022/06/01/technology/fringe-mainstream-social-media.html)
+
+## Is this a claim people are making?
+
+[![](images/Screenshot%202022-11-07%20at%2016.36.22.png)](https://www.theguardian.com/technology/2021/oct/07/facebooks-role-in-myanmar-and-ethiopia-under-new-scrutiny)
+
+## Why would social media promote violence?
+
+\<Go to chalkboard\>
+
+## Why would social media promote protest?
+
+\<Go to chalkboard\>
+
+## Why would social media promote violence?
+
+Answers from the literature:
+
+-   Coordination (@pierskalla2013a)
+-   Cohesion (@little2016 and [Shirky 2008](https://books.google.co.uk/books/about/Here_Comes_Everybody.html?id=mafZyckH_bAC&redir_esc=y))
+-   Political communication--elites and others (@cao2022)
+
+## Why would social media promote violence?
+
+Answers from the literature:
+
+-   Coordination
+    -   Collective action problems when organizing violence
+
+        -   Aids in monitoring free-riding
+
+        -   Aids tactical coordination
+-   Cohesion
+-   Political communication (elites or others?)
+
+## Why would social media promote violence?
+
+Answers from the literature:
+
+-   Coordination
+-   Cohesion
+    -   Increased communication aids in formation of group identity
+
+    -   Increased communication aids in maintenance of loyalty
+-   Political communication (elites or others?)
+
+## Why would social media promote violence?
+
+Answers from the literature:
+
+-   Coordination
+-   Cohesion
+-   Political communication (elites or others?)
+    -   Compare mass media persuasion to decentralized influence
+
+    -   Compare legacy news media to real-time dissemination of videos and images
+
+## Why would social media promote protest?
+
+Answers from the literature:
+
+-   Information (@steinert-threlkeld2017 @bennett2013)
+
+-   Coordination (@little2016)
+
+-   Moralization (@mooijman2018)
+
+## Why would social media promote protest?
+
+Answers from the literature:
+
+-   Information
+
+    -   Information more readily available on extra-institutional forms of political behaviour
+
+    -   Information more readily available on the activities of governments and other actors
+
+-   Coordination
+
+## Why would social media promote protest?
+
+Answers from the literature:
+
+-   Information
+
+-   Coordination
+
+    -   We can more easily--and horizontally--coordinate with fellow protestors *at once* and without need for physical proximity
+
+    -   We can more easily *observe* what others are doing around us
+
+-   Moralization
+
+## Why would social media promote protest?
+
+Answers from the literature:
+
+-   Information
+
+-   Coordination
+
+-   Moralization
+
+    -   Platform affordances mean moralizing rhetoric receives more engagement
+
+## How have we studied this so far? @pierskalla2013
+
+![](images/Screenshot%202022-11-07%20at%2017.55.03.png)
+
+## How have we studied this so far? @pierskalla2013
+
+![](images/Screenshot%202022-11-07%20at%2017.56.12.png)
+
+## How have we studied this so far? @pierskalla2013
+
+![](images/Screenshot%202022-11-07%20at%2017.57.06-02.png)
+
+## How have we studied this so far? @pan2019
+
+![](images/Screenshot%202022-11-07%20at%2018.06.22.png)
+
+## How have we studied this so far? @pan2019
+
+![](images/Screenshot%202022-11-07%20at%2018.07.20.png)
+
+## How have we studied this so far? @pan2019
+
+![](images/Screenshot%202022-11-07%20at%2018.07.58.png)
+
+## How have we studied this so far? @steinert-threlkeld2017
+
+![](images/Screenshot%202022-11-07%20at%2018.12.56.png)
+
+## How have we studied this so far? @steinert-threlkeld2017
+
+![](images/Screenshot%202022-11-07%20at%2018.13.23.png)
+
+## How have we studied this so far? @steinert-threlkeld2017
+
+![](images/Screenshot%202022-11-07%20at%2018.14.06.png)
+
+## A note on computational thinking
+
+This week:
+
+1.  Using new media to derive proxies of coordination behaviour otherwise unmeasurable using traditional data sources
+2.  Combining empirical documentary material with digital traces to understand the response to political repression
+
+## References
+
+::: {#refs}
+:::
