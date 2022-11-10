@@ -1,1 +1,17 @@
-# Week 9
+# Week 9: Social media tracking and NLP
+
+In past weeks, we've discussed the use of social media and digital trace data of different kinds.
+
+This week, we'll be looking at the *active* tracking of social media as well as the use of more advanced techniques in the computational analysis of text.
+
+To do so, we will look at examples from key substantive focuses of interest in last week: online information and misinformation.
+
+## Essential reading:
+
+@phadke2022
+
+@chang2022
+
+## Slides
+
+Slides for this week will be available here
