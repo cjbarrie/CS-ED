@@ -1,0 +1,173 @@
+---
+title: "Week 9"
+subtitle: "Computational Sociology"
+author: Christopher Barrie
+format:
+  revealjs:
+    chalkboard: true
+editor: visual
+bibliography: /Users/cbarrie6/Dropbox/Teaching/Edinburgh/teaching/CS_22-23/CS-ED/references.bib
+---
+
+## Introduction
+
+1.  Housekeeping
+2.  Social media tracking and NLP
+
+## Introduction: Social media tracking @cao2022
+
+[![](images/Screenshot%202022-11-14%20at%2017.15.15.png)](https://www.nber.org/system/files/working_papers/w30588/w30588.pdf)
+
+## Introduction: Social media tracking @alshaabi2021
+
+[![](images/Screenshot%202022-11-14%20at%2017.15.43.png)](https://storywrangling.org/)
+
+## Introduction: Social media tracking *and* NLP @waller2021
+
+[![](images/Screenshot%202022-11-14%20at%2017.23.39.png)](https://www.nature.com/articles/s41586-021-04167-x.pdf)
+
+## Social media tracking... why?
+
+-   "always-on" means we can study phenomena otherwise hard to capture:
+
+    -   protest
+
+    -   culture
+
+    -   radicalization
+
+        -   many more... ideas?
+
+## Social media tracking... why?
+
+-   To provide a historical archive
+
+    -   utterances online are consequentiall
+
+        -   therefore need to be documented... see e.g. [LOC](https://blogs.loc.gov/loc/2017/12/update-on-the-twitter-archive-at-the-library-of-congress-2/)
+
+## Social media tracking... why?
+
+-   To measure experimental outcomes
+
+    -   we've seen how social media can be used as experimental platform
+
+        -   and by tracking we can measure over-time changes (equivalent of follow-up)
+
+## Social media tracking... how?
+
+1.  After the event
+
+2.  Live streaming (w/ API endpoint/scraping tool)
+
+## Social media tracking... how?
+
+1.  After the event
+
+-   Using e.g., Twitter API
+
+    -   Searching for keywords/users
+
+-   Using e.g., Reddit data dumps
+
+    -   Identifying users and posts
+
+## Social media tracking... how?
+
+![](images/Screenshot%202022-11-14%20at%2018.25.15.png)
+
+## Social media tracking... how?
+
+2.  Live streaming (w/ API endpoint/scraping tool)
+
+-   Using e.g., Twitter Streaming API (see [here](https://developer.twitter.com/en/docs/tutorials/stream-tweets-in-real-time))
+
+    -   Streaming in content according to parameters
+
+-   Using e.g., TikTok scraper (see [here](https://pypi.org/project/TikTokLive/))
+
+    -   Streaming in content outside of an API (ethical clearance!)
+
+## Social media tracking... how?
+
+![](images/Screenshot%202022-11-14%20at%2018.26.29-01.png)
+
+## Social media tracking... how?
+
+![](images/Screenshot%202022-11-14%20at%2018.49.04-01.png)
+
+## ...but why is NLP relevant here?
+
+Natural Language Processing refers to;
+
+-   The computational restructuring, labelling, and analysis of text
+
+## ...but why is NLP relevant here?
+
+And most of these data come in the form of... text!
+
+## So what can NLP help us do?
+
+-   The construction of similarity scores
+
+## So what can NLP help us do?
+
+An example:
+
+-   \"We are all very happy to be at a lecture at 11AM\" 
+
+-   \"We are all even happier that we don\'t have a lecture next week\"
+
+    -   How do these **compare**?
+
+## Word-level
+
+![](images/Screenshot%202022-11-14%20at%2018.37.38.png)
+
+## Document-level
+
+![](images/Screenshot%202022-11-14%20at%2018.38.58-01.png)
+
+## Other measures...
+
+1.  Euclidean distance  √∑(a - b)2 
+
+2.  Manhattan (Block) distance ∑(a - b)
+
+3.  Cosine similarity ∑(ab)/√(∑a2)(∑b2)
+
+4.  Jaccard similarity (a∩b/a∪b) = \|a∩b\| / \|a\|+\|b\|−\|a∩b\|
+
+## Back to conspiracy theories
+
+![](images/Screenshot%202022-11-14%20at%2018.42.58.png)
+
+## But it's not just similarity...
+
+-   Sentiment
+
+    -   Examples
+
+-   Scaling
+
+    -   Examples
+
+-   Clustering
+
+    -   Examples
+
+-   Embedding
+
+    -   Examples
+
+## A note on computational thinking
+
+This week:
+
+1.  Using the "always-on" nature of digital data to document temporal dynamics
+2.  Automating the understanding of language... Come to my other course!
+
+## References
+
+::: {#refs}
+:::

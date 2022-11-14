@@ -12,6 +12,10 @@ To do so, we will look at examples from key substantive focuses of interest in l
 
 @chang2022
 
+## Additional reading:
+
+@monti2022
+
 ## Slides
 
-Slides for this week will be available here
+Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/009_track_nlp.html#/title-slide)
