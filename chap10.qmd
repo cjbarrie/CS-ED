@@ -1,6 +1,20 @@
 # Week 10: Guest lecture
 
-This week, we will have a guest lecture. You are not required to do any reading beforehand.
+This week, we will have a guest lecture on large language models and algorithmic justice.
+
+Large language models are powering a lot of the recommendation and information retrieval systems you use everyday. But given that these models are built on human-produced text, they tend to recreate the bias and stereotyping that characterize our language.
+
+The readings for this week provide an introduction to some of these issues, as well as how we might go about addressing them.
+
+## Essential reading:
+
+@bender2021
+
+@pfotenhauer2021
+
+## Additional reading:
+
+@solaiman2021
 
 ## Slides
 
