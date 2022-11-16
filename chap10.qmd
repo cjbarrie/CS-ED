@@ -18,4 +18,4 @@ The readings for this week provide an introduction to some of these issues, as w
 
 ## Slides
 
-Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/CS_guest_lecture/CS_guest_lecture.html)
+Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/CS_guest_lecture.html/CS_guest_lecture.html)
