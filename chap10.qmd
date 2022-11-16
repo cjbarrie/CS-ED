@@ -4,4 +4,4 @@ This week, we will have a guest lecture. You are not required to do any reading 
 
 ## Slides
 
-Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/010_CS_guest_lecture.html)
+Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/CS_guest_lecture/CS_guest_lecture.html)
