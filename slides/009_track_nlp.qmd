@@ -114,9 +114,9 @@ And most of these data come in the form of... text!
 
 An example:
 
--   \"We are all very happy to be at a lecture at 11AM\" 
+-   "We are all very happy to be at a lecture at 11AM" 
 
--   \"We are all even happier that we don\'t have a lecture next week\"
+-   "We are all even happier that we don't have a lecture next week"
 
     -   How do these **compare**?
 

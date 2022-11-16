@@ -1,1 +1,7 @@
-# Week 10
+# Week 10: Guest lecture
+
+This week, we will have a guest lecture. You are not required to do any reading beforehand.
+
+## Slides
+
+Slides for this week are available [here](https://raw.githack.com/cjbarrie/CS-ED/main/slides/010_CS_guest_lecture.html)
