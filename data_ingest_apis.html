@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Computational Sociology (PGSP11583) - Worksheet 2: Importing data and APIs</title>
+<title>Computational Sociology (PGSP11583) - Worksheet: Using APIs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -138,9 +138,6 @@ div.csl-indent {
   }
 }</script>
 
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
 
 </head>
 
@@ -150,7 +147,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Worksheet 2: Importing data and APIs</h1>
+      <h1 class="quarto-secondary-nav-title">Worksheet: Using APIs</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -278,12 +275,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_ingest_apis.html" class="sidebar-item-text sidebar-link active">Worksheet 2: Importing data and APIs</a>
+  <a href="./data_ingest_apis.html" class="sidebar-item-text sidebar-link active">Worksheet: Using APIs</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bots_experiments.html" class="sidebar-item-text sidebar-link">Worksheet 3: Bots and Experiments</a>
+  <a href="./bots_experiments.html" class="sidebar-item-text sidebar-link">Worksheet: Using APIs</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -305,12 +302,7 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#using-apis" id="toc-using-apis" class="nav-link active" data-scroll-target="#using-apis">Using APIs</a>
-  <ul class="collapse">
-  <li><a href="#other-apis-r-packages" id="toc-other-apis-r-packages" class="nav-link" data-scroll-target="#other-apis-r-packages">Other APIs (R packages)</a></li>
-  <li><a href="#rehydrating-tweets" id="toc-rehydrating-tweets" class="nav-link" data-scroll-target="#rehydrating-tweets">Rehydrating tweets</a></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  </ul></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link active" data-scroll-target="#questions">Questions</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/cjbarrie/CS-ED/edit/master/data_ingest_apis.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -319,7 +311,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Worksheet 2: Importing data and APIs</h1>
+<h1 class="title d-none d-lg-block">Worksheet: Using APIs</h1>
 </div>
 
 
@@ -333,460 +325,60 @@ div.csl-indent {
 
 </header>
 
-<p>In what follows, we’ll go through some examples of how to collect data from Twitter. Twitter has a number of access points (APIs) and the amount and variety of data you can access depends on your permissions. These are explained below.</p>
-<p>Often, articles using Twitter data share the replication materials as tweet “IDs”. This is because the Terms of Service for the Twitter API dictate that, for reproduction purposes, it is not permitted to share the raw contents of tweets. Instead, we have to “rehydrate” these tweets. An example of this from <span class="citation" data-cites="barrie2021">Barrie and Frey (<a href="references.html#ref-barrie2021" role="doc-biblioref">2021</a>)</span> is provided below.</p>
-<section id="using-apis" class="level2">
-<h2 class="anchored" data-anchor-id="using-apis">Using APIs</h2>
-<p>To practice these skills, you might want to create a new Twitter account for your academic research. But you needn’t create a new account to follow the steps below. You can simply use your own Twitter account—if you have one—as using the developer tools will not change anything about your public Twitter account.</p>
-<p><img src="data/twitterdev.png" class="img-fluid" style="width:100.0%"></p>
-<p>Before proceeding, we’ll load the remaining packages we will need for this tutorial.</p>
+<p>In this worksheet, we will be going through an example of using the Google Trends API.</p>
+<p>Google Trends can—and has—been used in research to give us information on the broader context of a given phenomenon, or might even be used as the main core of empirical data (e.g., <span class="citation" data-cites="brodeur2021covid">Brodeur et al. (<a href="references.html#ref-brodeur2021covid" role="doc-biblioref">2021</a>)</span>).</p>
+<p>In what follow, we will get to grips with what an API is, and use a particular R package called <code>gtrendsR</code> to query the Google Trends API.</p>
+<p>The examples for this worksheet were adapted from <span class="citation" data-cites="bauer2022apis">Bauer and Landesvatter (<a href="references.html#ref-bauer2022apis" role="doc-biblioref">2022</a>)</span>.</p>
+<p>We can start by looking at the bare bones of an API request. To do this, we will use the <code>httr2</code> package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># loads dplyr, ggplot2, and others</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rtweet) <span class="co"># to query the Twitter API in R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'rtweet' was built under R version 4.1.3</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>getreq <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">"https://trends.google.com/trends/explore"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">query=</span><span class="fu">list</span>(<span class="at">q =</span> <span class="st">"Covid"</span>,<span class="at">geo =</span> <span class="st">"US"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Once you’ve create your new account, or have logged into your existing one, go to the Twitter developer portal log in page <a href="https://developer.twitter.com/en">here</a>.</p>
-<p>Click on Apply in the navigation bar on the top right of the page. You’ll be asked “what best describes you?” For the purposes of this tutorial, select academic, and then select student. Fill in all the relevant information and submit your application. Your application will then be reviewed by Twitter before access is granted. This might take hours or days.</p>
-<p>Once you have authorization, a new tab will appear in the navigation bar at the top of the develop portal, as below:</p>
-<p><img src="data/twitterdev2.png" class="img-fluid" style="width:100.0%"></p>
-<p>Navigate to the developer portal and you will there be able to create a new “app” to query the API. You see in my account that I have several apps for different purposes.</p>
-<p><img src="data/twitterdev3.png" class="img-fluid" style="width:100.0%"> We can create a new app on this page too. When we click “Create App” we will first be asked to name the app. Most importantly, we will then be given an “API key”; an “API secret key”; and a “Bearer token” as below.</p>
-<p><img src="data/twitterdev4.png" class="img-fluid" style="width:30.0%"></p>
-<p>You <strong>MUST</strong> make a record of these. Once you have done so, you can then use these to access the API. Once you have recorded these, navigate to the App setting tabs for the App you’ve created now listed in the Overview tab on the left hand side navigation window.</p>
-<p><img src="data/twitterdev5.png" class="img-fluid" style="width:50.0%"></p>
-<p>Navigate to “Keys and tokens” on this page, and click generate in the Access token &amp; secret box as below:</p>
-<p><img src="data/twitterdev6.png" class="img-fluid" style="width:50.0%"></p>
-<p>Record these as well. Once you have all of these keys and tokens recorded somewhere safe, you are ready to collect data!</p>
-<p>This is pretty simple using the <code>rtweet</code> package. Below, we’ll collect the last 50 tweets of the founder of Twitter: Jack Dorsey.</p>
+<p>This returns a list containing some data as well as the various parameters that we sent to the Google Trends API. We can have a look at these as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>api_key <span class="ot">&lt;-</span><span class="st">" XXXXXXXXXXXXXXXXXXXXXXX"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>api_key_secret <span class="ot">&lt;-</span> <span class="st">"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>access_token <span class="ot">&lt;-</span> <span class="st">"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>access_token_secret <span class="ot">&lt;-</span> <span class="st">"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>token <span class="ot">&lt;-</span> <span class="fu">create_token</span>(</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">app =</span> <span class="st">"NAME YOUR APP"</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">consumer_key =</span> api_key,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">consumer_secret =</span> api_key_secret,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">access_token =</span> access_token,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">access_secret =</span> access_token_secret</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>user <span class="ot">&lt;-</span> <span class="st">"@jack"</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>jacktweets <span class="ot">&lt;-</span> <span class="fu">get_timeline</span>(user, <span class="at">n =</span> <span class="dv">50</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(jacktweets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Once you have enter your keys, tokens, and key/token secrets, store them with the <code>create_token()</code> function. Here, we are collecting the last 50 tweets for Jack Dorsey, though you can change this by specifying a higher n—be aware, though, that the maximum you are able to collect with the basic API access is 3200 tweets.</p>
-<div class="cell">
-<div class="cell-output-display">
-
-<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:left;"> created_at </th>
-   <th style="text-align:left;"> screen_name </th>
-   <th style="text-align:left;"> text </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 2021-02-25 23:36:34 </td>
-   <td style="text-align:left;"> jack </td>
-   <td style="text-align:left;"> Bitcoin, Blockchain and the Black Community - CoinDesk https://t.co/3KH6W7Rg0Q </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2021-02-25 23:32:42 </td>
-   <td style="text-align:left;"> jack </td>
-   <td style="text-align:left;"> Starting in less than an hour! 👇🏾
-
-Tune into @CoinDesk TV and watch #CommunityCrypto at 5pm ET 
-
-See you then! ✊🏾 https://t.co/ACnRhdabEy </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2021-02-25 04:22:10 </td>
-   <td style="text-align:left;"> jack </td>
-   <td style="text-align:left;"> Crypto art changing lives https://t.co/yDEQOaA483 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2021-02-25 03:59:05 </td>
-   <td style="text-align:left;"> jack </td>
-   <td style="text-align:left;"> https://t.co/2i46RZ6c0A </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2021-02-24 04:47:59 </td>
-   <td style="text-align:left;"> jack </td>
-   <td style="text-align:left;"> @hfangca @OKCoin @opencryptoorg Thank you for joining! </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2021-02-23 17:13:31 </td>
-   <td style="text-align:left;"> jack </td>
-   <td style="text-align:left;"> @bitcoinbrink 🙏🏼 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2021-02-20 02:06:24 </td>
-   <td style="text-align:left;"> jack </td>
-   <td style="text-align:left;"> It’s an honor to help in this important endeavor. All orgs developing in crypto — for-profit or nonprofit, even individuals — should consider joining. There is strength in numbers. https://t.co/CJo9frhkhJ </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2021-02-20 01:47:23 </td>
-   <td style="text-align:left;"> jack </td>
-   <td style="text-align:left;"> Over 6,600 people submitted their proof-of-work so far. Working to narrow over weekend and will start interviewing board candidates soon. </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2021-02-19 20:34:35 </td>
-   <td style="text-align:left;"> jack </td>
-   <td style="text-align:left;"> This is excellent 🧡 https://t.co/e7ywpoCcxS </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2021-02-17 03:47:40 </td>
-   <td style="text-align:left;"> jack </td>
-   <td style="text-align:left;"> learned the most from https://t.co/GrUoCXanNL and https://t.co/cz3yYo4UEw </td>
-  </tr>
-</tbody>
-</table>
-
-</div>
-</div>
-<p>Now you can play around with the different API calls possible with the <code>rtweet</code> package. See the full documentation <a href="https://cran.r-project.org/web/packages/rtweet/rtweet.pdf">here</a> and <a href="https://github.com/ropensci/rtweet">here</a>.</p>
-<p>And for those interested, you can my package to collect tweets from the Academic Research Product Track API <a href="https://github.com/cjbarrie/academictwitteR">here</a>.</p>
-<p>Getting access to the Academic Research Product Track is a bit more complicated but for more information on how to apply see <a href="https://developer.twitter.com/en/solutions/academic-research/products-for-researchers">here</a>.</p>
-<p>In order to use the Twitter Academic Research Product Track you will first need to obtain an authorization token. You will find details about the process of obtaining authorization <a href="https://developer.twitter.com/en/solutions/academic-research/application-info">here</a>.</p>
-<p><strong>In order to gain authorization you first need a Twitter account.</strong></p>
-<p>First, Twitter will ask for details about your academic profile. Per the documentation linked above, they will ask for the following:</p>
-<blockquote class="blockquote">
-<p>Your full name as it is appears on your institution’s documentation</p>
-<p>Links to webpages that help establish your identity; provide one or more of the following:</p>
-<ul>
-<li>A link to your profile in your institution’s faculty or student directory</li>
-<li>A link to your Google Scholar profile</li>
-<li>A link to your research group, lab or departmental website where you are listed</li>
-</ul>
-<p>Information about your academic institution: its name, country, state, and city</p>
-<p>Your department, school, or lab name</p>
-<p>Your academic field of study or discipline at this institution</p>
-<p>Your current role as an academic (whether you are a graduate student, doctoral candidate, post-doc, professor, research scientist, or other faculty member)</p>
-</blockquote>
-<p>Twitter will then ask for details of the proposed research project. Here, questions include:</p>
-<blockquote class="blockquote">
-<ol type="1">
-<li><p>What is the name of your research project?</p></li>
-<li><p>Does this project receive funding from outside your academic institution? If yes, please list all your sources of funding.</p></li>
-<li><p>In English, describe your research project. Minimum 200 characters.</p></li>
-<li><p>In English, describe how Twitter data via the Twitter API will be used in your research project. Minimum 200 characters.</p></li>
-<li><p>In English, describe your methodology for analyzing Twitter data, Tweets, and/or Twitter users. Minimum 200 characters.</p></li>
-<li><p>Will your research present Twitter data individually or in aggregate?</p></li>
-<li><p>In English, describe how you will share the outcomes of your research (include tools, data, and/or other resources you hope to build and share). Minimum 200 characters.</p></li>
-<li><p>Will your analysis make Twitter content or derived information available to a government entity?</p></li>
-</ol>
-</blockquote>
-<p>Once you have gained authorization for your project you will be able to see the new project on your Twitter developer portal.</p>
-<p>The Academic Research Product Track permits the user to access larger volumes of data, over a far longer time range, than was previously possible. From the Twitter <a href="https://developer.twitter.com/en/solutions/academic-research/application-info">documentation</a>:</p>
-<blockquote class="blockquote">
-<p>“The Academic Research product track includes full-archive search, as well as increased access and other v2 endpoints and functionality designed to get more precise and complete data for analyzing the public conversation, at no cost for qualifying researchers. Since the Academic Research track includes specialized, greater levels of access, it is reserved solely for non-commercial use”.</p>
-</blockquote>
-<p>The new “v2 endpoints” refer to the v2 API, introduced around the same time as the new Academic Research Product Track. Full details of the v2 endpoints are available <a href="https://developer.twitter.com/en/docs/twitter-api/early-access">here</a>.</p>
-<p>In summary the Academic Research product track allows the authorized user:</p>
-<ol type="1">
-<li>Access to the full archive of (as-yet-undeleted) tweets published on Twitter</li>
-<li>A higher monthly tweet cap (10m–or 20x what was previously possible with the standard v1.1 API)</li>
-<li>Ability to access these data with more precise filters permitted by the v2 API</li>
-</ol>
-<p>If you do get authorization for using the Twitter Academic API, you can then follow the next steps to begin collecting data. Instead of four different keys or secrets, we will have one “bearer token” that we use, associated with one of the apps that we created as above. This is all we then need to begin collecting data.</p>
-<p>First we need to load the package into memory as follows.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(academictwitteR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The first task is set authorization credentials with the <code>set_bearer()</code> function, which allows the user to store their bearer token in the .Renviron file.</p>
-<p>To do so, use:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set_bearer</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>and enter authorization credentials as below:</p>
-<p><img src="data/TWITTER_BEARER.gif" class="img-fluid"></p>
-<p>This will mean that the bearer token is automatically called during API calls. It also avoids the inadvisable practice of hard-coding authorization credentials into scripts.</p>
-<p>The workhorse function is <code>get_all_tweets()</code>, which is able to collect tweets matching a specific search query or all tweets by a specific set of users.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tweets <span class="ot">&lt;-</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_all_tweets</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">query =</span> <span class="st">"#BlackLivesMatter"</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">start_tweets =</span> <span class="st">"2020-01-01T00:00:00Z"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">end_tweets =</span> <span class="st">"2020-01-05T00:00:00Z"</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">file =</span> <span class="st">"blmtweets"</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data_path =</span> <span class="st">"data/"</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="dv">1000000</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Here, we are collecting tweets containing a hashtag related to the Black Lives Matter movement over the period January 1, 2020 to January 5, 2020.</p>
-<p>We have also set an upper limit of one million tweets. When collecting large amounts of Twitter data we recommend including a <code>data_path</code> and setting <code>bind_tweets = FALSE</code> such that data is stored as JSON files and can be bound at a later stage upon completion of the API query.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tweets <span class="ot">&lt;-</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_all_tweets</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">users =</span> <span class="fu">c</span>(<span class="st">"jack"</span>, <span class="st">"cbarrie"</span>),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">start_tweets =</span> <span class="st">"2020-01-01T00:00:00Z"</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">end_tweets =</span> <span class="st">"2020-01-05T00:00:00Z"</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">file =</span> <span class="st">"blmtweets"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="dv">1000</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Whereas here we are not specifying a search query and instead are requesting all tweets by users “jack” and “cbarrie” over the period January 1, 2020 to January 5, 2020. Here, we set an upper limit of 1000 tweets.</p>
-<p>The search query and user query arguments can be combined in a single API call as so:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_all_tweets</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="st">"twitter"</span>,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">users =</span> <span class="fu">c</span>(<span class="st">"cbarrie"</span>, <span class="st">"jack"</span>),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">start_tweets =</span> <span class="st">"2020-01-01T00:00:00Z"</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_tweets =</span> <span class="st">"2020-05-01T00:00:00Z"</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">1000</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Where here we would be collecting tweets by users “jack” and “cbarrrie” over the period January 1, 2020 to January 5, 2020 containing the word “twitter.”</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_all_tweets</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="fu">c</span>(<span class="st">"twitter"</span>, <span class="st">"social"</span>),</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">users =</span> <span class="fu">c</span>(<span class="st">"cbarrie"</span>, <span class="st">"jack"</span>),</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">start_tweets =</span> <span class="st">"2020-01-01T00:00:00Z"</span>,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_tweets =</span> <span class="st">"2020-05-01T00:00:00Z"</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">1000</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>While here we are collecting tweets by users “jack” and “cbarrrie” over the period January 1, 2020 to January 5, 2020 containing the words “twitter” or “social.”</p>
-<p>Note that the “AND” operator is implicit when specifying more than one character string in the query. See <a href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/build-a-query">here</a> for information on building queries for search tweets. Thus, when searching for all elements of a character string, a call may look like:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_all_tweets</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="fu">c</span>(<span class="st">"twitter social"</span>),</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">users =</span> <span class="fu">c</span>(<span class="st">"cbarrie"</span>, <span class="st">"jack"</span>),</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">start_tweets =</span> <span class="st">"2020-01-01T00:00:00Z"</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_tweets =</span> <span class="st">"2020-05-01T00:00:00Z"</span>,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">1000</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>, which will capture tweets containing <em>both</em> the words “twitter” and “social.” The same logics apply for hashtag queries.</p>
-<p>Whereas if we specify our query as separate elements of a character vector like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_all_tweets</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="fu">c</span>(<span class="st">"twitter"</span>, <span class="st">"social"</span>),</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">users =</span> <span class="fu">c</span>(<span class="st">"cbarrie"</span>, <span class="st">"jack"</span>),</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">start_tweets =</span> <span class="st">"2020-01-01T00:00:00Z"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_tweets =</span> <span class="st">"2020-05-01T00:00:00Z"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">1000</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>, this will be capturing tweets by users “cbarrie” or “jack” containing the words “twitter” <em>or</em> social.</p>
-<p>Finally, we may wish to query an exact phrase. To do so, we can either input the phrase in escape quotes, e.g., <code>query ="\"Black Lives Matter\""</code> or we can use the optional parameter <code>exact_phrase = T</code> to search for tweets containing the exact phrase string:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tweets <span class="ot">&lt;-</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_all_tweets</span>(</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">query =</span> <span class="st">"#BlackLivesMatter"</span>,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">start_tweets =</span> <span class="st">"2020-01-01T00:00:00Z"</span>,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">end_tweets =</span> <span class="st">"2020-01-05T00:00:00Z"</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">file =</span> <span class="st">"blmtweets"</span>,</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data_path =</span> <span class="st">"data/"</span>,</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="dv">1000000</span>,</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Here, we are collecting tweets containing a hashtag related to the Black Lives Matter movement over the period January 1, 2020 to January 5, 2020.</p>
-<p>And the Twitter API is, of course, not the only API out there!</p>
-<section id="other-apis-r-packages" class="level3">
-<h3 class="anchored" data-anchor-id="other-apis-r-packages">Other APIs (R packages)</h3>
-<ul>
-<li><a href="https://cran.r-project.org/web/packages/manifestoR/index.html" class="uri">https://cran.r-project.org/web/packages/manifestoR/index.html</a></li>
-<li><a href="https://cran.r-project.org/web/packages/vkR/vkR.pdf" class="uri">https://cran.r-project.org/web/packages/vkR/vkR.pdf</a></li>
-<li><a href="https://cran.r-project.org/web/packages/tuber/index.html" class="uri">https://cran.r-project.org/web/packages/tuber/index.html</a></li>
-</ul>
-</section>
-<section id="rehydrating-tweets" class="level3">
-<h3 class="anchored" data-anchor-id="rehydrating-tweets">Rehydrating tweets</h3>
-<p>As noted above, tweets are also often shared in the form of “IDs.” This is the case for the article by <span class="citation" data-cites="barrie2021">Barrie and Frey (<a href="references.html#ref-barrie2021" role="doc-biblioref">2021</a>)</span>. You can see some of the original tweet IDs we used for this article <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/5ZVMOR">here</a>.</p>
-<p>We would then “hydrate” these tweets as follows using the <code>academictwitteR</code> package.</p>
-<p>I have provided a sample of these IDs for this worksheet, which you can consult yourselves.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tweet_IDs <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/wm_IDs_samp.rds"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tweet_IDs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>getreq[[<span class="st">"url"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "823360655835168640" "822727580923154432" "822953780127862784"
-[4] "823136522199253120" "821584199949942784" "822868286979342208"</code></pre>
+<pre><code>[1] "https://trends.google.com/trends/explore?q=Covid&amp;geo=US"</code></pre>
 </div>
 </div>
-<p>And you can download these tweets from online to your own machines as follows:</p>
+<p>This shows the url that we sent to the API. And that is all an API request really is. Here, we’re just specifying the place (US) and the keyword (Covid). Everything else is set to its default.</p>
+<p>A more straightforward way of specifying different parameters in an API call is by using a pre-packaged library optimized for querying it.</p>
+<p>Let’s see what the same call would look like using <code>gtrendsR</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tweet_IDs <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">gzcon</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cjbarrie/CS-ED/blob/main/data/wm_IDs_samp.rds?raw=true"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtrendsR)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"countries"</span>) <span class="co"># get abbreviations of all countries to filter data </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"categories"</span>) <span class="co"># get numbers of all categories to filter data </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>gtrendsdat <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(<span class="st">"Covid"</span>,<span class="at">geo=</span><span class="fu">c</span>(<span class="st">"US"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then we would rehydrate these tweets as follows using the <code>academictwitteR</code> package:</p>
+<p>And then we could introduce different countries:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#throws an error still for some IDs (looking into this)</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>hydrated_tweets <span class="ot">&lt;-</span> <span class="fu">hydrate_tweets</span>(tweet_IDs, <span class="at">errors =</span> T,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">data_path =</span> <span class="st">"data/hydrated_tweets/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtrendsR)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"countries"</span>) <span class="co"># get abbreviations of all countries to filter data </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"categories"</span>) <span class="co"># get numbers of all categories to filter data </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>gtrendsdat <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(<span class="st">"Covid"</span>,<span class="at">geo=</span><span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"GB"</span>, <span class="st">"FR"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If you can’t get access to an Academic Research Product Track API account, there are other ways still of getting the raw tweet data from publicly shared tweet IDs. One is the “hydrator” desktop <a href="https://github.com/DocNow/hydrator#readme">tool</a> made by organization Documenting the Now.</p>
-<p>You can see more of their work—and download the hydrator tool <a href="https://www.docnow.io/">here</a>. There you will also find publicly available datasets of tweet IDs that you can hydrate yourselves.</p>
-<p>For the article by <span class="citation" data-cites="barrie2021">Barrie and Frey (<a href="references.html#ref-barrie2021" role="doc-biblioref">2021</a>)</span>, they inferred the ideological position of individual users based on who they followed on Twitter. We won’t do this for the Women’s March IDs. But you can follow the steps below in order to estimate the ideology of my own Twitter account “@cbarrie”.</p>
-<p>First we need to get the my user ID (the unique set of integers that identifies an account). We can do this using <code>academictwitteR</code> or by using <a href="https://tweeterid.com/" class="uri">https://tweeterid.com/</a>.</p>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: R2WinBUGS</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: coda</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: boot</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>##
-## tweetscores: tools for the analysis of Twitter data</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>## Pablo Barbera (USC)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>## www.tweetscores.com
-##</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(academictwitteR)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"pablobarbera/twitter_ideology/pkg/tweetscores"</span>)</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tweetscores)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#use https://tweeterid.com/ to convert your username to an ID</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#OR</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">#get user @cbarrie</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">get_user_id</span>(<span class="st">"cbarrie"</span>)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>cjb_ID <span class="ot">&lt;-</span> <span class="st">"95226101"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now we can get the IDs of the accounts I follow and have a look at them:</p>
-<div class="cell">
-
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#find who he's following</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>userfwing <span class="ot">&lt;-</span> <span class="fu">get_user_following</span>(cjb_ID)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#get their IDs if you wanted to further analysis on the following network of @cbarrie</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>ids <span class="ot">&lt;-</span> userfwing<span class="sc">$</span>id</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ids)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "1451947528333762562" "326311946"           "2458351124"         
-[4] "29943199"            "124852105"           "111456333"          </code></pre>
-</div>
-</div>
-<p>We can then have a look at the public metrics (number of followers, tweets etc.) of the accounts I follow. And we could visualize these if we wished.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get the user metrics of whom @cbarrie is following</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>userfwing_metrics <span class="ot">&lt;-</span> userfwing<span class="sc">$</span>public_metrics</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#plot </span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>userfwing_metrics <span class="sc">%&gt;%</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="fu">log</span>(followers_count)),</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> .<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="data_ingest_apis_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>We can also produce a table with these summary data as below:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vtable)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sumtable</span>(userfwing_metrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<caption>Summary Statistics</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Variable </th>
-   <th style="text-align:left;"> N </th>
-   <th style="text-align:left;"> Mean </th>
-   <th style="text-align:left;"> Std. Dev. </th>
-   <th style="text-align:left;"> Min </th>
-   <th style="text-align:left;"> Pctl. 25 </th>
-   <th style="text-align:left;"> Pctl. 75 </th>
-   <th style="text-align:left;"> Max </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> followers_count </td>
-   <td style="text-align:left;"> 1657 </td>
-   <td style="text-align:left;"> 200495.316 </td>
-   <td style="text-align:left;"> 1515073.955 </td>
-   <td style="text-align:left;"> 8 </td>
-   <td style="text-align:left;"> 1206 </td>
-   <td style="text-align:left;"> 25925 </td>
-   <td style="text-align:left;"> 30546568 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> following_count </td>
-   <td style="text-align:left;"> 1657 </td>
-   <td style="text-align:left;"> 1771.199 </td>
-   <td style="text-align:left;"> 10152.513 </td>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:left;"> 397 </td>
-   <td style="text-align:left;"> 1906 </td>
-   <td style="text-align:left;"> 405778 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> tweet_count </td>
-   <td style="text-align:left;"> 1657 </td>
-   <td style="text-align:left;"> 15045.244 </td>
-   <td style="text-align:left;"> 42709.048 </td>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:left;"> 723 </td>
-   <td style="text-align:left;"> 11474 </td>
-   <td style="text-align:left;"> 842540 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> listed_count </td>
-   <td style="text-align:left;"> 1657 </td>
-   <td style="text-align:left;"> 881.632 </td>
-   <td style="text-align:left;"> 5033.096 </td>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:left;"> 10 </td>
-   <td style="text-align:left;"> 373 </td>
-   <td style="text-align:left;"> 133894 </td>
-  </tr>
-</tbody>
-</table>
-
-</div>
-</div>
-<p>You can read more about the <code>vtable</code> package <a href="https://cran.r-project.org/web/packages/vtable/vignettes/sumtable.html">here</a>.</p>
-<p>]Then finally we can use the <code>tweetscores</code> package to estimate the ideological position of the user in question. Though note that I only follow 2 of the relevant elites stored in this package so the estimates might not be accurate!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">estimateIdeology</span>(<span class="st">"cbarrie"</span>, ids)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Ignoring unknown parameters: width</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="data_ingest_apis_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>And that is, essentially, how the ideology estimates were calculated in <span class="citation" data-cites="barrie2021">Barrie and Frey (<a href="references.html#ref-barrie2021" role="doc-biblioref">2021</a>)</span> (except for a lot more people…!).</p>
-</section>
-<section id="questions" class="level3">
-<h3 class="anchored" data-anchor-id="questions">Questions</h3>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <ol type="1">
-<li>Obtain access credentials for either the Twitter API or any other API you can found on CRAN or linked in the subsection above “Other APIs (R packages).” Make an API call to obtain some data.</li>
-<li>Make a table summarizing the data</li>
+<li><p>Make your own request to the Google Trends API</p></li>
+<li><p>Plot the results</p></li>
+<li><p>Think of an event before and after which you think trends might have changed</p></li>
+<li><p>Collect trends for the outcome, plot, and add vertical line on the plot for when the event took place</p></li>
 </ol>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-barrie2021" class="csl-entry" role="doc-biblioentry">
-Barrie, Christopher, and Arun Frey. 2021. <span>“Faces in the Crowd: Twitter as Alternative to Protest Surveys.”</span> Edited by Barbara Guidi. <em>PLOS ONE</em> 16 (11): e0259972. <a href="https://doi.org/10.1371/journal.pone.0259972">https://doi.org/10.1371/journal.pone.0259972</a>.
+<div id="ref-bauer2022apis" class="csl-entry" role="doc-biblioentry">
+Bauer, P. C., and C. Landesvatter, eds. 2022. <em>APIs for Social Scientists: A Collaborative Review</em>. skimpotentiallyrelevantchapters. <a href="https://bookdown.org/paul/apis_for_social_scientists/">https://bookdown.org/paul/apis_for_social_scientists/</a>.
+</div>
+<div id="ref-brodeur2021covid" class="csl-entry" role="doc-biblioentry">
+Brodeur, Abel, Andrew E Clark, Sarah Fleche, and Nattavudh Powdthavee. 2021. <span>“COVID-19, Lockdowns and Well-Being: Evidence from Google Trends.”</span> <em>Journal of Public Economics</em> 193: 104346.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -895,7 +487,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./bots_experiments.html" class="pagination-link">
-        <span class="nav-page-text">Worksheet 3: Bots and Experiments</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Worksheet: Using APIs</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

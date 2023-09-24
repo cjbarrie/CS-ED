@@ -275,12 +275,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data_ingest_apis.html" class="sidebar-item-text sidebar-link">Worksheet 2: Importing data and APIs</a>
+  <a href="./data_ingest_apis.html" class="sidebar-item-text sidebar-link">Worksheet: Using APIs</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bots_experiments.html" class="sidebar-item-text sidebar-link">Worksheet 3: Bots and Experiments</a>
+  <a href="./bots_experiments.html" class="sidebar-item-text sidebar-link">Worksheet: Using APIs</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -407,26 +407,24 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-✔ tibble  3.1.7     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
-✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
 <p>What now? Well, let’s see just how easy it is to visualize some data using <tt>ggplot</tt> which is a package that comes bundled into the larger <tt>tidyverse</tt> package.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intror_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="intror_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>If we wanted to save where we’d got to with making our plots, we would want to save our scripts, and maybe the data we used as well, so that we could return to it at a later stage.</p>
@@ -439,20 +437,20 @@ div.csl-indent {
 <li><p>To save <strong>individual</strong> objects (for example <tt>x</tt> from above) from your environment, run the following command (choosing a suitable filename):</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(x,<span class="at">file=</span><span class="st">"myobject.RData"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="st">"myobject.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(x,<span class="at">file=</span><span class="st">"myobject.RData"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="st">"myobject.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>To save <strong>all</strong> of your objects (i.e.&nbsp;everything in the top right panel) at once, run the following command (choosing a suitable filename):</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file=</span><span class="st">"myfilname.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file=</span><span class="st">"myfilname.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Your objects can be re-loaded into R during your next session by running:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="st">"myfilename.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file=</span><span class="st">"myfilename.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There are many other file formats you might use to save any output. We will encounter these as the course progresses.</p>
 </section>
@@ -460,14 +458,14 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="knowing-where-r-saves-your-documents">Knowing where R saves your documents</h2>
 <p>If you are at home, when you open a new script make sure to check and set your working directory (i.e.&nbsp;the folder where the files you create will be saved). To check your working directory use the getwd() command (type it into the Console or write it in your script in the Source Editor):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To set your working directory, run the following command, substituting the file directory of your choice. Remember that anything following the `#’ symbol is simply a clarifying comment and R will not process it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example for Mac </span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/Documents/mydir/"</span>) </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Example for PC </span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"c:/docs/mydir"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Example for Mac </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/Documents/mydir/"</span>) </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Example for PC </span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"c:/docs/mydir"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="practicing-in-r" class="level2">
@@ -480,11 +478,11 @@ div.csl-indent {
 <li><p>For more practice with R, you may want to consult a set of interactive tutorials, available through the package “learnr.” Once you’ve installed this package, you can go through the tutorials yourselves by calling:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(learnr)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">available_tutorials</span>() <span class="co"># this will tell you the names of the tutorials available</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">run_tutorial</span>(<span class="at">name =</span> <span class="st">"ex-data-basics"</span>, <span class="at">package =</span> <span class="st">"learnr"</span>) <span class="co">#this will launch the interactive tutorial in a new Internet browser window</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(learnr)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">available_tutorials</span>() <span class="co"># this will tell you the names of the tutorials available</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">run_tutorial</span>(<span class="at">name =</span> <span class="st">"ex-data-basics"</span>, <span class="at">package =</span> <span class="st">"learnr"</span>) <span class="co">#this will launch the interactive tutorial in a new Internet browser window</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="one-final-note" class="level2">
