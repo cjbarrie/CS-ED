@@ -30,6 +30,7 @@ book:
     - webtracking_networks.qmd
     - data_ingest_apis.qmd
     - bots_experiments.qmd
+    - nlp_classifying.qmd
     - references.qmd
     - assignment.qmd
 

@@ -1,0 +1,62 @@
+# Worksheet 4: NLP and Classifying {.unnumbered}
+
+This week, we studied some examples of research that used machine-learning and natural language processing techniques to classify and understand large amounts of text data.
+
+In this worksheet, we go through the use of a particular API to which we can connect to classifying tweet content for toxicity.
+
+The API was developed on top of a model built by Google the purpose of which was to identify content that may be in need of online moderation.
+
+The API is called the "Perspective" API and details can be found [here](https://perspectiveapi.com/).
+
+There is also an R package that we can use to classify relevant content.
+
+We will be classifying the same tweets as discussed in @barrie2023did
+
+```{r, echo = F, eval = T}
+tweets_sample <- readRDS("data/tweets-ranked.rds")
+```
+
+You can download these data from Github with:
+
+We can then use the following code to classify this content:
+
+```{r, eval = F, echo = T}
+library(peRspective)
+library(dplyr)
+library(ggplot2)
+
+models <- c(peRspective::prsp_models)
+models_subset <- models[c(1:5, 7, 9:10, 12, 14)]
+models_subset
+
+toxtwts <- tweets_sample %>%
+  prsp_stream(text = text,
+              text_id = tweet_id, 
+              score_model = models_subset,
+              verbose = T,
+              safe_output = T)
+
+colnames(toxtwts) <- c("tweet_id", "error", models_subset)
+
+tweets_sample_tox_r <- tweets_sample %>%
+  left_join(toxtwts, by = "tweet_id")
+
+```
+
+And then we can see some examples of tweets along with TOXICITY scores:
+
+
+```{r, echo = F, eval = T}
+tweets_tox_sample <- readRDS("data/tweets-tox-ranked.rds")
+
+kableExtra::kable(head(tweets_tox_sample))
+```
+
+
+## Questions
+
+1. Inspect the data to see if you agree with the labels (CW: hateful content)
+
+2. Plot the distribution of the scores
+
+3. Estimate what % of total tweets are "toxic"
