@@ -541,42 +541,42 @@
   {
     "objectID": "data_ingest_apis.html",
     "href": "data_ingest_apis.html",
-    "title": "Worksheet: Using APIs",
+    "title": "Worksheet 2: Using APIs",
     "section": "",
     "text": "In this worksheet, we will be going through an example of using the Google Trends API.\nGoogle Trends can—and has—been used in research to give us information on the broader context of a given phenomenon, or might even be used as the main core of empirical data (e.g., Brodeur et al. (2021)).\nIn what follow, we will get to grips with what an API is, and use a particular R package called gtrendsR to query the Google Trends API.\nThe examples for this worksheet were adapted from Bauer and Landesvatter (2022).\nWe can start by looking at the bare bones of an API request. To do this, we will use the httr2 package:\nThis returns a list containing some data as well as the various parameters that we sent to the Google Trends API. We can have a look at these as follows:\nThis shows the url that we sent to the API. And that is all an API request really is. Here, we’re just specifying the place (US) and the keyword (Covid). Everything else is set to its default.\nA more straightforward way of specifying different parameters in an API call is by using a pre-packaged library optimized for querying it.\nLet’s see what the same call would look like using gtrendsR:\nAnd then we could introduce different countries:"
   },
   {
     "objectID": "data_ingest_apis.html#questions",
     "href": "data_ingest_apis.html#questions",
-    "title": "Worksheet: Using APIs",
+    "title": "Worksheet 2: Using APIs",
     "section": "Questions",
     "text": "Questions\n\nMake your own request to the Google Trends API\nPlot the results\nThink of an event before and after which you think trends might have changed\nCollect trends for the outcome, plot, and add vertical line on the plot for when the event took place\n\n\n\n\n\nBauer, P. C., and C. Landesvatter, eds. 2022. APIs for Social Scientists: A Collaborative Review. skimpotentiallyrelevantchapters. https://bookdown.org/paul/apis_for_social_scientists/.\n\n\nBrodeur, Abel, Andrew E Clark, Sarah Fleche, and Nattavudh Powdthavee. 2021. “COVID-19, Lockdowns and Well-Being: Evidence from Google Trends.” Journal of Public Economics 193: 104346."
   },
   {
     "objectID": "bots_experiments.html",
     "href": "bots_experiments.html",
-    "title": "Worksheet: Using APIs",
+    "title": "Worksheet 3: Bots and Experiments",
     "section": "",
     "text": "For this worksheet, we will go through how to set up an experiment with the YouTube Recommendation algorithm.\nThis will partially replicate the technique used in the article by Haroon et al. (2022)."
   },
   {
     "objectID": "bots_experiments.html#using-the-youtube-api",
     "href": "bots_experiments.html#using-the-youtube-api",
-    "title": "Worksheet: Using APIs",
+    "title": "Worksheet 3: Bots and Experiments",
     "section": "Using the YouTube API",
     "text": "Using the YouTube API\nIn order to use the YouTube API, we’ll first need to get our authorization token. These can be obtained by anybody, with or without an academic profile (i.e., unlike academictwitteR) in previous worksheets.\nIn order to get you authorization credentials, you can follow this guide. You will need to have an account on the Google Cloud console in order to do this. The main three steps are to:\n\ncreate a “Project” on the Google Cloud console;\nto associate the YouTube API with this Project;\nto enable the API keys for the API\n\nOnce you have created a Project (here: called “tuberalt1” in my case) you will see a landing screen like this.\n\nWe can then get our credentials by navigating to the menu on the left hand side and selecting credentials:\n\nWe have two pieces of information stored here that we will need. These are our “client ID” and “API key”. The client ID is referred to below as our “app ID” in the tuber packaage and the API key shown below is our “app secret” in the tuber package.\n\nOnce we have our credentials, we can log them in our R environment with the yt_oauth function in the tuber package. This function takes two arguments: an “app ID” and an “app secret”. Both of these will be provided to you once you have associated the YouTube API with your Google Cloud console project."
   },
   {
     "objectID": "bots_experiments.html#getting-youtube-data",
     "href": "bots_experiments.html#getting-youtube-data",
-    "title": "Worksheet: Using APIs",
+    "title": "Worksheet 3: Bots and Experiments",
     "section": "Getting YouTube data",
     "text": "Getting YouTube data\nIn the paper by Haroon et al. (2022), the authors analyze the recommended videos for a particular used based on their watch history and on a seed video. In the below, we won’t replicate the first step but we will look at the recommended videos that appear based on a seed video.\nIn this case, our seed video is a video by Jordan Peterson predicting the death of mainstream media. This is fairly “alternative” content and is actively taking a stance against mainstream media. So does this mean YouTube will learn to recommend us away from mainstream content?\n\nlibrary(tidyverse)\nlibrary(readxl)\nlibrary(tuber)\n\nyt_oauth(\"431484860847-1THISISNOTMYREALKEY7jlembpo3off4hhor.apps.googleusercontent.com\",\"2niTHISISMADEUPTOO-l9NPUS90fp\")\n\n#get related videos\nstartvid <- \"1Gp7xNnW5n8\"\nrel_vids <- get_related_videos(startvid, max_results = 50, safe_search = \"none\")\n\nIn the above, we first take the unique identifying code string for the video. You can find this in the url for the video as shown below.\n\nWe can then collect the videos recommended on the basis of having this video as the seed video. We store these as the data.frame object rel_vids.\nAnd we can have a look at the recommended videos on the basis of this seed video below.\n\n\n\n\n  \n\n\n\nIt seems YouTube recommends us back a lot of videos relating to Jordan Peterson. Some of these are from more mainstream outlets; others are from more obscure sources."
   },
   {
     "objectID": "bots_experiments.html#questions",
     "href": "bots_experiments.html#questions",
-    "title": "Worksheet: Using APIs",
+    "title": "Worksheet 3: Bots and Experiments",
     "section": "Questions",
     "text": "Questions\n\nMake your own request to the YouTube API for a different seed video.\nCollect one video ID for each of the channels included in the resulting data\nWrite a for loop to collect recommended videos for each of these video IDs\n\n\n\n\n\nHaroon, Muhammad, Anshuman Chhabra, Xin Liu, Prasant Mohapatra, Zubair Shafiq, and Magdalena Wojcieszak. 2022. “YouTube, the Great Radicalizer? Auditing and Mitigating Ideological Biases in YouTube Recommendations.” https://doi.org/10.48550/ARXIV.2203.10666."
   },
