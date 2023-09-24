@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Computational Sociology (PGSP11583) - Worksheet 4: NLP and Classifying</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./bots_experiments.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Worksheet 4: NLP and Classifying</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Computational Sociology (PGSP11583)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/cjbarrie/CS-ED/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Computational Sociology</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./course_overview.html" class="sidebar-item-text sidebar-link">Course Overview</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./terminal_and_git.html" class="sidebar-item-text sidebar-link">Managing data and code</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intror.html" class="sidebar-item-text sidebar-link">Introduction to R</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introgen.html" class="sidebar-item-text sidebar-link">Code style guide</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./repro_steps.html" class="sidebar-item-text sidebar-link">Reproducible workflows</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Week 1: Intro. to CSS</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Week 2: Filter bubbles and echo chambers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Week 3: Web tracking and networks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap4.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Week 4: Misinformation and fake news</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap5.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Week 5: Linked surveys and social media data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Week 6: Polarization and Radicalization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7: Experiments and Bots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap8.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Week 8: Violence and protest</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap9.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Week 9: Social media tracking and NLP</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chap10.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Week 10: Guest lecture</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./webtracking_networks.html" class="sidebar-item-text sidebar-link">Worksheet 1: Web tracking and networks</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data_ingest_apis.html" class="sidebar-item-text sidebar-link">Worksheet 2: Using APIs</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bots_experiments.html" class="sidebar-item-text sidebar-link">Worksheet 3: Bots and Experiments</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nlp_classifying.html" class="sidebar-item-text sidebar-link active">Worksheet 4: NLP and Classifying</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment.html" class="sidebar-item-text sidebar-link">Assignment:</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#questions" id="toc-questions" class="nav-link active" data-scroll-target="#questions">Questions</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/cjbarrie/CS-ED/edit/master/nlp_classifying.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Worksheet 4: NLP and Classifying</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>This week, we studied some examples of research that used machine-learning and natural language processing techniques to classify and understand large amounts of text data.</p>
+<p>In this worksheet, we go through the use of a particular API to which we can connect to classifying tweet content for toxicity.</p>
+<p>The API was developed on top of a model built by Google the purpose of which was to identify content that may be in need of online moderation.</p>
+<p>The API is called the “Perspective” API and details can be found <a href="https://perspectiveapi.com/">here</a>.</p>
+<p>There is also an R package that we can use to classify relevant content.</p>
+<p>We will be classifying the same tweets as discussed in <span class="citation" data-cites="barrie2023did">Barrie (<a href="references.html#ref-barrie2023did" role="doc-biblioref">2023</a>)</span></p>
+<div class="cell">
+
+</div>
+<p>You can download these data from Github with:</p>
+<p>We can then use the following code to classify this content:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(peRspective)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">c</span>(peRspective<span class="sc">::</span>prsp_models)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>models_subset <span class="ot">&lt;-</span> models[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">14</span>)]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>models_subset</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>toxtwts <span class="ot">&lt;-</span> tweets_sample <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prsp_stream</span>(<span class="at">text =</span> text,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">text_id =</span> tweet_id, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">score_model =</span> models_subset,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">verbose =</span> T,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">safe_output =</span> T)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(toxtwts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tweet_id"</span>, <span class="st">"error"</span>, models_subset)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>tweets_sample_tox_r <span class="ot">&lt;-</span> tweets_sample <span class="sc">%&gt;%</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(toxtwts, <span class="at">by =</span> <span class="st">"tweet_id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And then we can see some examples of tweets along with TOXICITY scores:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> tweet_id </th>
+   <th style="text-align:left;"> user_username </th>
+   <th style="text-align:left;"> text </th>
+   <th style="text-align:left;"> source </th>
+   <th style="text-align:left;"> possibly_sensitive </th>
+   <th style="text-align:left;"> author_id </th>
+   <th style="text-align:left;"> lang </th>
+   <th style="text-align:left;"> conversation_id </th>
+   <th style="text-align:left;"> created_at </th>
+   <th style="text-align:left;"> user_name </th>
+   <th style="text-align:left;"> user_profile_image_url </th>
+   <th style="text-align:left;"> user_location </th>
+   <th style="text-align:left;"> user_verified </th>
+   <th style="text-align:left;"> user_description </th>
+   <th style="text-align:left;"> user_url </th>
+   <th style="text-align:left;"> user_created_at </th>
+   <th style="text-align:left;"> user_protected </th>
+   <th style="text-align:left;"> user_pinned_tweet_id </th>
+   <th style="text-align:right;"> retweet_count </th>
+   <th style="text-align:right;"> like_count </th>
+   <th style="text-align:right;"> quote_count </th>
+   <th style="text-align:right;"> user_tweet_count </th>
+   <th style="text-align:right;"> user_list_count </th>
+   <th style="text-align:right;"> user_followers_count </th>
+   <th style="text-align:right;"> user_following_count </th>
+   <th style="text-align:left;"> sourcetweet_type </th>
+   <th style="text-align:left;"> sourcetweet_id </th>
+   <th style="text-align:left;"> sourcetweet_text </th>
+   <th style="text-align:left;"> sourcetweet_lang </th>
+   <th style="text-align:left;"> sourcetweet_author_id </th>
+   <th style="text-align:left;"> in_reply_to_user_id </th>
+   <th style="text-align:left;"> date </th>
+   <th style="text-align:left;"> error </th>
+   <th style="text-align:right;"> TOXICITY </th>
+   <th style="text-align:right;"> SEVERE_TOXICITY </th>
+   <th style="text-align:right;"> IDENTITY_ATTACK </th>
+   <th style="text-align:right;"> INSULT </th>
+   <th style="text-align:right;"> PROFANITY </th>
+   <th style="text-align:right;"> THREAT </th>
+   <th style="text-align:right;"> ATTACK_ON_AUTHOR </th>
+   <th style="text-align:right;"> ATTACK_ON_COMMENTER </th>
+   <th style="text-align:right;"> INFLAMMATORY </th>
+   <th style="text-align:right;"> OBSCENE </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 1558572382947876865 </td>
+   <td style="text-align:left;"> crabcrawler1 </td>
+   <td style="text-align:left;"> RT @Fire_fux: @crabcrawler1 https://t.co/HcKNbVEQIP </td>
+   <td style="text-align:left;"> Twitter Web App </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 1324742403492892673 </td>
+   <td style="text-align:left;"> qme </td>
+   <td style="text-align:left;"> 1558572382947876865 </td>
+   <td style="text-align:left;"> 2022-08-13T21:53:07.000Z </td>
+   <td style="text-align:left;"> Crab Man </td>
+   <td style="text-align:left;"> https://pbs.twimg.com/profile_images/1587559247637843970/CNfOGD_7_normal.jpg </td>
+   <td style="text-align:left;"> Ohio, USA </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> DONATE PLEASE https://t.co/BF7MOhA7d0 https://t.co/qzu1mWI2EM
+NEWs and politics. By night time I normally watch TV and movies. Also, go to church on Sunday. </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2020-11-06T15:56:36.000Z </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 1590851209111670784 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 83259 </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:right;"> 30253 </td>
+   <td style="text-align:right;"> 1806 </td>
+   <td style="text-align:left;"> retweeted </td>
+   <td style="text-align:left;"> 1558570726965350401 </td>
+   <td style="text-align:left;"> @crabcrawler1 https://t.co/HcKNbVEQIP </td>
+   <td style="text-align:left;"> qme </td>
+   <td style="text-align:left;"> 1531709708783984642 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2022-08-13 </td>
+   <td style="text-align:left;"> No Error </td>
+   <td style="text-align:right;"> 0.1004571 </td>
+   <td style="text-align:right;"> 0.0169647 </td>
+   <td style="text-align:right;"> 0.0029228 </td>
+   <td style="text-align:right;"> 0.0218039 </td>
+   <td style="text-align:right;"> 0.2472755 </td>
+   <td style="text-align:right;"> 0.0064921 </td>
+   <td style="text-align:right;"> 0.0207121 </td>
+   <td style="text-align:right;"> 0.1875430 </td>
+   <td style="text-align:right;"> 0.0881871 </td>
+   <td style="text-align:right;"> 0.3237084 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1579236823527608321 </td>
+   <td style="text-align:left;"> HankVenture5 </td>
+   <td style="text-align:left;"> Blocked and reported https://t.co/18aKrUQy92 </td>
+   <td style="text-align:left;"> Twitter for iPhone </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 1285388676751437824 </td>
+   <td style="text-align:left;"> en </td>
+   <td style="text-align:left;"> 1579236823527608321 </td>
+   <td style="text-align:left;"> 2022-10-09T22:26:14.000Z </td>
+   <td style="text-align:left;"> Hank Venture </td>
+   <td style="text-align:left;"> https://pbs.twimg.com/profile_images/1389707714826182656/EFOyaLz2_normal.jpg </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> Slightly right-of-center so evil probably. Gen-X. Stamp Collector. Team Venture Stan account. Chief Executive Officer of #HankCo </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2020-07-21T01:39:30.000Z </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 1491907548827381761 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 31043 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 3887 </td>
+   <td style="text-align:right;"> 930 </td>
+   <td style="text-align:left;"> quoted </td>
+   <td style="text-align:left;"> 1579236650244517889 </td>
+   <td style="text-align:left;"> No matter which city you're in, all pizza is pretty much the same </td>
+   <td style="text-align:left;"> en </td>
+   <td style="text-align:left;"> 11203972 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2022-10-09 </td>
+   <td style="text-align:left;"> No Error </td>
+   <td style="text-align:right;"> 0.0673801 </td>
+   <td style="text-align:right;"> 0.0027275 </td>
+   <td style="text-align:right;"> 0.0057347 </td>
+   <td style="text-align:right;"> 0.0175498 </td>
+   <td style="text-align:right;"> 0.0272739 </td>
+   <td style="text-align:right;"> 0.0126478 </td>
+   <td style="text-align:right;"> 0.0914053 </td>
+   <td style="text-align:right;"> 0.1940324 </td>
+   <td style="text-align:right;"> 0.1848972 </td>
+   <td style="text-align:right;"> 0.1367777 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1591122529694818304 </td>
+   <td style="text-align:left;"> krus_chiki </td>
+   <td style="text-align:left;"> @eDonut_ Look i’ve said it before and i’ll say it again, Kruschiki supply co almost became a retro/vintage candy store </td>
+   <td style="text-align:left;"> Twitter for iPhone </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 922267018526707712 </td>
+   <td style="text-align:left;"> en </td>
+   <td style="text-align:left;"> 1591120235104727040 </td>
+   <td style="text-align:left;"> 2022-11-11T17:35:47.000Z </td>
+   <td style="text-align:left;"> krus🪖 </td>
+   <td style="text-align:left;"> https://pbs.twimg.com/profile_images/1227595520773885952/8MWK0ssD_normal.jpg </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> cossack. rare rug dealer. sells military surplus. super villains, inc. </td>
+   <td style="text-align:left;"> https://t.co/52TOsDw8YZ </td>
+   <td style="text-align:left;"> 2017-10-23T01:02:46.000Z </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 1378899646630801416 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 41302 </td>
+   <td style="text-align:right;"> 94 </td>
+   <td style="text-align:right;"> 39752 </td>
+   <td style="text-align:right;"> 1646 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 1563662952892227584 </td>
+   <td style="text-align:left;"> 2022-11-11 </td>
+   <td style="text-align:left;"> No Error </td>
+   <td style="text-align:right;"> 0.0570059 </td>
+   <td style="text-align:right;"> 0.0016975 </td>
+   <td style="text-align:right;"> 0.0096194 </td>
+   <td style="text-align:right;"> 0.0233509 </td>
+   <td style="text-align:right;"> 0.0215351 </td>
+   <td style="text-align:right;"> 0.0073271 </td>
+   <td style="text-align:right;"> 0.0090324 </td>
+   <td style="text-align:right;"> 0.0460657 </td>
+   <td style="text-align:right;"> 0.0358919 </td>
+   <td style="text-align:right;"> 0.0665830 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1578034288842264582 </td>
+   <td style="text-align:left;"> entelechiada </td>
+   <td style="text-align:left;"> gm https://t.co/5maKDeYAHV </td>
+   <td style="text-align:left;"> Twitter for iPhone </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 1415419642693111809 </td>
+   <td style="text-align:left;"> und </td>
+   <td style="text-align:left;"> 1578034288842264582 </td>
+   <td style="text-align:left;"> 2022-10-06T14:47:47.000Z </td>
+   <td style="text-align:left;"> Entelechiada </td>
+   <td style="text-align:left;"> https://pbs.twimg.com/profile_images/1501024250114678787/NFVa-9Xe_normal.jpg </td>
+   <td style="text-align:left;"> United States </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> entelechy + enchiladas: here for the good stuff </td>
+   <td style="text-align:left;"> https://t.co/iG5j2CQlzw </td>
+   <td style="text-align:left;"> 2021-07-14T21:15:41.000Z </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 1565024760718798848 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3504 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 594 </td>
+   <td style="text-align:right;"> 747 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2022-10-06 </td>
+   <td style="text-align:left;"> No Error </td>
+   <td style="text-align:right;"> 0.0138227 </td>
+   <td style="text-align:right;"> 0.0017548 </td>
+   <td style="text-align:right;"> 0.0015724 </td>
+   <td style="text-align:right;"> 0.0084249 </td>
+   <td style="text-align:right;"> 0.0213302 </td>
+   <td style="text-align:right;"> 0.0065569 </td>
+   <td style="text-align:right;"> 0.0279729 </td>
+   <td style="text-align:right;"> 0.0983622 </td>
+   <td style="text-align:right;"> 0.1409975 </td>
+   <td style="text-align:right;"> 0.0694246 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1573056421914382336 </td>
+   <td style="text-align:left;"> EITC_Official </td>
+   <td style="text-align:left;"> RT @EITC_Official: This 8th grade science teacher at @RVKPanthers explains that one of her boy students wearing fingernail polish was “one… </td>
+   <td style="text-align:left;"> Twitter for iPhone </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 1520028377457078275 </td>
+   <td style="text-align:left;"> en </td>
+   <td style="text-align:left;"> 1573056421914382336 </td>
+   <td style="text-align:left;"> 2022-09-22T21:07:31.000Z </td>
+   <td style="text-align:left;"> 👁 Inside The Classroom </td>
+   <td style="text-align:left;"> https://pbs.twimg.com/profile_images/1522240813442342912/6oXnbTIV_normal.jpg </td>
+   <td style="text-align:left;"> San Antonio, TX </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> Providing receipts that refute, “it’s not happening.” Videos belong to their respective owners. </td>
+   <td style="text-align:left;"> https://t.co/qI9VxrbMp2 </td>
+   <td style="text-align:left;"> 2022-04-29T13:13:46.000Z </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 1592899675530866689 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 7250 </td>
+   <td style="text-align:right;"> 73 </td>
+   <td style="text-align:right;"> 18285 </td>
+   <td style="text-align:right;"> 947 </td>
+   <td style="text-align:left;"> retweeted </td>
+   <td style="text-align:left;"> 1571349132090179589 </td>
+   <td style="text-align:left;"> This 8th grade science teacher at @RVKPanthers explains that one of her boy students wearing fingernail polish was “one of the best experiences [she has] had so far as an educator.” https://t.co/8DvkicyG5O </td>
+   <td style="text-align:left;"> en </td>
+   <td style="text-align:left;"> 1520028377457078275 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2022-09-22 </td>
+   <td style="text-align:left;"> No Error </td>
+   <td style="text-align:right;"> 0.0426573 </td>
+   <td style="text-align:right;"> 0.0023270 </td>
+   <td style="text-align:right;"> 0.0108034 </td>
+   <td style="text-align:right;"> 0.0187100 </td>
+   <td style="text-align:right;"> 0.0209886 </td>
+   <td style="text-align:right;"> 0.0089453 </td>
+   <td style="text-align:right;"> 0.4159997 </td>
+   <td style="text-align:right;"> 0.5920156 </td>
+   <td style="text-align:right;"> 0.4637360 </td>
+   <td style="text-align:right;"> 0.5854430 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1583998206547226627 </td>
+   <td style="text-align:left;"> MsAvaArmstrong </td>
+   <td style="text-align:left;"> RT @RSBNetwork: President Donald J. Trump: "They're coming after me because I am fighting for you, and that is true." Join us for the full… </td>
+   <td style="text-align:left;"> Twitter for iPhone </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 2449913803 </td>
+   <td style="text-align:left;"> en </td>
+   <td style="text-align:left;"> 1583998206547226627 </td>
+   <td style="text-align:left;"> 2022-10-23T01:46:16.000Z </td>
+   <td style="text-align:left;"> AvaArmstrong, 🇺🇸Author </td>
+   <td style="text-align:left;"> https://pbs.twimg.com/profile_images/1377022534235918341/r_zFt102_normal.jpg </td>
+   <td style="text-align:left;"> Last Outpost </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> Thriller-Romance author on AMAZON. MY OPINION STATED HERE. Expert at triggering Leftists. Trump won. CONTENT OF CHARACTER. Taken by @EagleEyeFlyer ❤️ NO DM🚫 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2014-04-17T15:02:47.000Z </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> 1591443575249768448 </td>
+   <td style="text-align:right;"> 518 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 785719 </td>
+   <td style="text-align:right;"> 374 </td>
+   <td style="text-align:right;"> 157472 </td>
+   <td style="text-align:right;"> 86624 </td>
+   <td style="text-align:left;"> retweeted </td>
+   <td style="text-align:left;"> 1583992381535186944 </td>
+   <td style="text-align:left;"> President Donald J. Trump: "They're coming after me because I am fighting for you, and that is true." Join us for the full speech on Rumble: https://t.co/XJnh6tcghu https://t.co/xx9A404nF0 </td>
+   <td style="text-align:left;"> en </td>
+   <td style="text-align:left;"> 4041824789 </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2022-10-23 </td>
+   <td style="text-align:left;"> No Error </td>
+   <td style="text-align:right;"> 0.0451312 </td>
+   <td style="text-align:right;"> 0.0022221 </td>
+   <td style="text-align:right;"> 0.0096934 </td>
+   <td style="text-align:right;"> 0.0140109 </td>
+   <td style="text-align:right;"> 0.0182558 </td>
+   <td style="text-align:right;"> 0.0132174 </td>
+   <td style="text-align:right;"> 0.0162480 </td>
+   <td style="text-align:right;"> 0.6661568 </td>
+   <td style="text-align:right;"> 0.2061624 </td>
+   <td style="text-align:right;"> 0.0820840 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<ol type="1">
+<li><p>Inspect the data to see if you agree with the labels (CW: hateful content)</p></li>
+<li><p>Plot the distribution of the scores</p></li>
+<li><p>Estimate what % of total tweets are “toxic”</p></li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-barrie2023did" class="csl-entry" role="doc-biblioentry">
+Barrie, Christopher. 2023. <span>“Did the Musk Takeover Boost Contentious Actors on Twitter?”</span> <em>Harvard Misinformation Review</em>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./bots_experiments.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Worksheet 3: Bots and Experiments</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
