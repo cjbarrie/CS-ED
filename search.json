@@ -550,7 +550,14 @@
     "href": "data_ingest_apis.html#alternative-exercise",
     "title": "Worksheet 2: Using APIs",
     "section": "Alternative exercise",
-    "text": "Alternative exercise\nSince the Google API seems to have changed, gtrendsR doesn’t seem to be working as of today (17/10/23). As such, I have instead provided you with some data you can download.\nYou can do this locally on your computers with:\n\ngtrendsdat  <- load(gzcon(url(\"https://github.com/cjbarrie/CS-ED/blob/main/data/floyd.RData?raw=true\")))\n\nThese data are from a paper of my own that you can access here. ## Questions\n\nPlot the results by country\nPlace a line at the time of George Floyd’s murder to show how trends changed before and after.\n\n\n\n\n\nBauer, P. C., and C. Landesvatter, eds. 2022. APIs for Social Scientists: A Collaborative Review. skimpotentiallyrelevantchapters. https://bookdown.org/paul/apis_for_social_scientists/.\n\n\nBrodeur, Abel, Andrew E Clark, Sarah Fleche, and Nattavudh Powdthavee. 2021. “COVID-19, Lockdowns and Well-Being: Evidence from Google Trends.” Journal of Public Economics 193: 104346."
+    "text": "Alternative exercise\nSince the Google API seems to have changed, gtrendsR doesn’t seem to be working as of today (17/10/23). As such, I have instead provided you with some data you can download.\nYou can do this locally on your computers with:\n\ngtrendsdat  <- load(gzcon(url(\"https://github.com/cjbarrie/CS-ED/blob/main/data/floyd.RData?raw=true\")))\n\nThese data are from a paper of my own that you can access here."
+  },
+  {
+    "objectID": "data_ingest_apis.html#questions",
+    "href": "data_ingest_apis.html#questions",
+    "title": "Worksheet 2: Using APIs",
+    "section": "Questions",
+    "text": "Questions\n\nPlot the results by country over time\nPlace a line at the time of George Floyd’s murder to show how trends changed before and after.\n\n\n\n\n\nBauer, P. C., and C. Landesvatter, eds. 2022. APIs for Social Scientists: A Collaborative Review. skimpotentiallyrelevantchapters. https://bookdown.org/paul/apis_for_social_scientists/.\n\n\nBrodeur, Abel, Andrew E Clark, Sarah Fleche, and Nattavudh Powdthavee. 2021. “COVID-19, Lockdowns and Well-Being: Evidence from Google Trends.” Journal of Public Economics 193: 104346."
   },
   {
     "objectID": "bots_experiments.html",
