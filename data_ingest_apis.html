@@ -307,7 +307,7 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#questions" id="toc-questions" class="nav-link active" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#alternative-exercise" id="toc-alternative-exercise" class="nav-link active" data-scroll-target="#alternative-exercise">Alternative exercise</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/cjbarrie/CS-ED/edit/master/data_ingest_apis.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -366,13 +366,17 @@ div.csl-indent {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>gtrendsdat <span class="ot">&lt;-</span> <span class="fu">gtrends</span>(<span class="st">"Covid"</span>,<span class="at">geo=</span><span class="fu">c</span>(<span class="st">"US"</span>, <span class="st">"GB"</span>, <span class="st">"FR"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="questions" class="level2">
-<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<section id="alternative-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="alternative-exercise">Alternative exercise</h2>
+<p>Since the Google API seems to have changed, <code>gtrendsR</code> doesn’t seem to be working as of today (17/10/23). As such, I have instead provided you with some data you can download.</p>
+<p>You can do this locally on your computers with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gtrendsdat  <span class="ot">&lt;-</span> <span class="fu">load</span>(<span class="fu">gzcon</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cjbarrie/CS-ED/blob/main/data/floyd.RData?raw=true"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These data are from a paper of my own that you can access <a href="https://journals.sagepub.com/doi/full/10.1177/2378023120971507">here</a>. ## Questions</p>
 <ol type="1">
-<li><p>Make your own request to the Google Trends API</p></li>
-<li><p>Plot the results</p></li>
-<li><p>Think of an event before and after which you think trends might have changed</p></li>
-<li><p>Collect trends for the outcome, plot, and add vertical line on the plot for when the event took place</p></li>
+<li><p>Plot the results by country</p></li>
+<li><p>Place a line at the time of George Floyd’s murder to show how trends changed before and after.</p></li>
 </ol>
 
 
