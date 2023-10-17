@@ -58,8 +58,9 @@ gtrendsdat  <- load(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/
 ```
 
 These data are from a paper of my own that you can access [here](https://journals.sagepub.com/doi/full/10.1177/2378023120971507).
+
 ## Questions
 
-1.  Plot the results by country
+1.  Plot the results by country over time
 
 2.  Place a line at the time of George Floyd's murder to show how trends changed before and after.
