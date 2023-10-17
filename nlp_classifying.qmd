@@ -15,6 +15,12 @@ We will be classifying the same tweets as discussed in @barrie2023did
 ```{r, echo = F, eval = T}
 tweets_sample <- readRDS("data/tweets-ranked.rds")
 ```
+You can do this locally on your computers with:
+
+```{r, eval = F, echo = T}
+tweets  <- readRDS(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/tweets-ranked.rds?raw=true")))
+
+```
 
 You can download these data from Github with:
 

@@ -29,7 +29,7 @@ A more straightforward way of specifying different parameters in an API call is 
 
 Let's see what the same call would look like using `gtrendsR`:
 
-```{r, eval = T}
+```{r, eval = F}
 library(gtrendsR)
 data("countries") # get abbreviations of all countries to filter data 
 data("categories") # get numbers of all categories to filter data 
@@ -39,7 +39,7 @@ gtrendsdat <- gtrends("Covid",geo=c("US"))
 
 And then we could introduce different countries:
 
-```{r, eval = T}
+```{r, eval = F}
 library(gtrendsR)
 data("countries") # get abbreviations of all countries to filter data 
 data("categories") # get numbers of all categories to filter data 
@@ -47,12 +47,19 @@ data("categories") # get numbers of all categories to filter data
 gtrendsdat <- gtrends("Covid",geo=c("US", "GB", "FR"))
 ```
 
+## Alternative exercise
+
+Since the Google API seems to have changed, `gtrendsR` doesn't seem to be working as of today (17/10/23). As such, I have instead provided you with some data you can download.
+
+You can do this locally on your computers with:
+
+```{r, eval = F, echo = T}
+gtrendsdat  <- load(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/floyd.RData?raw=true")))
+```
+
+These data are from a paper of my own that you can access [here](https://journals.sagepub.com/doi/full/10.1177/2378023120971507).
 ## Questions
 
-1.  Make your own request to the Google Trends API
+1.  Plot the results by country
 
-2.  Plot the results
-
-3.  Think of an event before and after which you think trends might have changed
-
-4.  Collect trends for the outcome, plot, and add vertical line on the plot for when the event took place
+2.  Place a line at the time of George Floyd's murder to show how trends changed before and after.
