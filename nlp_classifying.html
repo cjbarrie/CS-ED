@@ -334,14 +334,14 @@ div.csl-indent {
 <p>In this worksheet, we go through the use of a particular API to which we can connect to classifying tweet content for toxicity.</p>
 <p>The API was developed on top of a model built by Google the purpose of which was to identify content that may be in need of online moderation.</p>
 <p>The API is called the “Perspective” API and details can be found <a href="https://perspectiveapi.com/">here</a>.</p>
-<p>There is also an R package that we can use to classify relevant content.</p>
-<p>We will be classifying the same tweets as discussed in <span class="citation" data-cites="barrie2023did">Barrie (<a href="references.html#ref-barrie2023did" role="doc-biblioref">2023</a>)</span></p>
+<p>There is guidance on how to get started with this API <a href="https://developers.perspectiveapi.com/s/docs-get-started?language=en_US">here</a> and there is also a useful rundown of how the API works on the Github <a href="https://github.com/favstats/peRspective">page</a> of the R package we will be using to connect to this API.</p>
+<p>We will be classifying the same tweets as discussed in <span class="citation" data-cites="barrie2023did">Barrie (<a href="references.html#ref-barrie2023did" role="doc-biblioref">2023</a>)</span>.</p>
 <div class="cell">
 
 </div>
 <p>You can do this locally on your computers with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tweets  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">gzcon</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cjbarrie/CS-ED/blob/main/data/tweets-ranked.rds?raw=true"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tweets_sample  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="fu">gzcon</span>(<span class="fu">url</span>(<span class="st">"https://github.com/cjbarrie/CS-ED/blob/main/data/tweets-ranked.rds?raw=true"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can download these data from Github with:</p>
 <p>We can then use the following code to classify this content:</p>
