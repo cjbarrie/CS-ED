@@ -8,17 +8,18 @@ The API was developed on top of a model built by Google the purpose of which was
 
 The API is called the "Perspective" API and details can be found [here](https://perspectiveapi.com/).
 
-There is also an R package that we can use to classify relevant content.
+There is guidance on how to get started with this API [here](https://developers.perspectiveapi.com/s/docs-get-started?language=en_US) and there is also a useful rundown of how the API works on the Github [page](https://github.com/favstats/peRspective) of the R package we will be using to connect to this API.
 
-We will be classifying the same tweets as discussed in @barrie2023did
+We will be classifying the same tweets as discussed in @barrie2023did.
 
 ```{r, echo = F, eval = T}
 tweets_sample <- readRDS("data/tweets-ranked.rds")
 ```
+
 You can do this locally on your computers with:
 
 ```{r, eval = F, echo = T}
-tweets  <- readRDS(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/tweets-ranked.rds?raw=true")))
+tweets_sample  <- readRDS(gzcon(url("https://github.com/cjbarrie/CS-ED/blob/main/data/tweets-ranked.rds?raw=true")))
 
 ```
 
@@ -51,18 +52,16 @@ tweets_sample_tox_r <- tweets_sample %>%
 
 And then we can see some examples of tweets along with TOXICITY scores:
 
-
 ```{r, echo = F, eval = T}
 tweets_tox_sample <- readRDS("data/tweets-tox-ranked.rds")
 
 kableExtra::kable(head(tweets_tox_sample))
 ```
 
-
 ## Questions
 
-1. Inspect the data to see if you agree with the labels (CW: hateful content)
+1.  Inspect the data to see if you agree with the labels (CW: hateful content)
 
-2. Plot the distribution of the scores
+2.  Plot the distribution of the scores
 
-3. Estimate what % of total tweets are "toxic"
+3.  Estimate what % of total tweets are "toxic"
